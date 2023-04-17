@@ -40,13 +40,25 @@ namespace SimTP2Q.Presentación
                 int A = int.Parse(txtA.Text);
                 int B = int.Parse(txtB.Text);
 
-                List<float> list = oDU.GenerarNumerosDU(A, B, n);
-
-                dgvVariables.Rows.Clear();
-                for (int i = 0; i < n; i++)
+                if (B > A)
                 {
-                    dgvVariables.Rows.Add(list[i]);
+                    List<float> list = oDU.GenerarNumerosDU(A, B, n);
+                    dgvVariables.Rows.Clear();
+                    for (int i = 0; i < n; i++)
+                    {
+                        dgvVariables.Rows.Add(list[i]);
+                    }
+
                 }
+                else
+                {
+                    MessageBox.Show("El valor de A debe ser menor al de B");
+                    return;
+                }
+
+                
+
+                
             }
             
 
