@@ -51,6 +51,12 @@
     <Compile Include="Lógica\NumerosAleatorios.cs" />
     <Compile Include="Lógica\Poisson.cs" />
     <Compile Include="Lógica\Uniforme.cs" />
+    <Compile Include="Presentación\frmGrafico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\frmGrafico.Designer.cs">
+      <DependentUpon>frmGrafico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\frmDistribucionExponencial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\frmDistribucionUniforme.resx">
       <DependentUpon>frmDistribucionUniforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\frmGrafico.resx">
+      <DependentUpon>frmGrafico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\frmVariablesAleatorias.resx">
       <DependentUpon>frmVariablesAleatorias.cs</DependentUpon>

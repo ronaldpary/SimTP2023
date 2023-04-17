@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVariablesAleatorias));
             this.btnUf = new System.Windows.Forms.Button();
             this.btExp = new System.Windows.Forms.Button();
             this.btnPs = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             // 
             // btnUf
             // 
+            this.btnUf.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUf.Location = new System.Drawing.Point(218, 160);
             this.btnUf.Name = "btnUf";
             this.btnUf.Size = new System.Drawing.Size(235, 35);
@@ -47,6 +49,7 @@
             // 
             // btExp
             // 
+            this.btExp.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExp.Location = new System.Drawing.Point(218, 210);
             this.btExp.Name = "btExp";
             this.btExp.Size = new System.Drawing.Size(235, 35);
@@ -57,6 +60,7 @@
             // 
             // btnPs
             // 
+            this.btnPs.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPs.Location = new System.Drawing.Point(218, 261);
             this.btnPs.Name = "btnPs";
             this.btnPs.Size = new System.Drawing.Size(235, 35);
@@ -67,6 +71,7 @@
             // 
             // btNl
             // 
+            this.btNl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNl.Location = new System.Drawing.Point(218, 317);
             this.btNl.Name = "btNl";
             this.btNl.Size = new System.Drawing.Size(235, 35);
@@ -78,9 +83,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(253, 102);
+            this.label1.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(85, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 13);
+            this.label1.Size = new System.Drawing.Size(519, 38);
             this.label1.TabIndex = 4;
             this.label1.Text = "Generador de variables aleatorias";
             // 
@@ -88,12 +94,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(682, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btNl);
             this.Controls.Add(this.btnPs);
             this.Controls.Add(this.btExp);
             this.Controls.Add(this.btnUf);
+            this.KeyPreview = true;
             this.Name = "frmVariablesAleatorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Variables Aleatorias";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDistribucionPoisson));
             this.txtN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMediaLambda = new System.Windows.Forms.TextBox();
@@ -35,46 +36,52 @@
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dgvVariables = new System.Windows.Forms.DataGridView();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             this.SuspendLayout();
             // 
             // txtN
             // 
-            this.txtN.Location = new System.Drawing.Point(295, 108);
+            this.txtN.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtN.Location = new System.Drawing.Point(199, 144);
             this.txtN.Name = "txtN";
-            this.txtN.Size = new System.Drawing.Size(100, 20);
+            this.txtN.Size = new System.Drawing.Size(100, 30);
             this.txtN.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(60, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 13);
+            this.label3.Size = new System.Drawing.Size(428, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Cantidad de valores a generar (máximo 50000):";
             // 
             // txtMediaLambda
             // 
-            this.txtMediaLambda.Location = new System.Drawing.Point(295, 59);
+            this.txtMediaLambda.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMediaLambda.Location = new System.Drawing.Point(224, 59);
             this.txtMediaLambda.Name = "txtMediaLambda";
-            this.txtMediaLambda.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaLambda.Size = new System.Drawing.Size(100, 30);
             this.txtMediaLambda.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 62);
+            this.label2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(60, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(143, 23);
             this.label2.TabIndex = 12;
             this.label2.Text = "Media/Lambda:";
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(126, 168);
+            this.btnGenerar.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerar.Location = new System.Drawing.Point(319, 182);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(145, 64);
             this.btnGenerar.TabIndex = 17;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -87,10 +94,10 @@
             this.dgvVariables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVariables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro});
-            this.dgvVariables.Location = new System.Drawing.Point(126, 209);
+            this.dgvVariables.Location = new System.Drawing.Point(64, 218);
             this.dgvVariables.Name = "dgvVariables";
             this.dgvVariables.ReadOnly = true;
-            this.dgvVariables.Size = new System.Drawing.Size(163, 186);
+            this.dgvVariables.Size = new System.Drawing.Size(212, 218);
             this.dgvVariables.TabIndex = 16;
             // 
             // Nro
@@ -99,11 +106,23 @@
             this.Nro.Name = "Nro";
             this.Nro.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(319, 270);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 64);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Graficar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmDistribucionPoisson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(503, 448);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvVariables);
             this.Controls.Add(this.txtN);
@@ -129,5 +148,6 @@
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.DataGridView dgvVariables;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
+        private System.Windows.Forms.Button button1;
     }
 }

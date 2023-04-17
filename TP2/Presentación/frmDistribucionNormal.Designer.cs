@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDistribucionNormal));
             this.txtN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMedia = new System.Windows.Forms.TextBox();
@@ -37,38 +38,43 @@
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dgvVariables = new System.Windows.Forms.DataGridView();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             this.SuspendLayout();
             // 
             // txtN
             // 
-            this.txtN.Location = new System.Drawing.Point(399, 109);
+            this.txtN.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtN.Location = new System.Drawing.Point(241, 138);
             this.txtN.Name = "txtN";
-            this.txtN.Size = new System.Drawing.Size(100, 20);
+            this.txtN.Size = new System.Drawing.Size(100, 30);
             this.txtN.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 112);
+            this.label3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(80, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 13);
+            this.label3.Size = new System.Drawing.Size(428, 23);
             this.label3.TabIndex = 10;
             this.label3.Text = "Cantidad de valores a generar (máximo 50000):";
             // 
             // txtMedia
             // 
-            this.txtMedia.Location = new System.Drawing.Point(399, 59);
+            this.txtMedia.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedia.Location = new System.Drawing.Point(408, 59);
             this.txtMedia.Name = "txtMedia";
-            this.txtMedia.Size = new System.Drawing.Size(100, 20);
+            this.txtMedia.Size = new System.Drawing.Size(100, 30);
             this.txtMedia.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(354, 65);
+            this.label2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(334, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(68, 23);
             this.label2.TabIndex = 8;
             this.label2.Text = "Media:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -76,24 +82,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 62);
+            this.label1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.Size = new System.Drawing.Size(198, 23);
             this.label1.TabIndex = 7;
             this.label1.Text = "Desviación Estándar:";
             // 
             // txtDE
             // 
-            this.txtDE.Location = new System.Drawing.Point(175, 59);
+            this.txtDE.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDE.Location = new System.Drawing.Point(207, 59);
             this.txtDE.Name = "txtDE";
-            this.txtDE.Size = new System.Drawing.Size(100, 20);
+            this.txtDE.Size = new System.Drawing.Size(100, 30);
             this.txtDE.TabIndex = 6;
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(175, 171);
+            this.btnGenerar.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerar.Location = new System.Drawing.Point(393, 173);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(141, 62);
             this.btnGenerar.TabIndex = 13;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -106,10 +115,10 @@
             this.dgvVariables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVariables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro});
-            this.dgvVariables.Location = new System.Drawing.Point(175, 212);
+            this.dgvVariables.Location = new System.Drawing.Point(113, 226);
             this.dgvVariables.Name = "dgvVariables";
             this.dgvVariables.ReadOnly = true;
-            this.dgvVariables.Size = new System.Drawing.Size(166, 186);
+            this.dgvVariables.Size = new System.Drawing.Size(204, 212);
             this.dgvVariables.TabIndex = 12;
             // 
             // Nro
@@ -118,11 +127,23 @@
             this.Nro.Name = "Nro";
             this.Nro.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(393, 256);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 62);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Graficar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmDistribucionNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(591, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvVariables);
             this.Controls.Add(this.txtN);
@@ -152,5 +173,6 @@
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.DataGridView dgvVariables;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
+        private System.Windows.Forms.Button button1;
     }
 }
