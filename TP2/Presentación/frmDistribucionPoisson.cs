@@ -48,5 +48,10 @@ namespace SimTP2Q.Presentación
 
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

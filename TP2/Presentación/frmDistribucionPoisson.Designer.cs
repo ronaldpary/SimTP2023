@@ -115,13 +115,14 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Graficar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmDistribucionPoisson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(503, 448);
+            this.ClientSize = new System.Drawing.Size(664, 448);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvVariables);
