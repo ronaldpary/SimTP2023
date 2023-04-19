@@ -194,7 +194,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(488, 221);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(667, 205);
+            this.dataGridView1.Size = new System.Drawing.Size(667, 133);
             this.dataGridView1.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn1
@@ -239,7 +239,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(488, 443);
+            this.chart1.Location = new System.Drawing.Point(488, 373);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -252,7 +252,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(336, 546);
+            this.button2.Location = new System.Drawing.Point(336, 476);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 36);
             this.button2.TabIndex = 14;
@@ -265,7 +265,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1192, 717);
+            this.ClientSize = new System.Drawing.Size(1192, 642);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);

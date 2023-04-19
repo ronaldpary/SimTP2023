@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using SimTP2Q.Lógica;
 
 namespace SimTP2Q.Presentación
@@ -47,7 +48,48 @@ namespace SimTP2Q.Presentación
 
         private void frmDistribucionExponencial_Load(object sender, EventArgs e)
         {
+            button2.Enabled = false;
+        }
 
+        float calculado = 0;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dgvVariables.Rows.Count > 0)
+            {
+                List<float> list = new List<float>();
+
+                foreach (DataGridViewRow row in dgvVariables.Rows)
+                {
+                    float nro = float.Parse(row.Cells[0].Value.ToString());
+                    list.Add(nro);
+                }
+
+                int n = int.Parse(txtN.Text);
+
+                int lambda = int.Parse(txtLambda.Text);
+
+                int cantInt = int.Parse((string)comboBox1.SelectedItem);
+
+                (List<int> listFO, List<float> listInt) = oDEN.TablaExp(n, cantInt, dgvTabla, list, lambda);
+
+                
+
+                graficoEX.Titles.Add("Histograma");
+                for (int i = 0; i < listFO.Count; i++)
+                {
+                    Series serie = graficoEX.Series.Add((listInt[i]).ToString());
+
+                    serie.Label = listInt[i].ToString();
+                    serie.Points.Add(float.Parse(listInt[i].ToString()));
+
+                }
+
+                //float calculado = oDEN.PruebaChiCuadradoEx(n, cantInt, dgvChiCuadradoE, list, lambda);
+
+                float calculado = oDEN.PruebaKS_Ex(n, cantInt, dgvKSEx, list, lambda);
+
+                button2.Enabled = true;
+            }
         }
     }
 }
