@@ -42,6 +42,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.graficoEX = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvKSEx = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pomenospe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -53,16 +63,6 @@
             this.Pcmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PcPac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.po = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pomenospe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficoEX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKSEx)).BeginInit();
@@ -102,7 +102,7 @@
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(479, 85);
+            this.txtN.Location = new System.Drawing.Point(222, 89);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 30);
             this.txtN.TabIndex = 9;
@@ -113,15 +113,15 @@
             this.label3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(30, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(428, 23);
+            this.label3.Size = new System.Drawing.Size(173, 23);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Cantidad de valores a generar (máximo 50000):";
+            this.label3.Text = "n (máximo 50000):";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 43);
+            this.label1.Location = new System.Drawing.Point(117, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 23);
             this.label1.TabIndex = 13;
@@ -130,7 +130,7 @@
             // txtLambda
             // 
             this.txtLambda.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLambda.Location = new System.Drawing.Point(122, 40);
+            this.txtLambda.Location = new System.Drawing.Point(222, 43);
             this.txtLambda.Name = "txtLambda";
             this.txtLambda.Size = new System.Drawing.Size(100, 30);
             this.txtLambda.TabIndex = 12;
@@ -138,12 +138,13 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(500, 647);
+            this.button2.Location = new System.Drawing.Point(315, 671);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 36);
             this.button2.TabIndex = 20;
             this.button2.Text = "Conclusión";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // graficoEX
             // 
@@ -151,7 +152,7 @@
             this.graficoEX.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.graficoEX.Legends.Add(legend1);
-            this.graficoEX.Location = new System.Drawing.Point(652, 474);
+            this.graficoEX.Location = new System.Drawing.Point(467, 498);
             this.graficoEX.Name = "graficoEX";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -177,107 +178,11 @@
             this.peac,
             this.Pomenospe,
             this.max});
-            this.dgvKSEx.Location = new System.Drawing.Point(652, 322);
+            this.dgvKSEx.Location = new System.Drawing.Point(467, 346);
             this.dgvKSEx.Name = "dgvKSEx";
             this.dgvKSEx.ReadOnly = true;
             this.dgvKSEx.Size = new System.Drawing.Size(667, 133);
             this.dgvKSEx.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(715, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(220, 23);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Cantidad de intervalos: ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "5",
-            "8",
-            "10",
-            "12",
-            "15"});
-            this.comboBox1.Location = new System.Drawing.Point(956, 77);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 16;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(535, 383);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 72);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Realizar Prueba";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // dgvTabla
-            // 
-            this.dgvTabla.AllowUserToAddRows = false;
-            this.dgvTabla.AllowUserToDeleteRows = false;
-            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Marca,
-            this.FoE,
-            this.Pcmc,
-            this.PcPac,
-            this.FeE});
-            this.dgvTabla.Location = new System.Drawing.Point(652, 154);
-            this.dgvTabla.Name = "dgvTabla";
-            this.dgvTabla.ReadOnly = true;
-            this.dgvTabla.Size = new System.Drawing.Size(667, 133);
-            this.dgvTabla.TabIndex = 21;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Desde";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Hasta";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
-            // FoE
-            // 
-            this.FoE.HeaderText = "Fo";
-            this.FoE.Name = "FoE";
-            this.FoE.ReadOnly = true;
-            // 
-            // Pcmc
-            // 
-            this.Pcmc.HeaderText = "P () c/mc";
-            this.Pcmc.Name = "Pcmc";
-            this.Pcmc.ReadOnly = true;
-            // 
-            // PcPac
-            // 
-            this.PcPac.HeaderText = "P () c/Pac";
-            this.PcPac.Name = "PcPac";
-            this.PcPac.ReadOnly = true;
-            // 
-            // FeE
-            // 
-            this.FeE.HeaderText = "Fe";
-            this.FeE.Name = "FeE";
-            this.FeE.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -339,12 +244,108 @@
             this.max.Name = "max";
             this.max.ReadOnly = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(530, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(220, 23);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Cantidad de intervalos: ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "5",
+            "8",
+            "10",
+            "12",
+            "15"});
+            this.comboBox1.Location = new System.Drawing.Point(756, 139);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 16;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(350, 414);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(111, 65);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Realizar Prueba";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dgvTabla
+            // 
+            this.dgvTabla.AllowUserToAddRows = false;
+            this.dgvTabla.AllowUserToDeleteRows = false;
+            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.Marca,
+            this.FoE,
+            this.Pcmc,
+            this.PcPac,
+            this.FeE});
+            this.dgvTabla.Location = new System.Drawing.Point(467, 178);
+            this.dgvTabla.Name = "dgvTabla";
+            this.dgvTabla.ReadOnly = true;
+            this.dgvTabla.Size = new System.Drawing.Size(667, 133);
+            this.dgvTabla.TabIndex = 21;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Desde";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Hasta";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // FoE
+            // 
+            this.FoE.HeaderText = "Fo";
+            this.FoE.Name = "FoE";
+            this.FoE.ReadOnly = true;
+            // 
+            // Pcmc
+            // 
+            this.Pcmc.HeaderText = "P () c/mc";
+            this.Pcmc.Name = "Pcmc";
+            this.Pcmc.ReadOnly = true;
+            // 
+            // PcPac
+            // 
+            this.PcPac.HeaderText = "P () c/Pac";
+            this.PcPac.Name = "PcPac";
+            this.PcPac.ReadOnly = true;
+            // 
+            // FeE
+            // 
+            this.FeE.HeaderText = "Fe";
+            this.FeE.Name = "FeE";
+            this.FeE.ReadOnly = true;
+            // 
             // frmDistribucionExponencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1383, 766);
+            this.ClientSize = new System.Drawing.Size(1165, 766);
             this.Controls.Add(this.dgvTabla);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.graficoEX);

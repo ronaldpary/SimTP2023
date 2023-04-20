@@ -46,11 +46,10 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FoE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pcmc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PcPac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.graficoEX = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dgvKSEx = new System.Windows.Forms.DataGridView();
+            this.graficoN = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dgvKSN = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,16 +63,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graficoEX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKSEx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graficoN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKSN)).BeginInit();
             this.SuspendLayout();
             // 
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(447, 70);
+            this.txtN.Location = new System.Drawing.Point(221, 93);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 30);
             this.txtN.TabIndex = 11;
@@ -82,16 +82,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 73);
+            this.label3.Location = new System.Drawing.Point(17, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(428, 23);
+            this.label3.Size = new System.Drawing.Size(173, 23);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Cantidad de valores a generar (máximo 50000):";
+            this.label3.Text = "n (máximo 50000):";
             // 
             // txtMedia
             // 
             this.txtMedia.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedia.Location = new System.Drawing.Point(418, 27);
+            this.txtMedia.Location = new System.Drawing.Point(422, 50);
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(100, 30);
             this.txtMedia.TabIndex = 9;
@@ -100,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(344, 29);
+            this.label2.Location = new System.Drawing.Point(348, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 23);
             this.label2.TabIndex = 8;
@@ -111,7 +111,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 30);
+            this.label1.Location = new System.Drawing.Point(17, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 23);
             this.label1.TabIndex = 7;
@@ -120,7 +120,7 @@
             // txtDE
             // 
             this.txtDE.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDE.Location = new System.Drawing.Point(217, 27);
+            this.txtDE.Location = new System.Drawing.Point(221, 50);
             this.txtDE.Name = "txtDE";
             this.txtDE.Size = new System.Drawing.Size(100, 30);
             this.txtDE.TabIndex = 6;
@@ -128,9 +128,9 @@
             // btnGenerar
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.Location = new System.Drawing.Point(45, 126);
+            this.btnGenerar.Location = new System.Drawing.Point(49, 155);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(113, 41);
+            this.btnGenerar.Size = new System.Drawing.Size(113, 35);
             this.btnGenerar.TabIndex = 13;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.dgvVariables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVariables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro});
-            this.dgvVariables.Location = new System.Drawing.Point(45, 173);
+            this.dgvVariables.Location = new System.Drawing.Point(49, 196);
             this.dgvVariables.Name = "dgvVariables";
             this.dgvVariables.ReadOnly = true;
             this.dgvVariables.Size = new System.Drawing.Size(166, 212);
@@ -165,10 +165,9 @@
             this.dataGridViewTextBoxColumn3,
             this.Marca,
             this.FoE,
-            this.Pcmc,
-            this.PcPac,
+            this.p,
             this.FeE});
-            this.dgvTabla.Location = new System.Drawing.Point(556, 173);
+            this.dgvTabla.Location = new System.Drawing.Point(422, 196);
             this.dgvTabla.Name = "dgvTabla";
             this.dgvTabla.ReadOnly = true;
             this.dgvTabla.Size = new System.Drawing.Size(667, 133);
@@ -198,17 +197,11 @@
             this.FoE.Name = "FoE";
             this.FoE.ReadOnly = true;
             // 
-            // Pcmc
+            // p
             // 
-            this.Pcmc.HeaderText = "P () c/mc";
-            this.Pcmc.Name = "Pcmc";
-            this.Pcmc.ReadOnly = true;
-            // 
-            // PcPac
-            // 
-            this.PcPac.HeaderText = "P () c/Pac";
-            this.PcPac.Name = "PcPac";
-            this.PcPac.ReadOnly = true;
+            this.p.HeaderText = "P ()";
+            this.p.Name = "p";
+            this.p.ReadOnly = true;
             // 
             // FeE
             // 
@@ -216,28 +209,28 @@
             this.FeE.Name = "FeE";
             this.FeE.ReadOnly = true;
             // 
-            // graficoEX
+            // graficoN
             // 
             chartArea1.Name = "ChartArea1";
-            this.graficoEX.ChartAreas.Add(chartArea1);
+            this.graficoN.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.graficoEX.Legends.Add(legend1);
-            this.graficoEX.Location = new System.Drawing.Point(556, 493);
-            this.graficoEX.Name = "graficoEX";
+            this.graficoN.Legends.Add(legend1);
+            this.graficoN.Location = new System.Drawing.Point(422, 516);
+            this.graficoN.Name = "graficoN";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.graficoEX.Series.Add(series1);
-            this.graficoEX.Size = new System.Drawing.Size(667, 262);
-            this.graficoEX.TabIndex = 26;
-            this.graficoEX.Text = "chart1";
+            this.graficoN.Series.Add(series1);
+            this.graficoN.Size = new System.Drawing.Size(667, 262);
+            this.graficoN.TabIndex = 26;
+            this.graficoN.Text = "chart1";
             // 
-            // dgvKSEx
+            // dgvKSN
             // 
-            this.dgvKSEx.AllowUserToAddRows = false;
-            this.dgvKSEx.AllowUserToDeleteRows = false;
-            this.dgvKSEx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKSEx.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvKSN.AllowUserToAddRows = false;
+            this.dgvKSN.AllowUserToDeleteRows = false;
+            this.dgvKSN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKSN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.Hasta,
             this.fo,
@@ -248,11 +241,11 @@
             this.peac,
             this.Pomenospe,
             this.max});
-            this.dgvKSEx.Location = new System.Drawing.Point(556, 341);
-            this.dgvKSEx.Name = "dgvKSEx";
-            this.dgvKSEx.ReadOnly = true;
-            this.dgvKSEx.Size = new System.Drawing.Size(667, 133);
-            this.dgvKSEx.TabIndex = 25;
+            this.dgvKSN.Location = new System.Drawing.Point(422, 364);
+            this.dgvKSN.Name = "dgvKSN";
+            this.dgvKSN.ReadOnly = true;
+            this.dgvKSN.Size = new System.Drawing.Size(667, 133);
+            this.dgvKSN.TabIndex = 25;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -318,7 +311,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(619, 132);
+            this.label4.Location = new System.Drawing.Point(485, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(220, 23);
             this.label4.TabIndex = 24;
@@ -333,7 +326,7 @@
             "10",
             "12",
             "15"});
-            this.comboBox1.Location = new System.Drawing.Point(860, 96);
+            this.comboBox1.Location = new System.Drawing.Point(726, 119);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 23;
@@ -341,22 +334,35 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(439, 402);
+            this.button3.Location = new System.Drawing.Point(305, 433);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 72);
+            this.button3.Size = new System.Drawing.Size(111, 64);
             this.button3.TabIndex = 22;
             this.button3.Text = "Realizar Prueba";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(264, 701);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 36);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Conclusión";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmDistribucionNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1287, 764);
+            this.ClientSize = new System.Drawing.Size(1133, 782);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dgvTabla);
-            this.Controls.Add(this.graficoEX);
-            this.Controls.Add(this.dgvKSEx);
+            this.Controls.Add(this.graficoN);
+            this.Controls.Add(this.dgvKSN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button3);
@@ -374,8 +380,8 @@
             this.Load += new System.EventHandler(this.frmDistribucionNormal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graficoEX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKSEx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graficoN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKSN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,15 +399,8 @@
         private System.Windows.Forms.DataGridView dgvVariables;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
         private System.Windows.Forms.DataGridView dgvTabla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FoE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pcmc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PcPac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FeE;
-        private System.Windows.Forms.DataVisualization.Charting.Chart graficoEX;
-        private System.Windows.Forms.DataGridView dgvKSEx;
+        private System.Windows.Forms.DataVisualization.Charting.Chart graficoN;
+        private System.Windows.Forms.DataGridView dgvKSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
         private System.Windows.Forms.DataGridViewTextBoxColumn fo;
@@ -415,5 +414,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn p;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeE;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Lógica\Normal.cs" />
     <Compile Include="Lógica\NumerosAleatorios.cs" />
     <Compile Include="Lógica\Poisson.cs" />
+    <Compile Include="Lógica\PruebasBondad.cs" />
     <Compile Include="Lógica\Uniforme.cs" />
     <Compile Include="Presentación\frmGrafico.cs">
       <SubType>Form</SubType>

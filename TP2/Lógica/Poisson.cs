@@ -36,10 +36,8 @@ namespace SimTP2Q.Lógica
             return listDP;
         }
 
-        public (float, List<float>) PruebaKS_P(List<float> listaSinR, List<float> list, float lambda, int n, DataGridView dataGridViewPoisson)
+        public (float, List<float>) PruebaChiP(List<float> listaSinR, List<float> list, float lambda, int n, DataGridView dataGridViewPoisson)
         {
-            List<int> grafico = new List<int>();
-            List<float> intervalos = new List<float>();
 
             float acumulador = 0;
 
@@ -58,11 +56,38 @@ namespace SimTP2Q.Lógica
                 acumulador += c;
                 float ca = ((float)(dataGridViewPoisson.Rows[i].Cells[4].Value = acumulador));
 
-                grafico.Add(fo);
-                intervalos.Add(desde);
+               
             }
 
             return (acumulador, listaSinR);
+        }
+
+        
+
+        public (List<int>, List<float>) TablaP(int n, float lamb, List<float> listaSinR, DataGridView dgvP, List<float> list)
+        {
+
+            int tamañoN = n;
+            float min = listaSinR.Min();
+            float max = listaSinR.Max();
+
+            float lambda = listaSinR.Sum() / n;
+
+            List<int> grafico = new List<int>();
+            List<float> intervalos = new List<float>();
+
+            for (int i = 0; i < listaSinR.Count; i++)
+            {
+                dgvP.Rows.Add(1);
+                int valor = ((int)(dgvP.Rows[i].Cells[0].Value = (int)listaSinR[i]));
+                int fo = (int)(dgvP.Rows[i].Cells[1].Value = frecuenciaObservada(list, valor));
+                float p = (float)(dgvP.Rows[i].Cells[2].Value = ((float)Math.Pow(lambda, valor) * ((float)Math.Exp(-lambda)) / (float)Factorial(valor)));
+                float fe = (float)(dgvP.Rows[i].Cells[3].Value = p * tamañoN);
+                grafico.Add(fo);
+                intervalos.Add(valor);
+            }
+
+            return (grafico, intervalos);
         }
 
         public int frecuenciaObservada(List<float> lista, int desde)

@@ -21,6 +21,7 @@ namespace SimTP2Q.Presentación
         }
        
         Uniforme oDU = new Uniforme();
+        PruebasBondad oPB = new PruebasBondad();
         private void frmDistribucionUniforme_Load(object sender, EventArgs e)
         {
             button2.Enabled = false;
@@ -114,8 +115,8 @@ namespace SimTP2Q.Presentación
                     {
                         Series serie = chart1.Series.Add((listInt[i]).ToString());
 
-                        serie.Label = listInt[i].ToString();
-                        serie.Points.Add(float.Parse(listInt[i].ToString()));
+                        serie.Label = listFO[i].ToString();
+                        serie.Points.Add(float.Parse(listFO[i].ToString()));
 
                     }
                 }
@@ -132,16 +133,24 @@ namespace SimTP2Q.Presentación
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (calculado > 10)
+            int cantInt = int.Parse((string)comboBox1.SelectedItem);
+            double tabulado = oPB.AceptaRechazaCC(cantInt, "Uniforme");
+            if (calculado < tabulado)
             {
-                MessageBox.Show("Prueba rechazada");
+                MessageBox.Show($"No se rechaza la hipotesis: Distribucion Uniforme \n Estadistico de prueba = {calculado}  Valor critico = {tabulado}");
+
             }
             else
             {
-                MessageBox.Show("Prueba aceptada");
+                MessageBox.Show($"Se rechaza la hipotesis \n Estadistico de prueba = {calculado}  Valor critico = {tabulado}");
+
             }
-        //    int cantInt = int.Parse((string)comboBox1.SelectedItem);
-        //    int gradosL = cantInt - 1;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

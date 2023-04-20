@@ -35,10 +35,10 @@ namespace SimTP2Q.Lógica
 
             float diferencia = max - min;
 
-            float interv = (float)Math.Sqrt(tamañoN);
-            int intervRedondeado = (int)Math.Truncate(interv);
+            //float interv = (float)Math.Sqrt(tamañoN);
+            //int intervRedondeado = (int)Math.Truncate(interv);
 
-            float ancho = (diferencia / (float)intervRedondeado) + precision;
+            float ancho = (diferencia / (float)cantInt) + precision;
 
             float media = list.Sum() / tamañoN;
             //float lambda = 
@@ -46,7 +46,7 @@ namespace SimTP2Q.Lógica
             List<int> grafico = new List<int>();
             List<float> intervalos = new List<float>();
 
-            for (int i = 0; i < intervRedondeado; i++)
+            for (int i = 0; i < cantInt; i++)
             {
                 dgvTabla.Rows.Add(1);
                 float desde = ((float)(dgvTabla.Rows[i].Cells[0].Value = min + (i * (ancho))));
@@ -73,11 +73,11 @@ namespace SimTP2Q.Lógica
 
             
 
-            float interv = (float)Math.Sqrt(n);
-            int intervRedondeado = (int)Math.Truncate(interv);
+            //float interv = (float)Math.Sqrt(n);
+            //int intervRedondeado = (int)Math.Truncate(interv);
 
             float diferencia = max - min;
-            float ancho = diferencia / (float)intervRedondeado;
+            float ancho = diferencia / (float)cantInt;
 
             float acumulador = 0;
 
@@ -122,10 +122,10 @@ namespace SimTP2Q.Lógica
 
             float diferencia = max - min;
 
-            float interv = (float)Math.Sqrt(tamañoN);
-            int intervRedondeado = (int)Math.Truncate(interv);
+            //float interv = (float)Math.Sqrt(tamañoN);
+            //int intervRedondeado = (int)Math.Truncate(interv);
 
-            float ancho = (diferencia / (float)intervRedondeado) + precision;
+            float ancho = (diferencia / (float)cantInt) + precision;
 
             float media = list.Sum() / tamañoN;
             //float lambda = 
@@ -136,7 +136,7 @@ namespace SimTP2Q.Lógica
             //float buscarMax = 0;
             List<float> maximos = new List<float>();
 
-            for (int i = 0; i < intervRedondeado; i++)
+            for (int i = 0; i < cantInt; i++)
             {
                 dgvKS.Rows.Add(1);
                 float desde = ((float)(dgvKS.Rows[i].Cells[0].Value = min + (i * (ancho))));
@@ -158,6 +158,7 @@ namespace SimTP2Q.Lógica
                 float maximo = ((float)(dgvKS.Rows[i].Cells[9].Value = maximos.Max()));
                 maximos.Add(maximo);
                 maximos.Remove(poMenospe);
+                calculado = maximos.Max();
 
                 //if (buscarMax > poMenospe)
                 //{
@@ -165,7 +166,7 @@ namespace SimTP2Q.Lógica
                 //}
             //float pcmc = ((float)(dgvKS.Rows[i].Cells[4].Value = lambda * (float)Math.Exp(-lambda * marca) * hasta - desde));
 
-        }
+            }
 
             return calculado;
         }

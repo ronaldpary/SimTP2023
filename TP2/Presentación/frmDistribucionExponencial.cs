@@ -20,6 +20,7 @@ namespace SimTP2Q.Presentación
         }
 
         Exponencial oDEN = new Exponencial();
+        PruebasBondad oPB = new PruebasBondad();
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -79,16 +80,37 @@ namespace SimTP2Q.Presentación
                 {
                     Series serie = graficoEX.Series.Add((listInt[i]).ToString());
 
-                    serie.Label = listInt[i].ToString();
-                    serie.Points.Add(float.Parse(listInt[i].ToString()));
+                    serie.Label = listFO[i].ToString();
+                    serie.Points.Add(float.Parse(listFO[i].ToString()));
 
                 }
 
                 //float calculado = oDEN.PruebaChiCuadradoEx(n, cantInt, dgvChiCuadradoE, list, lambda);
 
-                float calculado = oDEN.PruebaKS_Ex(n, cantInt, dgvKSEx, list, lambda);
+                float calc = oDEN.PruebaKS_Ex(n, cantInt, dgvKSEx, list, lambda);
+                calculado = calc;
 
                 button2.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Primero debe generar los numeros aleatorios.");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int n = int.Parse(txtN.Text);
+            double tabulado = oPB.AceptaRechazaKS(n);
+            if (calculado < tabulado)
+            {
+                MessageBox.Show($"No se rechaza la hipotesis: Distribucion Exponencial \n Estadistico de prueba = {calculado}  Valor critico = {tabulado}");
+
+            }
+            else
+            {
+                MessageBox.Show($"Se rechaza la hipotesis \n Estadistico de prueba = {calculado}  Valor critico = {tabulado}");
+
             }
         }
     }
