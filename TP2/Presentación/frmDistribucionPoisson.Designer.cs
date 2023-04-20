@@ -37,13 +37,22 @@
             this.dgvVariables = new System.Windows.Forms.DataGridView();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewPoisson = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxPoisson = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPoisson)).BeginInit();
             this.SuspendLayout();
             // 
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(199, 144);
+            this.txtN.Location = new System.Drawing.Point(489, 108);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 30);
             this.txtN.TabIndex = 15;
@@ -79,9 +88,9 @@
             // btnGenerar
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.Location = new System.Drawing.Point(319, 182);
+            this.btnGenerar.Location = new System.Drawing.Point(64, 177);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(145, 64);
+            this.btnGenerar.Size = new System.Drawing.Size(114, 37);
             this.btnGenerar.TabIndex = 17;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -97,7 +106,7 @@
             this.dgvVariables.Location = new System.Drawing.Point(64, 218);
             this.dgvVariables.Name = "dgvVariables";
             this.dgvVariables.ReadOnly = true;
-            this.dgvVariables.Size = new System.Drawing.Size(212, 218);
+            this.dgvVariables.Size = new System.Drawing.Size(169, 218);
             this.dgvVariables.TabIndex = 16;
             // 
             // Nro
@@ -109,20 +118,95 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(319, 270);
+            this.button1.Location = new System.Drawing.Point(346, 289);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 64);
+            this.button1.Size = new System.Drawing.Size(118, 45);
             this.button1.TabIndex = 18;
             this.button1.Text = "Graficar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridViewPoisson
+            // 
+            this.dataGridViewPoisson.AllowUserToAddRows = false;
+            this.dataGridViewPoisson.AllowUserToDeleteRows = false;
+            this.dataGridViewPoisson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPoisson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.fo,
+            this.fe,
+            this.c,
+            this.ca});
+            this.dataGridViewPoisson.Location = new System.Drawing.Point(492, 177);
+            this.dataGridViewPoisson.Name = "dataGridViewPoisson";
+            this.dataGridViewPoisson.ReadOnly = true;
+            this.dataGridViewPoisson.Size = new System.Drawing.Size(565, 205);
+            this.dataGridViewPoisson.TabIndex = 25;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Desde";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // fo
+            // 
+            this.fo.HeaderText = "Fo";
+            this.fo.Name = "fo";
+            this.fo.ReadOnly = true;
+            // 
+            // fe
+            // 
+            this.fe.HeaderText = "Fe";
+            this.fe.Name = "fe";
+            this.fe.ReadOnly = true;
+            // 
+            // c
+            // 
+            this.c.HeaderText = "C";
+            this.c.Name = "c";
+            this.c.ReadOnly = true;
+            // 
+            // ca
+            // 
+            this.ca.HeaderText = "C(ac)";
+            this.ca.Name = "ca";
+            this.ca.ReadOnly = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(503, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(220, 23);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Cantidad de intervalos: ";
+            // 
+            // comboBoxPoisson
+            // 
+            this.comboBoxPoisson.Enabled = false;
+            this.comboBoxPoisson.FormattingEnabled = true;
+            this.comboBoxPoisson.Items.AddRange(new object[] {
+            "5",
+            "8",
+            "10",
+            "12",
+            "15"});
+            this.comboBoxPoisson.Location = new System.Drawing.Point(744, 153);
+            this.comboBoxPoisson.Name = "comboBoxPoisson";
+            this.comboBoxPoisson.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPoisson.TabIndex = 23;
             // 
             // frmDistribucionPoisson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(664, 448);
+            this.ClientSize = new System.Drawing.Size(1069, 628);
+            this.Controls.Add(this.dataGridViewPoisson);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBoxPoisson);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvVariables);
@@ -135,6 +219,7 @@
             this.Text = "Distribución Poisson";
             this.Load += new System.EventHandler(this.frmDistribucionPoisson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPoisson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +235,13 @@
         private System.Windows.Forms.DataGridView dgvVariables;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridViewPoisson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ca;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxPoisson;
     }
 }

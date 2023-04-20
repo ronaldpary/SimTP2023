@@ -159,14 +159,11 @@ namespace SimTP2Q.Lógica
                 maximos.Add(maximo);
                 maximos.Remove(poMenospe);
 
-                
-
                 //if (buscarMax > poMenospe)
                 //{
                 //    maximo = buscarMax;
                 //}
             //float pcmc = ((float)(dgvKS.Rows[i].Cells[4].Value = lambda * (float)Math.Exp(-lambda * marca) * hasta - desde));
-
 
         }
 
