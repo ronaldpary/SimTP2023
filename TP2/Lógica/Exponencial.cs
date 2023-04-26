@@ -25,7 +25,7 @@ namespace SimTP2Q.Lógica
             return listDEN;
         }
 
-        public (List<int>, List<float>) TablaExp(int n, int cantInt, DataGridView dgvTabla, List<float> list, int lambda)
+        public (List<int>, List<float>) TablaExp(int n, int cantInt, DataGridView dgvTabla, List<float> list, float lambda)
         {
 
             float precision = (float)1 / 100;
@@ -64,7 +64,7 @@ namespace SimTP2Q.Lógica
             return (grafico, intervalos);
         }
 
-        public float PruebaChiCuadradoEx(int n, int cantInt, DataGridView dataGridView1, List<float> list, int lambda)
+        public float PruebaChiCuadradoEx(int n, int cantInt, DataGridView dataGridView1, List<float> list, float lambda)
         {
             float calculado = 0;
 
@@ -113,7 +113,7 @@ namespace SimTP2Q.Lógica
             return calculado;
         }
 
-        public float PruebaKS_Ex(int n, int cantInt, DataGridView dgvKS, List<float> list, int lambda)
+        public float PruebaKS_Ex(int n, int cantInt, DataGridView dgvKS, List<float> list, float lambda)
         {
             float precision = (float)1 / 100;
             int tamañoN = n;

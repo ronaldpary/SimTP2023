@@ -43,15 +43,15 @@ namespace SimTP2Q.Presentación
             }
             else
             {
-                int desviacion = int.Parse(txtDE.Text);
-                int media = int.Parse(txtMedia.Text);
+                float desviacion = float.Parse(txtDE.Text);
+                float media = float.Parse(txtMedia.Text);
 
                 List<float> list = oDN.GenerarNumerosDEN(desviacion, media, n);
 
                 dgvVariables.Rows.Clear();
                 for (int i = 0; i < n * 2; i++)
                 {
-                    dgvVariables.Rows.Add(list[i]);
+                    dgvVariables.Rows.Add(Math.Truncate(list[i] * 100) / 100);
                 }
             }
             
@@ -77,8 +77,8 @@ namespace SimTP2Q.Presentación
 
                 int n = int.Parse(txtN.Text);
                 int cantInt = int.Parse((string)comboBox1.SelectedItem);
-                float desviacion = int.Parse(txtDE.Text);
-                float media = int.Parse(txtMedia.Text);
+                float desviacion = float.Parse(txtDE.Text);
+                float media = float.Parse(txtMedia.Text);
 
                 (List<int> listFO, List<float> listInt) = oDN.TablaN(n, desviacion, media, dgvTabla, list, cantInt);
 

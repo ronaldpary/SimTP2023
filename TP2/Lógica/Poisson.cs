@@ -10,13 +10,15 @@ namespace SimTP2Q.Lógica
     public class Poisson
     {
         NumerosAleatorios oNA = new NumerosAleatorios();
-        public List<float> GenerarNumerosDP(int lambda, int n)
+        public List<float> GenerarNumerosDP(float lambda, int n)
         {
             List<float> list = oNA.GenerarNumeros(n);
 
             List<float> listDP = new List<float>();
 
             float A = (float)Math.Exp(-lambda);
+
+            Random rnd = new Random();
 
             for (int i = 0; i < n; i++)
             {
@@ -25,7 +27,8 @@ namespace SimTP2Q.Lógica
 
                 do
                 {
-                    double U = list[i];
+                    double U = rnd.NextDouble();
+                    //double U = list[i];
                     P *= U;
                     X += 1;
                 } while (P >= A);

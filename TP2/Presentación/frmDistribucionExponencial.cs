@@ -41,7 +41,7 @@ namespace SimTP2Q.Presentación
                 dgvVariables.Rows.Clear();
                 for (int i = 0; i < n; i++)
                 {
-                    dgvVariables.Rows.Add(list[i]);
+                    dgvVariables.Rows.Add(Math.Truncate(list[i] * 100) / 100);
                 }
             }
             
@@ -67,7 +67,7 @@ namespace SimTP2Q.Presentación
 
                 int n = int.Parse(txtN.Text);
 
-                int lambda = int.Parse(txtLambda.Text);
+                float lambda = float.Parse(txtLambda.Text);
 
                 int cantInt = int.Parse((string)comboBox1.SelectedItem);
 

@@ -40,14 +40,14 @@ namespace SimTP2Q.Presentación
                 }
                 else
                 {
-                    int mediaL = int.Parse(txtMediaLambda.Text);
+                    float mediaL = float.Parse(txtMediaLambda.Text);
 
                     List<float> list = oDP.GenerarNumerosDP(mediaL, n);
 
                     dgvVariables.Rows.Clear();
                     for (int i = 0; i < n; i++)
                     {
-                        dgvVariables.Rows.Add(list[i]);
+                        dgvVariables.Rows.Add(Math.Truncate(list[i] * 100) / 100);
                     }
                 }
             }
