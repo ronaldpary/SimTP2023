@@ -59,7 +59,7 @@ namespace SimTP2Q.Lógica
                 float hasta = ((float)(dgvTabla.Rows[i].Cells[1].Value = desde + (ancho - (precision / 10))));
                 float marca = ((float)(dgvTabla.Rows[i].Cells[2].Value = (hasta + desde) / 2));
                 int fo = ((int)(dgvTabla.Rows[i].Cells[3].Value = frecuenciaObservada(list, desde, hasta)));
-                float p = ((float)(dgvTabla.Rows[i].Cells[4].Value = ((float)Math.Exp((float)(-1 / 2) * ((float)Math.Pow((marca - media) / desviacion, 2))) / (desviacion * ((float)Math.Sqrt(2 * ((float)Math.PI))) * (hasta - desde)))));
+                float p = (float)(dgvTabla.Rows[i].Cells[4].Value = (float)(((float)(Math.Exp((-0.5) * (float)Math.Pow(((marca - media) / desviacion), 2))) / (desviacion * ((float)Math.Sqrt(2 * ((float)Math.PI))))) * (hasta - desde)));
                 float fe = ((float)(dgvTabla.Rows[i].Cells[5].Value = p * tamañoN));
 
                 grafico.Add(fo);
