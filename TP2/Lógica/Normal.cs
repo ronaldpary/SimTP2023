@@ -33,6 +33,34 @@ namespace SimTP2Q.Lógica
             return listDN;
         }
 
+        public (List<float>, List<float>) GenerarNumerosDENMontecarlo(float desviacion, float media, int n)
+        {
+
+            List<float> listDN = new List<float>();
+            List<float> listRnd = new List<float>();
+
+            Random generador = new Random();
+
+            for (int i = 0; i < n; i++)
+            {
+                //List<float> list = oNA.GenerarNumeros(2);
+                //float rnd1 = list[0];
+                //float rnd2 = list[1];
+                float rnd1 = (float)generador.NextDouble();
+                float rnd2 = (float)generador.NextDouble();
+                listRnd.Add(rnd1);
+                listRnd.Add(rnd2);
+
+                float x1 = ((float)Math.Sqrt(-2 * Math.Log(rnd1)) * (float)Math.Cos(2 * Math.PI * rnd2)) * desviacion + media;
+                float x2 = ((float)Math.Sqrt(-2 * Math.Log(rnd1)) * (float)Math.Sin(2 * Math.PI * rnd2)) * desviacion + media;
+                listDN.Add(x1);
+                listDN.Add(x2);
+            }
+
+            return (listRnd, listDN);
+        }
+
+
         public (List<int>, List<float>) TablaN(int n, float desviac, float med, DataGridView dgvTabla, List<float> list, int cantI)
         {
 

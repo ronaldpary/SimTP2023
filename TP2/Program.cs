@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SimTP2Q.Presentación;
 
 namespace SimTP2Q
 {
@@ -16,7 +17,7 @@ namespace SimTP2Q
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmVariablesAleatorias());
+            Application.Run(new frmMontecarloV2());
         }
     }
 }
