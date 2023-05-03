@@ -42,6 +42,10 @@
             this.txtN = new System.Windows.Forms.TextBox();
             this.btnSimular = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtME = new System.Windows.Forms.TextBox();
+            this.txtDE = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,14 +121,14 @@
             // 
             // txtN
             // 
-            this.txtN.Location = new System.Drawing.Point(196, 45);
+            this.txtN.Location = new System.Drawing.Point(388, 46);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 20);
             this.txtN.TabIndex = 1;
             // 
             // btnSimular
             // 
-            this.btnSimular.Location = new System.Drawing.Point(523, 43);
+            this.btnSimular.Location = new System.Drawing.Point(563, 44);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(75, 23);
             this.btnSimular.TabIndex = 2;
@@ -135,17 +139,54 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 48);
+            this.label1.Location = new System.Drawing.Point(286, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Cantidad de horas:";
+            // 
+            // txtME
+            // 
+            this.txtME.Location = new System.Drawing.Point(149, 12);
+            this.txtME.Name = "txtME";
+            this.txtME.Size = new System.Drawing.Size(100, 20);
+            this.txtME.TabIndex = 4;
+            // 
+            // txtDE
+            // 
+            this.txtDE.Location = new System.Drawing.Point(149, 46);
+            this.txtDE.Name = "txtDE";
+            this.txtDE.Size = new System.Drawing.Size(100, 20);
+            this.txtDE.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Media:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(80, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Desviación:";
             // 
             // frmMontecarlo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtDE);
+            this.Controls.Add(this.txtME);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.txtN);
@@ -153,6 +194,7 @@
             this.Name = "frmMontecarlo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rifas";
+            this.Load += new System.EventHandler(this.frmMontecarlo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,5 +217,9 @@
         private System.Windows.Forms.TextBox txtN;
         private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtME;
+        private System.Windows.Forms.TextBox txtDE;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
