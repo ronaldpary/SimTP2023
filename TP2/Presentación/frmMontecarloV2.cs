@@ -24,6 +24,7 @@ namespace SimTP2Q.Presentación
             InitializeComponent();
         }
 
+        float ingresoPorHora;
         private void btnSimular_Click(object sender, EventArgs e)
         {
             int n = int.Parse(txtN.Text);
@@ -298,7 +299,7 @@ namespace SimTP2Q.Presentación
                 dataGridView1.Rows[sumaLLamadas].Cells[7].Value = costo;
 
                 dataGridView1.Rows[sumaLLamadas].Cells[8].Value = acumulador;
-                dataGridView1.Rows[sumaLLamadas].Cells[9].Value = acumulador / n;
+                ingresoPorHora = (float)(dataGridView1.Rows[sumaLLamadas].Cells[9].Value = acumulador / n);
 
             }
 
@@ -446,6 +447,14 @@ namespace SimTP2Q.Presentación
         private void dgvVersion2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnComparar_Click(object sender, EventArgs e)
+        {
+            int n = int.Parse(txtN.Text);
+            frmCallcenter frmCc = new frmCallcenter(n, ingresoPorHora);
+            frmCc.ShowDialog();
+            frmCc.Dispose();
         }
     }
 }
