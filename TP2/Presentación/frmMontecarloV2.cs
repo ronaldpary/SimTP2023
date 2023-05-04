@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
@@ -13,6 +14,7 @@ using SimTP2Q.Lógica;
 
 namespace SimTP2Q.Presentación
 {
+
     public partial class frmMontecarloV2 : Form
     {
 
@@ -25,6 +27,13 @@ namespace SimTP2Q.Presentación
         }
 
         float ingresoPorHora;
+
+        List<float> ingresos = new List<float>();
+
+        int sumaLLamadas = 0;
+
+        int hora = 0;
+
         private void btnSimular_Click(object sender, EventArgs e)
         {
             int n = int.Parse(txtN.Text);
@@ -42,7 +51,7 @@ namespace SimTP2Q.Presentación
             //List<float> listNA = obNA.GenerarNumeros(n);
             (List<float> listRnd, List<float> listDN) = obN.GenerarNumerosDENMontecarlo(desviacion, media, n / 2);
 
-            List<float> listaLlamadas = new List<float>();
+            List<int> listaLlamadas = new List<int>();
 
             for (int i = 0; i < n; i++)
 
@@ -54,16 +63,15 @@ namespace SimTP2Q.Presentación
                 dgvMontecarlo.Rows[i].Cells[(i * (i - i)) + (1 / (1 + 0 * i))].Value = Math.Truncate(listRnd[i] * 100) / 100;
 
                 double cantidadLLamadas = ((double)(dgvMontecarlo.Rows[i].Cells[(i * (i - i)) + (2 / (1 + 0 * i))].Value = Math.Truncate(listDN[i])));
-                listaLlamadas.Add((float)Math.Truncate(cantidadLLamadas));
+                listaLlamadas.Add((int)Math.Truncate(cantidadLLamadas));
 
 
             }
 
-            int sumaLLamadas = (int)listaLlamadas.Sum();
+            sumaLLamadas = listaLlamadas.Sum();
 
 
             float acumulador = 0;
-            float acumulador2 = 0;
 
             float rndA = 0;
             string atiende = "";
@@ -81,6 +89,391 @@ namespace SimTP2Q.Presentación
             List<float> listQuien = obNA.GenerarNumeros(sumaLLamadas);
             List<float> listDemanda = obNA.GenerarNumeros(sumaLLamadas);
             List<float> ListGasto = obNA.GenerarNumeros(sumaLLamadas);
+
+
+            /////////////////////////////////////////////////////////////
+
+            //Controls.Add(dataGridView2);
+            int rowIndex = 0;
+            //DataGridView dataGridView2 = new DataGridView();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Hora", typeof(int));
+            dt.Columns.Add("Llamada", typeof(int));
+            dt.Columns.Add("Rnd atención", typeof(float));
+            dt.Columns.Add("¿Atiende?", typeof(string));
+            dt.Columns.Add("Rnd quien", typeof(float));
+            dt.Columns.Add("¿Quién?", typeof(string));
+            dt.Columns.Add("Rnd compra", typeof(float));
+            dt.Columns.Add("¿Compra?", typeof(string));
+            dt.Columns.Add("Rnd gasto", typeof(float));
+            dt.Columns.Add("Gasto en la rifa", typeof(string));
+            dt.Columns.Add("Ingreso AC", typeof(float));
+            dt.Columns.Add("Ingreso por hora", typeof(float));
+            
+
+            for (int i = 0; i < listaLlamadas.Count; i++)
+            {
+
+                int numero = listaLlamadas[i];
+
+                for (int j = 0; j < numero; j++)
+                {
+
+                    DataRow newRow = dt.NewRow();
+
+                    //DataGridViewRow row = new DataGridViewRow();
+                    //row.CreateCells(dataGridView2);
+
+                    hora = i + 1;
+                    
+
+                    //row.Cells[0].Value = hora;
+                    newRow["Hora"] = hora;
+
+                    //row.Cells[1].Value = rowIndex + 1;
+                    newRow["Llamada"] = rowIndex + 1;
+
+
+
+                    //dataGridView1.Rows.Add(1);
+
+                    rndA = listAtencion[rowIndex];
+                    newRow["Rnd atención"] = rndA;
+
+                    //row.Cells[2].Value = rndA;
+
+
+                    //row.Cells[2].Value = listAtencion[rowIndex];
+
+                    if (rndA < (float)3 / 20)
+                    {
+                        atiende = "No";
+                        newRow["¿Atiende?"] = atiende;
+
+                        //row.Cells[3].Value = "No";
+                        
+
+                        //row.Cells[9].Value = "0";
+                        newRow["Gasto en la rifa"] = "0";
+
+                        //row.Cells[10].Value = acumulador;
+                        newRow["Ingreso AC"] = acumulador;
+
+                        newRow["Ingreso por hora"] = acumulador / n;
+                        dt.Rows.Add(newRow);
+
+                        //dataGridView2.Rows.Add(row);
+                        rowIndex++;
+
+                    }
+                    else
+                    {
+                        atiende = "Si";
+                        newRow["¿Atiende?"] = atiende;
+
+                        //row.Cells[3].Value = "Si";
+
+                        rndQ = listQuien[rowIndex];
+                        newRow["Rnd quien"] = rndQ;
+
+                        //row.Cells[4].Value = listQuien[rowIndex];
+                        
+
+                        if (rndQ < (float)4 / 5)
+                        {
+
+                            sexo = "Mujer";
+
+                            //row.Cells[5].Value = "Mujer";
+                            newRow["¿Quién?"] = sexo;
+                        }
+                        else
+                        {
+                            sexo = "Hombre";
+
+                            //row.Cells[5].Value = "Hombre";
+                            newRow["¿Quién?"] = sexo;
+                        }
+
+
+
+
+                        rndD = listDemanda[rowIndex];
+                        //row.Cells[6].Value = listDemanda[rowIndex];
+                        newRow["Rnd compra"] = rndD;
+
+                        if (sexo == "Mujer")
+                        {
+                            if (rndD < (float)7 / 10)
+                            {
+
+                                compra = "Si";
+
+                                //row.Cells[7].Value = "Si";
+                                newRow["¿Compra?"] = compra;
+
+                                rndG = ListGasto[rowIndex];
+
+                                //row.Cells[8].Value = ListGasto[rowIndex];
+                                newRow["Rnd gasto"] = rndG;
+
+                                if (rndG < (float)2 / 10)
+                                {
+
+                                    costo = "5";
+
+                                    //row.Cells[9].Value = "5";
+                                    newRow["Gasto en la rifa"] = costo;
+
+                                    acumulador = acumulador + 5;
+                                    newRow["Ingreso AC"] = acumulador;
+
+                                    // ver
+                                    //row.Cells[10].Value = acumulador;
+
+                                    newRow["Ingreso por hora"] = acumulador / n;
+                                    dt.Rows.Add(newRow);
+
+                                    //dataGridView2.Rows.Add(row);
+                                    rowIndex++;
+
+                                }
+                                else
+                                {
+                                    if (rndG >= (float)2 / 10 && rndG < (float)8 / 10)
+                                    {
+                                        costo = "10";
+
+                                        //row.Cells[9].Value = "10";
+                                        newRow["Gasto en la rifa"] = costo;
+
+                                        acumulador = acumulador + 10;
+                                        newRow["Ingreso AC"] = acumulador;
+
+                                        //row.Cells[10].Value = acumulador;
+
+                                        newRow["Ingreso por hora"] = acumulador / n;
+                                        dt.Rows.Add(newRow);
+
+                                        //dataGridView2.Rows.Add(row);
+                                        rowIndex++;
+
+                                    }
+                                    else
+                                    {
+                                        if (rndG >= (float)8 / 10 && rndG < (float)19 / 20)
+                                        {
+                                            costo = "15";
+
+                                            //row.Cells[9].Value = "15";
+                                            newRow["Gasto en la rifa"] = costo;
+
+                                            acumulador = acumulador + 15;
+                                            newRow["Ingreso AC"] = acumulador;
+
+                                            //row.Cells[10].Value = acumulador;
+
+                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            dt.Rows.Add(newRow);
+
+                                            //dataGridView2.Rows.Add(row);
+                                            rowIndex++;
+                                        }
+                                        else
+                                        {
+                                            costo = "25";
+
+                                            //row.Cells[9].Value = "25";
+                                            newRow["Gasto en la rifa"] = costo;
+
+                                            acumulador = acumulador + 25;
+                                            newRow["Ingreso AC"] = acumulador;
+
+                                            //ver
+                                            //row.Cells[10].Value = acumulador;
+
+                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            dt.Rows.Add(newRow);
+
+                                            //dataGridView2.Rows.Add(row);
+                                            rowIndex++;
+                                        }
+                                    }
+                                }
+
+
+
+                            }
+                            else
+                            {
+                                compra = "No";
+
+                                //row.Cells[7].Value = "No";
+                                newRow["¿Compra?"] = compra;
+
+
+                                //row.Cells[9].Value = "0";
+                                newRow["Gasto en la rifa"] = "0";
+
+                                //row.Cells[10].Value = acumulador;
+                                newRow["Ingreso AC"] = acumulador;
+
+                                newRow["Ingreso por hora"] = acumulador / n;
+                                dt.Rows.Add(newRow);
+
+                                //dataGridView2.Rows.Add(row);
+                                rowIndex++;
+                            }
+                        }
+                        else
+                        {
+                            if (rndD < (float)2 / 5)
+                            {
+                                compra = "Si";
+
+                                //row.Cells[7].Value = "Si";
+                                newRow["¿Compra?"] = compra;
+
+                                rndG = ListGasto[rowIndex];
+                                newRow["Rnd gasto"] = rndG;
+
+                                //row.Cells[8].Value = ListGasto[rowIndex];
+
+                                if (rndG < (float)2 / 40)
+                                {
+                                    costo = "5";
+
+                                    //row.Cells[9].Value = "5";
+                                    newRow["Gasto en la rifa"] = costo;
+
+                                    acumulador = acumulador + 5;
+                                    newRow["Ingreso AC"] = acumulador;
+
+                                    //row.Cells[10].Value = acumulador;
+
+                                    newRow["Ingreso por hora"] = acumulador / n;
+                                    dt.Rows.Add(newRow);
+
+                                    //dataGridView2.Rows.Add(row);
+                                    rowIndex++;
+                                }
+                                else
+                                {
+                                    if (rndG >= (float)2 / 40 && rndG < (float)1 / 4)
+                                    {
+                                        costo = "10";
+
+                                        //row.Cells[9].Value = "10";
+                                        newRow["Gasto en la rifa"] = costo;
+
+                                        acumulador = acumulador + 10;
+                                        newRow["Ingreso AC"] = acumulador;
+
+                                        //row.Cells[10].Value = acumulador;
+
+                                        newRow["Ingreso por hora"] = acumulador / n;
+                                        dt.Rows.Add(newRow);
+
+                                        //dataGridView2.Rows.Add(row);
+                                        rowIndex++;
+
+                                    }
+                                    else
+                                    {
+                                        if (rndG >= (float)1 / 4 && rndG < (float)3 / 5)
+                                        {
+                                            costo = "15";
+
+                                            //row.Cells[9].Value = "15";
+                                            newRow["Gasto en la rifa"] = costo;
+
+                                            acumulador = acumulador + 15;
+                                            newRow["Ingreso AC"] = acumulador;
+
+                                            //row.Cells[10].Value = acumulador;
+
+                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            dt.Rows.Add(newRow);
+
+                                            //dataGridView2.Rows.Add(row);
+                                            rowIndex++;
+                                        }
+                                        else
+                                        {
+                                            costo = "25";
+
+                                            //row.Cells[9].Value = "25";
+                                            newRow["Gasto en la rifa"] = costo;
+
+                                            acumulador = acumulador + 25;
+                                            newRow["Ingreso AC"] = acumulador;
+
+                                            //row.Cells[10].Value = acumulador;
+
+                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            dt.Rows.Add(newRow);
+
+                                            //dataGridView2.Rows.Add(row);
+                                            rowIndex++;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                compra = "No";
+
+                                //row.Cells[7].Value = "No";
+                                newRow["¿Compra?"] = compra;
+
+                                //row.Cells[9].Value = "0";
+                                newRow["Gasto en la rifa"] = "0";
+
+                                //row.Cells[10].Value = acumulador;
+                                newRow["Ingreso AC"] = acumulador;
+
+                                newRow["Ingreso por hora"] = acumulador / n;
+                                dt.Rows.Add(newRow);
+
+                                //dataGridView2.Rows.Add(row);
+                                rowIndex++;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+
+            DataRow fila = dt.NewRow();
+
+            fila["Hora"] = hora;
+            fila["Llamada"] = rowIndex;
+            fila["Rnd atención"] = rndA;
+            fila["¿Atiende?"] = atiende;
+            fila["Rnd quien"] = rndQ;
+            fila["¿Quién?"] = sexo;
+            fila["Rnd compra"] = rndD;
+            fila["¿Compra?"] = compra;
+            fila["Rnd gasto"] = rndG;
+            fila["Gasto en la rifa"] = costo;
+            fila["Ingreso AC"] = acumulador;
+            fila["Ingreso por hora"] = acumulador/n;
+
+            dt.Rows.Add(fila);
+
+            foreach (DataRow fila1 in dt.Rows)
+            {
+                ingresos.Add((float)fila1["Ingreso por hora"]);
+            }
+            //////////////////////////////////////////////////////////
+
+
+            //dgvFinal.DataSource = dt;
+
+            //DataTable copia = dt();
 
 
             int desde;
@@ -103,335 +496,70 @@ namespace SimTP2Q.Presentación
                 hasta = int.Parse(txtHasta.Text);
             }
 
-
-            for (int j = 0; j < sumaLLamadas; j++)
+            if (desde == 0 && hasta == 0)
             {
+                DataTable last = dt.Clone();
+                last.ImportRow(dt.Rows[dt.Rows.Count - 1]);
 
-                dataGridView1.Rows.Add(1);
-                rndA = listAtencion[j];
-                dataGridView1.Rows[j].Cells[0].Value = listAtencion[j];
-
-                if (rndA < (float)3 / 20)
+                dgvFinal.DataSource = last;
+                dgvFinal.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
+            }
+            else
+            {
+                DataRow[] filasIntervalo = dt.Select("Hora >= " + desde + "and Hora <= " + hasta);
+                DataTable tablafinal = dt.Clone();
+                foreach (DataRow fila2 in filasIntervalo)
                 {
-                    atiende = "No";
-                    dataGridView1.Rows[j].Cells[1].Value = "No";
-                    dataGridView1.Rows[j].Cells[7].Value = "0";
-                    dataGridView1.Rows[j].Cells[8].Value = acumulador;
-
-                }
-                else
-                {
-                    atiende = "Si";
-                    dataGridView1.Rows[j].Cells[1].Value = "Si";
-                    rndQ = listQuien[j];
-
-                    dataGridView1.Rows[j].Cells[2].Value = listQuien[j];
-
-
-                    if (rndQ < (float)4 / 5)
-                    {
-
-                        sexo = "Mujer";
-                        dataGridView1.Rows[j].Cells[3].Value = "Mujer";
-                    }
-                    else
-                    {
-                        sexo = "Hombre";
-                        dataGridView1.Rows[j].Cells[3].Value = "Hombre";
-                    }
-
-
-                    rndD = listDemanda[j];
-                    dataGridView1.Rows[j].Cells[4].Value = listDemanda[j];
-
-                    if (sexo == "Mujer")
-                    {
-                        if (rndD < (float)7 / 10)
-                        {
-
-                            compra = "Si";
-                            dataGridView1.Rows[j].Cells[5].Value = "Si";
-
-                            rndG = ListGasto[j];
-                            dataGridView1.Rows[j].Cells[6].Value = ListGasto[j];
-
-                            if (rndG < (float)2 / 10)
-                            {
-
-                                costo = "5";
-                                dataGridView1.Rows[j].Cells[7].Value = "5";
-
-                                acumulador = acumulador + 5;
-
-                                // ver
-                                dataGridView1.Rows[j].Cells[8].Value = acumulador;
-
-                            }
-                            else
-                            {
-                                if (rndG >= (float)2 / 10 && rndG < (float)8 / 10)
-                                {
-                                    costo = "10";
-                                    dataGridView1.Rows[j].Cells[7].Value = "10";
-
-                                    acumulador = acumulador + 10;
-                                    dataGridView1.Rows[j].Cells[8].Value = acumulador;
-
-                                }
-                                else
-                                {
-                                    if (rndG >= (float)8 / 10 && rndG < (float)19 / 20)
-                                    {
-                                        costo = "15";
-                                        dataGridView1.Rows[j].Cells[7].Value = "15";
-
-                                        acumulador = acumulador + 15;
-                                        dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                                    }
-                                    else
-                                    {
-                                        costo = "25";
-                                        dataGridView1.Rows[j].Cells[7].Value = "25";
-
-                                        acumulador = acumulador + 25;
-
-                                        //ver
-                                        dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                                    }
-                                }
-                            }
-
-
-
-                        }
-                        else
-                        {
-                            compra = "No";
-                            dataGridView1.Rows[j].Cells[5].Value = "No";
-                            dataGridView1.Rows[j].Cells[7].Value = "0";
-                            dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                        }
-                    }
-                    else
-                    {
-                        if (rndD < (float)2 / 5)
-                        {
-                            compra = "Si";
-                            dataGridView1.Rows[j].Cells[5].Value = "Si";
-
-                            rndG = ListGasto[j];
-                            dataGridView1.Rows[j].Cells[6].Value = ListGasto[j];
-
-                            if (rndG < (float)2 / 40)
-                            {
-                                costo = "5";
-                                dataGridView1.Rows[j].Cells[7].Value = "5";
-
-                                acumulador = acumulador + 5;
-
-                                dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                            }
-                            else
-                            {
-                                if (rndG >= (float)2 / 40 && rndG < (float)1 / 4)
-                                {
-                                    costo = "10";
-                                    dataGridView1.Rows[j].Cells[7].Value = "10";
-
-                                    acumulador = acumulador + 10;
-                                    dataGridView1.Rows[j].Cells[8].Value = acumulador;
-
-                                }
-                                else
-                                {
-                                    if (rndG >= (float)1 / 4 && rndG < (float)3 / 5)
-                                    {
-                                        costo = "15";
-                                        dataGridView1.Rows[j].Cells[7].Value = "15";
-
-                                        acumulador = acumulador + 15;
-                                        dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                                    }
-                                    else
-                                    {
-                                        costo = "25";
-                                        dataGridView1.Rows[j].Cells[7].Value = "25";
-
-                                        acumulador = acumulador + 25;
-
-                                        dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                                    }
-                                }
-                            }
-
-                        }
-                        else
-                        {
-                            compra = "No";
-                            dataGridView1.Rows[j].Cells[5].Value = "No";
-                            dataGridView1.Rows[j].Cells[7].Value = "0";
-                            dataGridView1.Rows[j].Cells[8].Value = acumulador;
-                        }
-                    }
+                    tablafinal.ImportRow(fila2);
                 }
 
+                DataRow fila3 = tablafinal.NewRow();
 
+                fila3["Hora"] = hora;
+                fila3["Llamada"] = rowIndex;
+                fila3["Rnd atención"] = rndA;
+                fila3["¿Atiende?"] = atiende;
+                fila3["Rnd quien"] = rndQ;
+                fila3["¿Quién?"] = sexo;
+                fila3["Rnd compra"] = rndD;
+                fila3["¿Compra?"] = compra;
+                fila3["Gasto en la rifa"] = costo;
+                fila3["Ingreso AC"] = acumulador;
+                fila3["Ingreso por hora"] = acumulador / n;
+
+                tablafinal.Rows.Add(fila3);
                 
-
+                dgvFinal.DataSource = tablafinal;
+                dgvFinal.Rows[tablafinal.Rows.Count-1].DefaultCellStyle.BackColor = Color.Yellow;
             }
-
-            for (int h = 0; h < 1; h++)
-            {
-
-                dataGridView1.Rows.Add(1);
-                dataGridView1.Rows[sumaLLamadas].DefaultCellStyle.BackColor = Color.Yellow;
-
-                dataGridView1.Rows[sumaLLamadas].Cells[0].Value = rndA;
-                dataGridView1.Rows[sumaLLamadas].Cells[1].Value = atiende;
-
-                dataGridView1.Rows[sumaLLamadas].Cells[2].Value = rndQ;
-                dataGridView1.Rows[sumaLLamadas].Cells[3].Value = sexo;
-
-                dataGridView1.Rows[sumaLLamadas].Cells[4].Value = rndD;
-                dataGridView1.Rows[sumaLLamadas].Cells[5].Value = compra;
-
-                dataGridView1.Rows[sumaLLamadas].Cells[6].Value = rndG;
-                dataGridView1.Rows[sumaLLamadas].Cells[7].Value = costo;
-
-                dataGridView1.Rows[sumaLLamadas].Cells[8].Value = acumulador;
-                ingresoPorHora = (float)(dataGridView1.Rows[sumaLLamadas].Cells[9].Value = acumulador / n);
-
-            }
+            
 
 
-            //dataGridView1.Rows.Add(1);
+            //for (int h = 0; h < 1; h++)
+            //{
 
+
+            //    dgvFinal.Rows.Add(1);
+            //    dgvFinal.Rows[sumaLLamadas].DefaultCellStyle.BackColor = Color.Yellow;
+
+            //    dgvFinal.Rows[sumaLLamadas].Cells[2].Value = rndA;
+            //    dgvFinal.Rows[sumaLLamadas].Cells[3].Value = atiende;
+
+            //    dgvFinal.Rows[sumaLLamadas].Cells[4].Value = rndQ;
+            //    dgvFinal.Rows[sumaLLamadas].Cells[5].Value = sexo;
+
+            //    dgvFinal.Rows[sumaLLamadas].Cells[6].Value = rndD;
+            //    dgvFinal.Rows[sumaLLamadas].Cells[7].Value = compra;
+
+            //    dgvFinal.Rows[sumaLLamadas].Cells[8].Value = rndG;
+            //    dgvFinal.Rows[sumaLLamadas].Cells[9].Value = costo;
+
+            //    dgvFinal.Rows[sumaLLamadas].Cells[10].Value = acumulador;
+            //    ingresoPorHora = (float)(dgvFinal.Rows[sumaLLamadas].Cells[11].Value = acumulador / n);
+
+            //}
 
         }
-
-
-
-
-
-        // Veer
-
-        //int desde = int.Parse(txtDesde.Text);
-        //int hasta = int.Parse(txtHasta.Text);
-
-        //for (int j = 0; j < sumaLLamadas; j++)
-        //{
-
-        //    //if (j >= desde/* && j <= hasta*/)
-        //    //{
-
-        //    //}
-
-
-        //    dgvVersion2.Rows.Add(1);
-
-        //    //float a = listAtencion[j];
-        //    //float b = (float)4/5;
-
-        //    dgvVersion2.Rows[j].Cells[0].Value = listAtencion[j];
-
-        //    if (listAtencion[j] < (float)3 / 20)
-        //    {
-        //        dgvVersion2.Rows[j].Cells[1].Value = "No";
-        //    }
-        //    else
-        //    {
-        //        dgvVersion2.Rows[j].Cells[1].Value = "Si";
-        //    }
-
-
-
-        //    dgvVersion2.Rows[j].Cells[2].Value = listQuien[j];
-
-        //    string sexo1 = "";
-
-        //    if (listQuien[j] < (float)4 / 5)
-        //    {
-        //        sexo1 = (string)(dgvVersion2.Rows[j].Cells[3].Value = "Mujer");
-        //    }
-        //    else
-        //    {
-        //        sexo1 = (string)(dgvVersion2.Rows[j].Cells[3].Value = "Hombre");
-        //    }
-
-
-
-        //    dgvVersion2.Rows[j].Cells[4].Value = listDemanda[j];
-
-        //    if (sexo1 == "Mujer")
-        //    {
-        //        if (listDemanda[j] < (float)7 / 10)
-        //        {
-        //            dgvVersion2.Rows[j].Cells[5].Value = "Si";
-
-        //            dgvVersion2.Rows[j].Cells[6].Value = ListGasto[j];
-
-        //            if (ListGasto[j] < (float)2 / 10)
-        //            {
-        //                dgvVersion2.Rows[j].Cells[7].Value = "5";
-
-        //                acumulador2 = acumulador2 + 5;
-
-        //                dgvVersion2.Rows[j].Cells[8].Value = acumulador2;
-
-        //            }
-        //            else
-        //            {
-        //                dgvVersion2.Rows[j].Cells[7].Value = "10";
-
-        //                acumulador2 = acumulador2 + 10;
-
-        //                dgvVersion2.Rows[j].Cells[8].Value = acumulador2;
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            dgvVersion2.Rows[j].Cells[5].Value = "No";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (listDemanda[j] < (float)2 / 5)
-        //        {
-        //            dgvVersion2.Rows[j].Cells[5].Value = "Si";
-
-        //            dgvVersion2.Rows[j].Cells[6].Value = ListGasto[j];
-
-        //            if (ListGasto[j] < (float)2 / 40)
-        //            {
-        //                dgvVersion2.Rows[j].Cells[7].Value = "5";
-
-        //                acumulador2 = acumulador2 + 5;
-
-        //                dgvVersion2.Rows[j].Cells[8].Value = acumulador2;
-        //            }
-        //            else
-        //            {
-        //                dgvVersion2.Rows[j].Cells[7].Value = "10";
-
-        //                acumulador2 = acumulador2 + 10;
-
-        //                dgvVersion2.Rows[j].Cells[8].Value = acumulador2;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            dgvVersion2.Rows[j].Cells[5].Value = "No";
-        //        }
-        //    }
-
-
-        //    //float suma = 0;
-
-
-
-
-        //}
 
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -451,6 +579,9 @@ namespace SimTP2Q.Presentación
 
         private void btnComparar_Click(object sender, EventArgs e)
         {
+
+            ingresoPorHora = ingresos[sumaLLamadas - 1];
+
             int n = int.Parse(txtN.Text);
             frmCallcenter frmCc = new frmCallcenter(n, ingresoPorHora);
             frmCc.ShowDialog();
