@@ -22,5 +22,18 @@ namespace SimTP2Q.Lógica
 
             return list;
         }
+
+        public List<float> DesordenarNumeros(List<float> lista)
+        {
+            Random rnd = new Random();
+            for (int i = lista.Count - 1; i > 0; i--)
+            {
+                int j = rnd.Next(i + 1);
+                float temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+            return lista;
+        }
     }
 }

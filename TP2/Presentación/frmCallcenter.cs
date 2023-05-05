@@ -43,6 +43,10 @@ namespace SimTP2Q.Presentación
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+
+            dgvMontecarlo.Rows.Clear();
+            dataGridView1.Rows.Clear();
+
             //int n = int.Parse(txtN.Text);
             float media = float.Parse(txtME.Text);
             float desviacion;
@@ -90,9 +94,9 @@ namespace SimTP2Q.Presentación
             float rndG = 0;
             string costo = "";
 
-            List<float> listAtencion = obNA.GenerarNumeros(sumaLLamadas);
+            List<float> listAtencion = obNA.DesordenarNumeros(obNA.GenerarNumeros(sumaLLamadas));
             List<float> listQuien = obNA.GenerarNumeros(sumaLLamadas);
-            List<float> listDemanda = obNA.GenerarNumeros(sumaLLamadas);
+            List<float> listDemanda = obNA.DesordenarNumeros(obNA.GenerarNumeros(sumaLLamadas));
             List<float> ListGasto = obNA.GenerarNumeros(sumaLLamadas);
 
             for (int j = 0; j < sumaLLamadas; j++)
@@ -108,7 +112,13 @@ namespace SimTP2Q.Presentación
                     //dataGridView1.Rows[j].Cells[1].Value = "No";
                     //dataGridView1.Rows[j].Cells[7].Value = "0";
                     //dataGridView1.Rows[j].Cells[8].Value = acumulador;
-
+                    
+                    rndQ = 0;
+                    sexo = "";
+                    rndD = 0;
+                    compra = "";
+                    rndG = 0;
+                    costo = "0";
                 }
                 else
                 {
@@ -198,6 +208,9 @@ namespace SimTP2Q.Presentación
                         else
                         {
                             compra = "No";
+                            //rndD = 0;
+                            rndG = 0;
+                            costo = "0";
                             //dataGridView1.Rows[j].Cells[5].Value = "No";
                             //dataGridView1.Rows[j].Cells[7].Value = "0";
                             //dataGridView1.Rows[j].Cells[8].Value = acumulador;
@@ -259,6 +272,8 @@ namespace SimTP2Q.Presentación
                         else
                         {
                             compra = "No";
+                            rndG = 0;
+                            costo = "0";
                             //dataGridView1.Rows[j].Cells[5].Value = "No";
                             //dataGridView1.Rows[j].Cells[7].Value = "0";
                             //dataGridView1.Rows[j].Cells[8].Value = acumulador;
@@ -273,29 +288,51 @@ namespace SimTP2Q.Presentación
 
 
             for (int h = 0; h < 1; h++)
+            {
+
+                dataGridView1.Rows.Add(1);
+                dataGridView1.Rows[h].DefaultCellStyle.BackColor = Color.Yellow;
+
+                dataGridView1.Rows[h].Cells[0].Value = rndA;
+                dataGridView1.Rows[h].Cells[1].Value = atiende;
+
+                if (rndQ == 0)
                 {
-
-                    dataGridView1.Rows.Add(1);
-                    dataGridView1.Rows[h].DefaultCellStyle.BackColor = Color.Yellow;
-
-                    dataGridView1.Rows[h].Cells[0].Value = rndA;
-                    dataGridView1.Rows[h].Cells[1].Value = atiende;
-
-                    dataGridView1.Rows[h].Cells[2].Value = rndQ;
-                    dataGridView1.Rows[h].Cells[3].Value = sexo;
-
-                    dataGridView1.Rows[h].Cells[4].Value = rndD;
-                    dataGridView1.Rows[h].Cells[5].Value = compra;
-
-                    dataGridView1.Rows[h].Cells[6].Value = rndG;
-                    dataGridView1.Rows[h].Cells[7].Value = costo;
-
-                    dataGridView1.Rows[h].Cells[8].Value = acumulador;
-                    ingresoPorHoraCC = (float)(dataGridView1.Rows[h].Cells[9].Value = acumulador / n);
-
+                    dataGridView1.Rows[h].Cells[2].Value = "";
                 }
+                else
+                {
+                    dataGridView1.Rows[h].Cells[2].Value = rndQ;
+                }
+                dataGridView1.Rows[h].Cells[3].Value = sexo;
 
-         
+                if (rndD == 0)
+                {
+                    dataGridView1.Rows[h].Cells[4].Value = "";
+                }
+                else
+                {
+                    dataGridView1.Rows[h].Cells[4].Value = rndD;
+                }             
+                dataGridView1.Rows[h].Cells[5].Value = compra;
+
+                if (rndG == 0)
+                {
+                    dataGridView1.Rows[h].Cells[6].Value = "";
+                }
+                else
+                {
+                    dataGridView1.Rows[h].Cells[6].Value = rndG;
+                }
+                dataGridView1.Rows[h].Cells[7].Value = costo;
+
+                dataGridView1.Rows[h].Cells[8].Value = acumulador;
+                ingresoPorHoraCC = (float)(dataGridView1.Rows[h].Cells[9].Value = acumulador / n);
+
+            }
+
+
+
 
         }
 
@@ -317,18 +354,23 @@ namespace SimTP2Q.Presentación
 
             if (ingresoNeto > ingresoPorHora)
             {
-                MessageBox.Show($"Ingreso por hora sin Callcenter  : {ingresoPorHora} \n" +
-                    $"Ingreso por hora con Callcenter : {ingresoPorHoraCC} \n\n" +
-                    $"Ingreso por hora con Callcenter menos la comisión : {ingresoNeto} \n\n" +
+                MessageBox.Show($"Ingreso por hora sin Callcenter  : {(Math.Truncate(ingresoPorHora*100))/100} $\n" +
+                    $"Ingreso por hora con Callcenter : {(Math.Truncate(ingresoPorHoraCC*100)/100)} $\n\n" +
+                    $"Ingreso por hora con Callcenter menos la comisión : {Math.Truncate(ingresoNeto*100)/100} $\n\n" +
                     $"Se recomienda contratar el Callcenter, puesto que sus ingresos son mayores.");
             }
             else
             {
-                MessageBox.Show($"Ingreso por hora sin Callcenter  : {ingresoPorHora} \n" +
-                    $"Ingreso por hora con Callcenter : {ingresoPorHoraCC} \n\n" +
-                    $"Ingreso por hora con Callcenter menos la comisión : {ingresoNeto} \n\n" +
+                MessageBox.Show($"Ingreso por hora sin Callcenter  : {(Math.Truncate(ingresoPorHora * 100)) / 100} $\n" +
+                    $"Ingreso por hora con Callcenter : {(Math.Truncate(ingresoPorHoraCC * 100) / 100)} $\n\n" +
+                    $"Ingreso por hora con Callcenter menos la comisión : {Math.Truncate(ingresoNeto * 100) / 100} $\n\n" +
                     $"Se recomienda NO contratar el Callcenter, puesto que sus ingresos son menores.");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

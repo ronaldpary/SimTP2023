@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,9 @@ namespace SimTP2Q.Presentación
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+            //dgvFinal.Rows.Clear();
+            dgvMontecarlo.Rows.Clear();
+
             int n = int.Parse(txtN.Text);
             float media = float.Parse(txtME.Text);
             float desviacion;
@@ -85,9 +89,9 @@ namespace SimTP2Q.Presentación
             float rndG = 0;
             string costo = "";
 
-            List<float> listAtencion = obNA.GenerarNumeros(sumaLLamadas);
+            List<float> listAtencion = obNA.DesordenarNumeros(obNA.GenerarNumeros(sumaLLamadas));
             List<float> listQuien = obNA.GenerarNumeros(sumaLLamadas);
-            List<float> listDemanda = obNA.GenerarNumeros(sumaLLamadas);
+            List<float> listDemanda = obNA.DesordenarNumeros(obNA.GenerarNumeros(sumaLLamadas));
             List<float> ListGasto = obNA.GenerarNumeros(sumaLLamadas);
 
 
@@ -152,7 +156,9 @@ namespace SimTP2Q.Presentación
                         newRow["¿Atiende?"] = atiende;
 
                         //row.Cells[3].Value = "No";
-                        
+
+                        //newRow["Rnd quien"] = 0;
+
 
                         //row.Cells[9].Value = "0";
                         newRow["Gasto en la rifa"] = "0";
@@ -160,7 +166,7 @@ namespace SimTP2Q.Presentación
                         //row.Cells[10].Value = acumulador;
                         newRow["Ingreso AC"] = acumulador;
 
-                        newRow["Ingreso por hora"] = acumulador / n;
+                        //newRow["Ingreso por hora"] = acumulador / n;
                         dt.Rows.Add(newRow);
 
                         //dataGridView2.Rows.Add(row);
@@ -232,7 +238,7 @@ namespace SimTP2Q.Presentación
                                     // ver
                                     //row.Cells[10].Value = acumulador;
 
-                                    newRow["Ingreso por hora"] = acumulador / n;
+                                    //newRow["Ingreso por hora"] = acumulador / n;
                                     dt.Rows.Add(newRow);
 
                                     //dataGridView2.Rows.Add(row);
@@ -253,7 +259,7 @@ namespace SimTP2Q.Presentación
 
                                         //row.Cells[10].Value = acumulador;
 
-                                        newRow["Ingreso por hora"] = acumulador / n;
+                                        //newRow["Ingreso por hora"] = acumulador / n;
                                         dt.Rows.Add(newRow);
 
                                         //dataGridView2.Rows.Add(row);
@@ -274,7 +280,7 @@ namespace SimTP2Q.Presentación
 
                                             //row.Cells[10].Value = acumulador;
 
-                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            //newRow["Ingreso por hora"] = acumulador / n;
                                             dt.Rows.Add(newRow);
 
                                             //dataGridView2.Rows.Add(row);
@@ -293,7 +299,7 @@ namespace SimTP2Q.Presentación
                                             //ver
                                             //row.Cells[10].Value = acumulador;
 
-                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            //newRow["Ingreso por hora"] = acumulador / n;
                                             dt.Rows.Add(newRow);
 
                                             //dataGridView2.Rows.Add(row);
@@ -319,7 +325,7 @@ namespace SimTP2Q.Presentación
                                 //row.Cells[10].Value = acumulador;
                                 newRow["Ingreso AC"] = acumulador;
 
-                                newRow["Ingreso por hora"] = acumulador / n;
+                                //newRow["Ingreso por hora"] = acumulador / n;
                                 dt.Rows.Add(newRow);
 
                                 //dataGridView2.Rows.Add(row);
@@ -352,7 +358,7 @@ namespace SimTP2Q.Presentación
 
                                     //row.Cells[10].Value = acumulador;
 
-                                    newRow["Ingreso por hora"] = acumulador / n;
+                                    //newRow["Ingreso por hora"] = acumulador / n;
                                     dt.Rows.Add(newRow);
 
                                     //dataGridView2.Rows.Add(row);
@@ -372,7 +378,7 @@ namespace SimTP2Q.Presentación
 
                                         //row.Cells[10].Value = acumulador;
 
-                                        newRow["Ingreso por hora"] = acumulador / n;
+                                        //newRow["Ingreso por hora"] = acumulador / n;
                                         dt.Rows.Add(newRow);
 
                                         //dataGridView2.Rows.Add(row);
@@ -393,7 +399,7 @@ namespace SimTP2Q.Presentación
 
                                             //row.Cells[10].Value = acumulador;
 
-                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            //newRow["Ingreso por hora"] = acumulador / n;
                                             dt.Rows.Add(newRow);
 
                                             //dataGridView2.Rows.Add(row);
@@ -411,7 +417,7 @@ namespace SimTP2Q.Presentación
 
                                             //row.Cells[10].Value = acumulador;
 
-                                            newRow["Ingreso por hora"] = acumulador / n;
+                                            //newRow["Ingreso por hora"] = acumulador / n;
                                             dt.Rows.Add(newRow);
 
                                             //dataGridView2.Rows.Add(row);
@@ -434,7 +440,7 @@ namespace SimTP2Q.Presentación
                                 //row.Cells[10].Value = acumulador;
                                 newRow["Ingreso AC"] = acumulador;
 
-                                newRow["Ingreso por hora"] = acumulador / n;
+                                //newRow["Ingreso por hora"] = acumulador / n;
                                 dt.Rows.Add(newRow);
 
                                 //dataGridView2.Rows.Add(row);
@@ -447,27 +453,30 @@ namespace SimTP2Q.Presentación
             }
 
 
-            DataRow fila = dt.NewRow();
+            //DataRow fila = dt.NewRow();
+            //fila["Hora"] = hora;
+            //fila["Llamada"] = rowIndex;
+            //fila["Rnd atención"] = rndA;
+            //fila["¿Atiende?"] = atiende;
+            //fila["Rnd quien"] = rndQ;
+            //fila["¿Quién?"] = sexo;
+            //fila["Rnd compra"] = rndD;
+            //fila["¿Compra?"] = compra;
+            //fila["Rnd gasto"] = rndG;
+            //fila["Gasto en la rifa"] = costo;
+            //fila["Ingreso AC"] = acumulador;
+            //fila["Ingreso por hora"] = acumulador/n;
 
-            fila["Hora"] = hora;
-            fila["Llamada"] = rowIndex;
-            fila["Rnd atención"] = rndA;
-            fila["¿Atiende?"] = atiende;
-            fila["Rnd quien"] = rndQ;
-            fila["¿Quién?"] = sexo;
-            fila["Rnd compra"] = rndD;
-            fila["¿Compra?"] = compra;
-            fila["Rnd gasto"] = rndG;
-            fila["Gasto en la rifa"] = costo;
-            fila["Ingreso AC"] = acumulador;
-            fila["Ingreso por hora"] = acumulador/n;
+            //dt.Rows.Add(fila);
 
-            dt.Rows.Add(fila);
+            //foreach (DataRow fila1 in dt.Rows)
+            //{
+            //    ingresos.Add((float)fila1["Ingreso por hora"]);
+            //}
 
-            foreach (DataRow fila1 in dt.Rows)
-            {
-                ingresos.Add((float)fila1["Ingreso por hora"]);
-            }
+
+
+
             //////////////////////////////////////////////////////////
 
 
@@ -501,6 +510,8 @@ namespace SimTP2Q.Presentación
                 DataTable last = dt.Clone();
                 last.ImportRow(dt.Rows[dt.Rows.Count - 1]);
 
+                ingresoPorHora = (float)(last.Rows[last.Rows.Count - 1]["Ingreso por hora"] = (float)Math.Truncate((acumulador / n)*100)/100);
+
                 dgvFinal.DataSource = last;
                 dgvFinal.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
             }
@@ -519,13 +530,37 @@ namespace SimTP2Q.Presentación
                 fila3["Llamada"] = rowIndex;
                 fila3["Rnd atención"] = rndA;
                 fila3["¿Atiende?"] = atiende;
-                fila3["Rnd quien"] = rndQ;
-                fila3["¿Quién?"] = sexo;
-                fila3["Rnd compra"] = rndD;
-                fila3["¿Compra?"] = compra;
-                fila3["Gasto en la rifa"] = costo;
-                fila3["Ingreso AC"] = acumulador;
-                fila3["Ingreso por hora"] = acumulador / n;
+
+                if (atiende == "No")
+                {
+                    fila3["Gasto en la rifa"] = "0";
+                    fila3["Ingreso AC"] = acumulador;
+                    ingresoPorHora = (float)(fila3["Ingreso por hora"] = (float)Math.Truncate(acumulador / n*100)/100);
+                }
+                else
+                {
+                    fila3["Rnd quien"] = rndQ;
+                    fila3["¿Quién?"] = sexo;
+                    fila3["Rnd compra"] = rndD;
+                    fila3["¿Compra?"] = compra;
+
+                    if (compra == "No")
+                    {
+                        fila3["Gasto en la rifa"] = "0";
+                        fila3["Ingreso AC"] = acumulador;
+                        ingresoPorHora = (float)(fila3["Ingreso por hora"] = (float)Math.Truncate(acumulador / n * 100) / 100);
+                    }
+                    else
+                    {
+                        fila3["Rnd gasto"] = rndG;
+                        fila3["Gasto en la rifa"] = costo;
+                        fila3["Ingreso AC"] = acumulador;
+                        ingresoPorHora = (float)(fila3["Ingreso por hora"] = (float)Math.Truncate(acumulador / n * 100) / 100);
+                    }
+                    
+                }
+                
+                
 
                 tablafinal.Rows.Add(fila3);
                 
@@ -570,6 +605,7 @@ namespace SimTP2Q.Presentación
         private void frmMontecarloV2_Load(object sender, EventArgs e)
         {
             //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Green;
+            //(List<float> listRnd, List<float> listDN) = obN.GenerarNumerosDENMontecarlo(desviacion, media, n / 2);
         }
 
         private void dgvVersion2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -579,8 +615,6 @@ namespace SimTP2Q.Presentación
 
         private void btnComparar_Click(object sender, EventArgs e)
         {
-
-            ingresoPorHora = ingresos[sumaLLamadas - 1];
 
             int n = int.Parse(txtN.Text);
             frmCallcenter frmCc = new frmCallcenter(n, ingresoPorHora);

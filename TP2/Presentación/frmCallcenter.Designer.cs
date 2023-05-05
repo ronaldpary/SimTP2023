@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDE = new System.Windows.Forms.TextBox();
@@ -37,6 +38,11 @@
             this.rndllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnSimular = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtN = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnConclusion = new System.Windows.Forms.Button();
             this.rndatiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.atiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndquien = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +53,6 @@
             this.gasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acugasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSimular = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtN = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnConclusion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -142,6 +143,58 @@
             this.dataGridView1.Size = new System.Drawing.Size(981, 69);
             this.dataGridView1.TabIndex = 21;
             // 
+            // btnSimular
+            // 
+            this.btnSimular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSimular.Location = new System.Drawing.Point(778, 73);
+            this.btnSimular.Name = "btnSimular";
+            this.btnSimular.Size = new System.Drawing.Size(75, 23);
+            this.btnSimular.TabIndex = 19;
+            this.btnSimular.Text = "Simular";
+            this.btnSimular.UseVisualStyleBackColor = true;
+            this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(573, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Comisión:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtN
+            // 
+            this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtN.Location = new System.Drawing.Point(654, 74);
+            this.txtN.Name = "txtN";
+            this.txtN.Size = new System.Drawing.Size(49, 22);
+            this.txtN.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(709, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 22);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "%";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnConclusion
+            // 
+            this.btnConclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConclusion.Location = new System.Drawing.Point(778, 228);
+            this.btnConclusion.Name = "btnConclusion";
+            this.btnConclusion.Size = new System.Drawing.Size(153, 28);
+            this.btnConclusion.TabIndex = 23;
+            this.btnConclusion.Text = "Recomendación";
+            this.btnConclusion.UseVisualStyleBackColor = true;
+            this.btnConclusion.Click += new System.EventHandler(this.btnConclusion_Click);
+            // 
             // rndatiende
             // 
             this.rndatiende.HeaderText = "Rnd atencion";
@@ -192,59 +245,11 @@
             // 
             // ingreso
             // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ingreso.DefaultCellStyle = dataGridViewCellStyle1;
             this.ingreso.HeaderText = "Ingreso por hora";
             this.ingreso.Name = "ingreso";
-            // 
-            // btnSimular
-            // 
-            this.btnSimular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimular.Location = new System.Drawing.Point(778, 75);
-            this.btnSimular.Name = "btnSimular";
-            this.btnSimular.Size = new System.Drawing.Size(75, 23);
-            this.btnSimular.TabIndex = 19;
-            this.btnSimular.Text = "Simular";
-            this.btnSimular.UseVisualStyleBackColor = true;
-            this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(578, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Comisión:";
-            // 
-            // txtN
-            // 
-            this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(659, 74);
-            this.txtN.Name = "txtN";
-            this.txtN.Size = new System.Drawing.Size(44, 22);
-            this.txtN.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(709, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 22);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "%";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // btnConclusion
-            // 
-            this.btnConclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConclusion.Location = new System.Drawing.Point(778, 228);
-            this.btnConclusion.Name = "btnConclusion";
-            this.btnConclusion.Size = new System.Drawing.Size(153, 23);
-            this.btnConclusion.TabIndex = 23;
-            this.btnConclusion.Text = "Recomendación";
-            this.btnConclusion.UseVisualStyleBackColor = true;
-            this.btnConclusion.Click += new System.EventHandler(this.btnConclusion_Click);
             // 
             // frmCallcenter
             // 
@@ -284,6 +289,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rndllamadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadllamadas;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnSimular;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnConclusion;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndatiende;
         private System.Windows.Forms.DataGridViewTextBoxColumn atiende;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndquien;
@@ -294,10 +304,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gasto;
         private System.Windows.Forms.DataGridViewTextBoxColumn acugasto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingreso;
-        private System.Windows.Forms.Button btnSimular;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtN;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnConclusion;
     }
 }
