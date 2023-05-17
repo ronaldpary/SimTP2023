@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDE = new System.Windows.Forms.TextBox();
@@ -37,24 +36,18 @@
             this.Horas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSimular = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtN = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnConclusion = new System.Windows.Forms.Button();
-            this.rndatiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndquien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnddemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndgasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acugasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelDesde = new System.Windows.Forms.Label();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.dgvFinal = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinal)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -122,31 +115,10 @@
             this.cantidadllamadas.HeaderText = "Cantidad de llamadas";
             this.cantidadllamadas.Name = "cantidadllamadas";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rndatiende,
-            this.atiende,
-            this.rndquien,
-            this.quien,
-            this.rnddemanda,
-            this.compra,
-            this.rndgasto,
-            this.gasto,
-            this.acugasto,
-            this.ingreso});
-            this.dataGridView1.Location = new System.Drawing.Point(389, 120);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(981, 69);
-            this.dataGridView1.TabIndex = 21;
-            // 
             // btnSimular
             // 
             this.btnSimular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimular.Location = new System.Drawing.Point(778, 73);
+            this.btnSimular.Location = new System.Drawing.Point(1034, 75);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(75, 23);
             this.btnSimular.TabIndex = 19;
@@ -158,7 +130,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(573, 78);
+            this.label1.Location = new System.Drawing.Point(829, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 20;
@@ -168,7 +140,7 @@
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(654, 74);
+            this.txtN.Location = new System.Drawing.Point(910, 76);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(49, 22);
             this.txtN.TabIndex = 18;
@@ -177,7 +149,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(709, 74);
+            this.label4.Location = new System.Drawing.Point(965, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 22);
             this.label4.TabIndex = 22;
@@ -187,7 +159,7 @@
             // btnConclusion
             // 
             this.btnConclusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConclusion.Location = new System.Drawing.Point(778, 228);
+            this.btnConclusion.Location = new System.Drawing.Point(956, 396);
             this.btnConclusion.Name = "btnConclusion";
             this.btnConclusion.Size = new System.Drawing.Size(153, 28);
             this.btnConclusion.TabIndex = 23;
@@ -195,70 +167,67 @@
             this.btnConclusion.UseVisualStyleBackColor = true;
             this.btnConclusion.Click += new System.EventHandler(this.btnConclusion_Click);
             // 
-            // rndatiende
+            // label5
             // 
-            this.rndatiende.HeaderText = "Rnd atencion";
-            this.rndatiende.Name = "rndatiende";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(583, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Hasta:";
             // 
-            // atiende
+            // labelDesde
             // 
-            this.atiende.HeaderText = "¿Atiende?";
-            this.atiende.Name = "atiende";
-            this.atiende.Width = 75;
+            this.labelDesde.AutoSize = true;
+            this.labelDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDesde.Location = new System.Drawing.Point(386, 78);
+            this.labelDesde.Name = "labelDesde";
+            this.labelDesde.Size = new System.Drawing.Size(57, 16);
+            this.labelDesde.TabIndex = 26;
+            this.labelDesde.Text = "Desde:";
             // 
-            // rndquien
+            // txtHasta
             // 
-            this.rndquien.HeaderText = "Rnd quien";
-            this.rndquien.Name = "rndquien";
+            this.txtHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHasta.Location = new System.Drawing.Point(641, 75);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(100, 22);
+            this.txtHasta.TabIndex = 25;
             // 
-            // quien
+            // txtDesde
             // 
-            this.quien.HeaderText = "¿Quien?";
-            this.quien.Name = "quien";
+            this.txtDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesde.Location = new System.Drawing.Point(449, 75);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.Size = new System.Drawing.Size(100, 22);
+            this.txtDesde.TabIndex = 24;
             // 
-            // rnddemanda
+            // dgvFinal
             // 
-            this.rnddemanda.HeaderText = "Rnd compra";
-            this.rnddemanda.Name = "rnddemanda";
-            // 
-            // compra
-            // 
-            this.compra.HeaderText = "¿Compra?";
-            this.compra.Name = "compra";
-            this.compra.Width = 75;
-            // 
-            // rndgasto
-            // 
-            this.rndgasto.HeaderText = "Rnd gasto";
-            this.rndgasto.Name = "rndgasto";
-            // 
-            // gasto
-            // 
-            this.gasto.HeaderText = "Gasto en la rifa";
-            this.gasto.Name = "gasto";
-            this.gasto.Width = 75;
-            // 
-            // acugasto
-            // 
-            this.acugasto.HeaderText = "Ingreso AC";
-            this.acugasto.Name = "acugasto";
-            // 
-            // ingreso
-            // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ingreso.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ingreso.HeaderText = "Ingreso por hora";
-            this.ingreso.Name = "ingreso";
+            this.dgvFinal.AllowUserToAddRows = false;
+            this.dgvFinal.AllowUserToDeleteRows = false;
+            this.dgvFinal.AllowUserToResizeColumns = false;
+            this.dgvFinal.AllowUserToResizeRows = false;
+            this.dgvFinal.ColumnHeadersHeight = 40;
+            this.dgvFinal.Location = new System.Drawing.Point(389, 120);
+            this.dgvFinal.Name = "dgvFinal";
+            this.dgvFinal.RowHeadersWidth = 50;
+            this.dgvFinal.Size = new System.Drawing.Size(720, 258);
+            this.dgvFinal.TabIndex = 28;
             // 
             // frmCallcenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 452);
+            this.ClientSize = new System.Drawing.Size(1162, 452);
+            this.Controls.Add(this.dgvFinal);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelDesde);
+            this.Controls.Add(this.txtHasta);
+            this.Controls.Add(this.txtDesde);
             this.Controls.Add(this.btnConclusion);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.txtN);
@@ -272,7 +241,7 @@
             this.Text = "Callcenter";
             this.Load += new System.EventHandler(this.frmCallcenter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,21 +257,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Horas;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndllamadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadllamadas;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtN;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnConclusion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rndatiende;
-        private System.Windows.Forms.DataGridViewTextBoxColumn atiende;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rndquien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnddemanda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rndgasto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gasto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acugasto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ingreso;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelDesde;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.DataGridView dgvFinal;
     }
 }

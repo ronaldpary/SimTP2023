@@ -32,6 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGrafico));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -51,8 +52,20 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rndatiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atiende = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndquien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnddemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndgasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acugasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -207,12 +220,90 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "Ingreso por hora";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rndatiende,
+            this.atiende,
+            this.rndquien,
+            this.quien,
+            this.rnddemanda,
+            this.compra,
+            this.rndgasto,
+            this.gasto,
+            this.acugasto,
+            this.ingreso});
+            this.dataGridView1.Location = new System.Drawing.Point(150, 259);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 50;
+            this.dataGridView1.Size = new System.Drawing.Size(981, 69);
+            this.dataGridView1.TabIndex = 28;
+            // 
+            // rndatiende
+            // 
+            this.rndatiende.HeaderText = "Rnd atencion";
+            this.rndatiende.Name = "rndatiende";
+            // 
+            // atiende
+            // 
+            this.atiende.HeaderText = "¿Atiende?";
+            this.atiende.Name = "atiende";
+            this.atiende.Width = 75;
+            // 
+            // rndquien
+            // 
+            this.rndquien.HeaderText = "Rnd quien";
+            this.rndquien.Name = "rndquien";
+            // 
+            // quien
+            // 
+            this.quien.HeaderText = "¿Quien?";
+            this.quien.Name = "quien";
+            // 
+            // rnddemanda
+            // 
+            this.rnddemanda.HeaderText = "Rnd compra";
+            this.rnddemanda.Name = "rnddemanda";
+            // 
+            // compra
+            // 
+            this.compra.HeaderText = "¿Compra?";
+            this.compra.Name = "compra";
+            this.compra.Width = 75;
+            // 
+            // rndgasto
+            // 
+            this.rndgasto.HeaderText = "Rnd gasto";
+            this.rndgasto.Name = "rndgasto";
+            // 
+            // gasto
+            // 
+            this.gasto.HeaderText = "Gasto en la rifa";
+            this.gasto.Name = "gasto";
+            this.gasto.Width = 75;
+            // 
+            // acugasto
+            // 
+            this.acugasto.HeaderText = "Ingreso AC";
+            this.acugasto.Name = "acugasto";
+            // 
+            // ingreso
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ingreso.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ingreso.HeaderText = "Ingreso por hora";
+            this.ingreso.Name = "ingreso";
+            // 
             // frmGrafico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1281, 587);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnGraficar);
             this.Controls.Add(this.chart2);
@@ -224,6 +315,7 @@
             this.Load += new System.EventHandler(this.frmGrafico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +341,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndatiende;
+        private System.Windows.Forms.DataGridViewTextBoxColumn atiende;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndquien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnddemanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndgasto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gasto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acugasto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingreso;
     }
 }
