@@ -811,5 +811,10 @@ namespace SimTP2Q.Presentación
         {
 
         }
+
+        private void txtN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
