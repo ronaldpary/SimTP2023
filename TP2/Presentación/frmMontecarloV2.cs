@@ -42,6 +42,7 @@ namespace SimTP2Q.Presentación
         private void btnSimular_Click(object sender, EventArgs e)
         {
             //dgvFinal.Rows.Clear();
+            //v
             dgvMontecarlo.Rows.Clear();
 
             int n = int.Parse(txtN.Text);
