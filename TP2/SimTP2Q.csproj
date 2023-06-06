@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lógica\Exponencial.cs" />
+    <Compile Include="Lógica\LlamadaMontecarlo.cs" />
     <Compile Include="Lógica\Normal.cs" />
     <Compile Include="Lógica\NumerosAleatorios.cs" />
     <Compile Include="Lógica\Poisson.cs" />
@@ -152,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FONDO SIM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_190633688-stock-photo-ticket-icon-vector-line-raffle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boleto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

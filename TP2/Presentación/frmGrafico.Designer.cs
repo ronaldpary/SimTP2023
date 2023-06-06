@@ -149,7 +149,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-            this.dataGridView2.Location = new System.Drawing.Point(72, 429);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 361);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 50;
             this.dataGridView2.Size = new System.Drawing.Size(1095, 146);
@@ -235,10 +235,10 @@
             this.gasto,
             this.acugasto,
             this.ingreso});
-            this.dataGridView1.Location = new System.Drawing.Point(150, 259);
+            this.dataGridView1.Location = new System.Drawing.Point(-167, 242);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(981, 69);
+            this.dataGridView1.Size = new System.Drawing.Size(1081, 69);
             this.dataGridView1.TabIndex = 28;
             // 
             // rndatiende

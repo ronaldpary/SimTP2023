@@ -43,9 +43,7 @@ namespace SimTP2Q.Lógica
 
             for (int i = 0; i < n; i++)
             {
-                //List<float> list = oNA.GenerarNumeros(2);
-                //float rnd1 = list[0];
-                //float rnd2 = list[1];
+                
                 float rnd1 = (float)generador.NextDouble();
                 float rnd2 = (float)generador.NextDouble();
                 listRnd.Add(rnd1);

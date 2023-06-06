@@ -44,7 +44,6 @@
             this.txtHasta = new System.Windows.Forms.TextBox();
             this.txtDesde = new System.Windows.Forms.TextBox();
             this.btnComparar = new System.Windows.Forms.Button();
-            this.dgvFinal = new System.Windows.Forms.DataGridView();
             this.dgvCC = new System.Windows.Forms.DataGridView();
             this.dgvCallCenter = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,17 +62,30 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtCom = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.horafinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCallCenter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(793, 74);
+            this.label1.Location = new System.Drawing.Point(708, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 16);
             this.label1.TabIndex = 7;
@@ -81,19 +93,20 @@
             // 
             // btnSimular
             // 
+            this.btnSimular.BackColor = System.Drawing.SystemColors.Control;
             this.btnSimular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimular.Location = new System.Drawing.Point(1063, 72);
+            this.btnSimular.Location = new System.Drawing.Point(978, 57);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(75, 23);
             this.btnSimular.TabIndex = 6;
             this.btnSimular.Text = "Simular";
-            this.btnSimular.UseVisualStyleBackColor = true;
+            this.btnSimular.UseVisualStyleBackColor = false;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
             // 
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(937, 72);
+            this.txtN.Location = new System.Drawing.Point(852, 57);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 22);
             this.txtN.TabIndex = 5;
@@ -109,7 +122,7 @@
             this.Horas,
             this.rndllamadas,
             this.cantidadllamadas});
-            this.dgvMontecarlo.Location = new System.Drawing.Point(38, 105);
+            this.dgvMontecarlo.Location = new System.Drawing.Point(25, 90);
             this.dgvMontecarlo.Name = "dgvMontecarlo";
             this.dgvMontecarlo.Size = new System.Drawing.Size(252, 190);
             this.dgvMontecarlo.TabIndex = 4;
@@ -136,7 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(93, 71);
+            this.label3.Location = new System.Drawing.Point(80, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 16);
             this.label3.TabIndex = 12;
@@ -146,7 +159,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 37);
+            this.label2.Location = new System.Drawing.Point(115, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 11;
@@ -155,7 +168,7 @@
             // txtDE
             // 
             this.txtDE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDE.Location = new System.Drawing.Point(190, 68);
+            this.txtDE.Location = new System.Drawing.Point(177, 53);
             this.txtDE.Name = "txtDE";
             this.txtDE.Size = new System.Drawing.Size(100, 22);
             this.txtDE.TabIndex = 10;
@@ -163,7 +176,7 @@
             // txtME
             // 
             this.txtME.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtME.Location = new System.Drawing.Point(188, 34);
+            this.txtME.Location = new System.Drawing.Point(175, 19);
             this.txtME.Name = "txtME";
             this.txtME.Size = new System.Drawing.Size(100, 22);
             this.txtME.TabIndex = 9;
@@ -172,7 +185,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(597, 71);
+            this.label4.Location = new System.Drawing.Point(512, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 17;
@@ -182,7 +195,7 @@
             // 
             this.labelDesde.AutoSize = true;
             this.labelDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDesde.Location = new System.Drawing.Point(423, 71);
+            this.labelDesde.Location = new System.Drawing.Point(338, 56);
             this.labelDesde.Name = "labelDesde";
             this.labelDesde.Size = new System.Drawing.Size(57, 16);
             this.labelDesde.TabIndex = 16;
@@ -190,8 +203,9 @@
             // 
             // txtHasta
             // 
+            this.txtHasta.Enabled = false;
             this.txtHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHasta.Location = new System.Drawing.Point(655, 68);
+            this.txtHasta.Location = new System.Drawing.Point(570, 53);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(100, 22);
             this.txtHasta.TabIndex = 15;
@@ -199,7 +213,7 @@
             // txtDesde
             // 
             this.txtDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesde.Location = new System.Drawing.Point(486, 68);
+            this.txtDesde.Location = new System.Drawing.Point(401, 53);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(100, 22);
             this.txtDesde.TabIndex = 14;
@@ -207,26 +221,13 @@
             // btnComparar
             // 
             this.btnComparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComparar.Location = new System.Drawing.Point(1027, 654);
+            this.btnComparar.Location = new System.Drawing.Point(942, 639);
             this.btnComparar.Name = "btnComparar";
             this.btnComparar.Size = new System.Drawing.Size(111, 59);
             this.btnComparar.TabIndex = 18;
             this.btnComparar.Text = "Analizar rendimiento Callcenter";
             this.btnComparar.UseVisualStyleBackColor = true;
             this.btnComparar.Click += new System.EventHandler(this.btnComparar_Click);
-            // 
-            // dgvFinal
-            // 
-            this.dgvFinal.AllowUserToAddRows = false;
-            this.dgvFinal.AllowUserToDeleteRows = false;
-            this.dgvFinal.AllowUserToResizeColumns = false;
-            this.dgvFinal.AllowUserToResizeRows = false;
-            this.dgvFinal.ColumnHeadersHeight = 40;
-            this.dgvFinal.Location = new System.Drawing.Point(418, 105);
-            this.dgvFinal.Name = "dgvFinal";
-            this.dgvFinal.RowHeadersWidth = 50;
-            this.dgvFinal.Size = new System.Drawing.Size(720, 190);
-            this.dgvFinal.TabIndex = 27;
             // 
             // dgvCC
             // 
@@ -235,7 +236,7 @@
             this.dgvCC.AllowUserToResizeColumns = false;
             this.dgvCC.AllowUserToResizeRows = false;
             this.dgvCC.ColumnHeadersHeight = 40;
-            this.dgvCC.Location = new System.Drawing.Point(418, 451);
+            this.dgvCC.Location = new System.Drawing.Point(333, 436);
             this.dgvCC.Name = "dgvCC";
             this.dgvCC.RowHeadersWidth = 50;
             this.dgvCC.Size = new System.Drawing.Size(720, 190);
@@ -252,7 +253,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dgvCallCenter.Location = new System.Drawing.Point(38, 451);
+            this.dgvCallCenter.Location = new System.Drawing.Point(25, 436);
             this.dgvCallCenter.Name = "dgvCallCenter";
             this.dgvCallCenter.Size = new System.Drawing.Size(252, 190);
             this.dgvCallCenter.TabIndex = 28;
@@ -279,7 +280,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(597, 417);
+            this.label5.Location = new System.Drawing.Point(512, 402);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 16);
             this.label5.TabIndex = 37;
@@ -289,7 +290,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(423, 417);
+            this.label6.Location = new System.Drawing.Point(338, 402);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 36;
@@ -298,7 +299,7 @@
             // txtH
             // 
             this.txtH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtH.Location = new System.Drawing.Point(655, 414);
+            this.txtH.Location = new System.Drawing.Point(570, 399);
             this.txtH.Name = "txtH";
             this.txtH.Size = new System.Drawing.Size(100, 22);
             this.txtH.TabIndex = 35;
@@ -306,7 +307,7 @@
             // txtD
             // 
             this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtD.Location = new System.Drawing.Point(486, 414);
+            this.txtD.Location = new System.Drawing.Point(401, 399);
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(100, 22);
             this.txtD.TabIndex = 34;
@@ -315,7 +316,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(95, 417);
+            this.label7.Location = new System.Drawing.Point(82, 402);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 16);
             this.label7.TabIndex = 33;
@@ -325,7 +326,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(130, 383);
+            this.label8.Location = new System.Drawing.Point(117, 368);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 16);
             this.label8.TabIndex = 32;
@@ -334,7 +335,7 @@
             // txtDesviacion
             // 
             this.txtDesviacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesviacion.Location = new System.Drawing.Point(190, 414);
+            this.txtDesviacion.Location = new System.Drawing.Point(177, 399);
             this.txtDesviacion.Name = "txtDesviacion";
             this.txtDesviacion.Size = new System.Drawing.Size(100, 22);
             this.txtDesviacion.TabIndex = 31;
@@ -342,7 +343,7 @@
             // txtMedia
             // 
             this.txtMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedia.Location = new System.Drawing.Point(190, 380);
+            this.txtMedia.Location = new System.Drawing.Point(177, 365);
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(100, 22);
             this.txtMedia.TabIndex = 30;
@@ -351,7 +352,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(994, 413);
+            this.label9.Location = new System.Drawing.Point(909, 398);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 22);
             this.label9.TabIndex = 41;
@@ -361,7 +362,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(858, 417);
+            this.label10.Location = new System.Drawing.Point(773, 402);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 16);
             this.label10.TabIndex = 40;
@@ -370,7 +371,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1063, 412);
+            this.button1.Location = new System.Drawing.Point(978, 397);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 39;
@@ -381,27 +382,116 @@
             // txtCom
             // 
             this.txtCom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCom.Location = new System.Drawing.Point(939, 413);
+            this.txtCom.Location = new System.Drawing.Point(854, 398);
             this.txtCom.Name = "txtCom";
             this.txtCom.Size = new System.Drawing.Size(49, 22);
             this.txtCom.TabIndex = 38;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(71, 338);
+            this.label11.Location = new System.Drawing.Point(58, 323);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 24);
             this.label11.TabIndex = 42;
             this.label11.Text = "Call Center";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.horafinal,
+            this.llamada,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.dataGridView1.Location = new System.Drawing.Point(333, 90);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 50;
+            this.dataGridView1.Size = new System.Drawing.Size(720, 190);
+            this.dataGridView1.TabIndex = 43;
+            // 
+            // horafinal
+            // 
+            this.horafinal.HeaderText = "Hora";
+            this.horafinal.Name = "horafinal";
+            this.horafinal.Width = 40;
+            // 
+            // llamada
+            // 
+            this.llamada.HeaderText = "Llamada";
+            this.llamada.Name = "llamada";
+            this.llamada.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Rnd atencion";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "¿Atiende?";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Rnd quien";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "¿Quien?";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Rnd compra";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "¿Compra?";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Rnd gasto";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Gasto en la rifa";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Ingreso AC";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Ingreso por hora";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
             // frmMontecarloV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::SimTP2Q.Properties.Resources.FONDO_SIM;
-            this.ClientSize = new System.Drawing.Size(1261, 725);
+            this.ClientSize = new System.Drawing.Size(1080, 729);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -417,7 +507,6 @@
             this.Controls.Add(this.txtMedia);
             this.Controls.Add(this.dgvCC);
             this.Controls.Add(this.dgvCallCenter);
-            this.Controls.Add(this.dgvFinal);
             this.Controls.Add(this.btnComparar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelDesde);
@@ -431,14 +520,15 @@
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.txtN);
             this.Controls.Add(this.dgvMontecarlo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMontecarloV2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ingreso por la venta de Rifas";
+            this.Text = "Rifas";
             this.Load += new System.EventHandler(this.frmMontecarloV2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCallCenter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +549,6 @@
         private System.Windows.Forms.TextBox txtHasta;
         private System.Windows.Forms.TextBox txtDesde;
         private System.Windows.Forms.Button btnComparar;
-        private System.Windows.Forms.DataGridView dgvFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horas;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndllamadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadllamadas;
@@ -481,5 +570,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCom;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horafinal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn llamada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
     }
 }
