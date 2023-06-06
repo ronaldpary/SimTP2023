@@ -54,13 +54,14 @@ namespace SimTP2Q.Presentación
         double ingreso_hora;
 
         int sumaLlamadas = 0;
+        int contador = 0;
+
 
         List<int> lista_de_LLamadas = new List<int>();
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
 
-            cargarPrimerTabla();
 
             if (txtN.Text == "" || txtDE.Text == "" || txtME.Text == "" || txtDesde.Text == "")
             {
@@ -68,55 +69,57 @@ namespace SimTP2Q.Presentación
             }
             else
             {
+                cargarPrimerTabla();
+
                 desde = int.Parse(txtDesde.Text);
                 simulaciones = sumaLlamadas;
+                hasta = desde + 500;
+
+                txtHasta.Text = Convert.ToString(hasta);
+                textLlamada.Text = Convert.ToString(simulaciones+1);
 
                 if (desde < simulaciones)
                 {
-                    hasta = desde + 500;
+                    for (int i = 0; i < lista_de_LLamadas.Count; i++)
+                    {
+                        int numero = lista_de_LLamadas[i];
+
+                        for (int j = 0; j < numero; j++)
+                        {
+
+                            hora = i + 1;
+
+                            contador = contador + 1;
+
+                            if (contador >= desde && contador <= hasta)
+                            {
+                                simular();
+                                cargarGrilla();
+                            }
+                            else
+                            {
+                                simular();
+                                
+                            }
 
 
-                    for (int i = 0; i < desde; i++)
+                        }
+                    }
+
+                    if (contador==simulaciones)
                     {
                         simular();
+                        cargarGrilla();
                     }
-                    cargarGrilla();
 
-
-                    if (hasta > simulaciones)
-                    {
-                        for (int i = 0; i < (simulaciones - desde); i++)
-                        {
-                            simular();
-                            cargarGrilla();
-                        }
-                    }
-                    else
-                    {
-                        for (int i = 0; i < 500; i++)
-                        {
-                            simular();
-                            cargarGrilla();
-                        }
-
-                        for (int i = 0; i < (simulaciones - hasta - 1); i++)
-                        {
-                            simular();
-                        }
-
-                        if (hasta != simulaciones)
-                        {
-                            simular();
-                            cargarGrilla();
-                        }
-
-                    }
+                    dataGridView1.Rows[501].DefaultCellStyle.BackColor = Color.Yellow;
 
                 }
                 else
                 {
                     MessageBox.Show("Ingrese un desde menor al de la cantidad de llamadas");
                 }
+                
             }
 
 
@@ -159,23 +162,13 @@ namespace SimTP2Q.Presentación
             sumaLlamadas = lista_de_LLamadas.Sum();
 
 
-
-
-
         }
 
         private void cargarGrilla()
         {
-            //for (int i = 0; i < lista_de_LLamadas.Count; i++)
-            //{
-            //    int numero = lista_de_LLamadas[i];
-
-            //    for (int j = 0; j < numero; j++)
-            //    {
-            //        hora = i + 1;
-            //    }
-            //}
+            
             dataGridView1.Rows.Add(hora, Convert.ToString(llamadas), rnd_atencion, atencion, rnd_quien, quien, rnd_compra, compra, rnd_gasto, gasto, ingresoAC, ingreso_hora);
+
         }
 
         private void simular()
@@ -187,6 +180,7 @@ namespace SimTP2Q.Presentación
 
         private void atiende()
         {
+            //int n = int.Parse(txtN.Text);
             if (rnd_atencion < (float)3 / 20)
             {
                 atencion = "No";
@@ -199,6 +193,7 @@ namespace SimTP2Q.Presentación
                 gasto = 0;
 
                 ingresoAC = ingresoAC + 0;
+                //ingreso_hora = ingresoAC / n;
             }
             else
             {
@@ -225,6 +220,7 @@ namespace SimTP2Q.Presentación
 
         private void compraRifa()
         {
+            //int n = int.Parse(txtN.Text);
             if (quien == "Mujer")
             {
                 if (rnd_compra < (float)7 / 10)
@@ -239,6 +235,7 @@ namespace SimTP2Q.Presentación
                     rnd_gasto = 0;
                     gasto = 0;
                     ingresoAC = ingresoAC + 0;
+                    //ingreso_hora = ingresoAC / n;
                 }
             }
             else
@@ -255,16 +252,19 @@ namespace SimTP2Q.Presentación
                     rnd_gasto = 0;
                     gasto = 0;
                     ingresoAC = ingresoAC + 0;
+                    //ingreso_hora = ingresoAC / n;
                 }
             }
         }
 
         private void gastoMujer()
         {
+            //int n = int.Parse(txtN.Text);
             if (rnd_gasto < (float)2 / 10)
             {
                 gasto = 5;
                 ingresoAC = ingresoAC + gasto;
+                //ingreso_hora = ingresoAC / n;
             }
             else
             {
@@ -272,6 +272,7 @@ namespace SimTP2Q.Presentación
                 {
                     gasto = 10;
                     ingresoAC = ingresoAC + gasto;
+                    //ingreso_hora = ingresoAC / n;
                 }
                 else
                 {
@@ -279,11 +280,13 @@ namespace SimTP2Q.Presentación
                     {
                         gasto = 15;
                         ingresoAC = ingresoAC + gasto;
+                        //ingreso_hora = ingresoAC / n;
                     }
                     else
                     {
                         gasto = 25;
                         ingresoAC = ingresoAC + gasto;
+                        //ingreso_hora = ingresoAC / n;
                     }
                 }
             }
@@ -291,10 +294,12 @@ namespace SimTP2Q.Presentación
 
         private void gastoHombre()
         {
+            //int n = int.Parse(txtN.Text);
             if (rnd_gasto < (float)2 / 40)
             {
                 gasto = 5;
                 ingresoAC = ingresoAC + gasto;
+                //ingreso_hora = ingresoAC / n;
             }
             else
             {
@@ -302,6 +307,7 @@ namespace SimTP2Q.Presentación
                 {
                     gasto = 10;
                     ingresoAC = ingresoAC + gasto;
+                    //ingreso_hora = ingresoAC / n;
                 }
                 else
                 {
@@ -309,11 +315,13 @@ namespace SimTP2Q.Presentación
                     {
                         gasto = 15;
                         ingresoAC = ingresoAC + gasto;
+                        //ingreso_hora = ingresoAC / n;
                     }
                     else
                     {
                         gasto = 25;
                         ingresoAC = ingresoAC + gasto;
+                        //ingreso_hora = ingresoAC / n;
                     }
                 }
             }

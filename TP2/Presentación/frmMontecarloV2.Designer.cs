@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSimular = new System.Windows.Forms.Button();
             this.txtN = new System.Windows.Forms.TextBox();
-            this.dgvMontecarlo = new System.Windows.Forms.DataGridView();
-            this.Horas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadllamadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDE = new System.Windows.Forms.TextBox();
@@ -75,7 +72,8 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).BeginInit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textLlamada = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCallCenter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(708, 59);
+            this.label1.Location = new System.Drawing.Point(560, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 16);
             this.label1.TabIndex = 7;
@@ -106,44 +104,10 @@
             // txtN
             // 
             this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN.Location = new System.Drawing.Point(852, 57);
+            this.txtN.Location = new System.Drawing.Point(704, 19);
             this.txtN.Name = "txtN";
             this.txtN.Size = new System.Drawing.Size(100, 22);
             this.txtN.TabIndex = 5;
-            // 
-            // dgvMontecarlo
-            // 
-            this.dgvMontecarlo.AllowUserToAddRows = false;
-            this.dgvMontecarlo.AllowUserToDeleteRows = false;
-            this.dgvMontecarlo.AllowUserToResizeColumns = false;
-            this.dgvMontecarlo.AllowUserToResizeRows = false;
-            this.dgvMontecarlo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMontecarlo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Horas,
-            this.rndllamadas,
-            this.cantidadllamadas});
-            this.dgvMontecarlo.Location = new System.Drawing.Point(25, 90);
-            this.dgvMontecarlo.Name = "dgvMontecarlo";
-            this.dgvMontecarlo.Size = new System.Drawing.Size(252, 190);
-            this.dgvMontecarlo.TabIndex = 4;
-            // 
-            // Horas
-            // 
-            this.Horas.HeaderText = "Hora";
-            this.Horas.Name = "Horas";
-            this.Horas.Width = 40;
-            // 
-            // rndllamadas
-            // 
-            this.rndllamadas.HeaderText = "Rnd llamadas";
-            this.rndllamadas.Name = "rndllamadas";
-            this.rndllamadas.Width = 75;
-            // 
-            // cantidadllamadas
-            // 
-            this.cantidadllamadas.HeaderText = "Cantidad de llamadas";
-            this.cantidadllamadas.Name = "cantidadllamadas";
-            this.cantidadllamadas.Width = 75;
             // 
             // label3
             // 
@@ -185,7 +149,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(512, 56);
+            this.label4.Location = new System.Drawing.Point(343, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 17;
@@ -195,7 +159,7 @@
             // 
             this.labelDesde.AutoSize = true;
             this.labelDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDesde.Location = new System.Drawing.Point(338, 56);
+            this.labelDesde.Location = new System.Drawing.Point(338, 22);
             this.labelDesde.Name = "labelDesde";
             this.labelDesde.Size = new System.Drawing.Size(57, 16);
             this.labelDesde.TabIndex = 16;
@@ -205,7 +169,7 @@
             // 
             this.txtHasta.Enabled = false;
             this.txtHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHasta.Location = new System.Drawing.Point(570, 53);
+            this.txtHasta.Location = new System.Drawing.Point(401, 53);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(100, 22);
             this.txtHasta.TabIndex = 15;
@@ -213,7 +177,7 @@
             // txtDesde
             // 
             this.txtDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesde.Location = new System.Drawing.Point(401, 53);
+            this.txtDesde.Location = new System.Drawing.Point(401, 19);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(100, 22);
             this.txtDesde.TabIndex = 14;
@@ -413,10 +377,20 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
-            this.dataGridView1.Location = new System.Drawing.Point(333, 90);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(25, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(1028, 190);
             this.dataGridView1.TabIndex = 43;
             // 
             // horafinal
@@ -484,6 +458,25 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "Ingreso por hora";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(619, 57);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 16);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Llamadas:";
+            // 
+            // textLlamada
+            // 
+            this.textLlamada.Enabled = false;
+            this.textLlamada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLlamada.Location = new System.Drawing.Point(704, 54);
+            this.textLlamada.Name = "textLlamada";
+            this.textLlamada.Size = new System.Drawing.Size(100, 22);
+            this.textLlamada.TabIndex = 44;
+            // 
             // frmMontecarloV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,6 +484,8 @@
             this.AutoSize = true;
             this.BackgroundImage = global::SimTP2Q.Properties.Resources.FONDO_SIM;
             this.ClientSize = new System.Drawing.Size(1080, 729);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textLlamada);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
@@ -519,13 +514,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.txtN);
-            this.Controls.Add(this.dgvMontecarlo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMontecarloV2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rifas";
             this.Load += new System.EventHandler(this.frmMontecarloV2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontecarlo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCallCenter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -539,7 +532,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.TextBox txtN;
-        private System.Windows.Forms.DataGridView dgvMontecarlo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDE;
@@ -549,9 +541,6 @@
         private System.Windows.Forms.TextBox txtHasta;
         private System.Windows.Forms.TextBox txtDesde;
         private System.Windows.Forms.Button btnComparar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Horas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rndllamadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadllamadas;
         private System.Windows.Forms.DataGridView dgvCC;
         private System.Windows.Forms.DataGridView dgvCallCenter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -583,5 +572,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textLlamada;
     }
 }
