@@ -98,12 +98,12 @@ namespace SimTP2Q.Lógica
                     Cliente trenCreado = eventos.proximaLLegada();
                     nombreEvento = "Llegada de tren " + "(" + trenCreado.numero.ToString() + ")";
                     
-                    //simulacion.limpiarColumnasRevision();
+                    //simulacion.ColumnasFinDescarga();
                 }
                 else
                 {
                     // ver como limpiar
-                    simulacion.limpiarContenedores();
+                    //simulacion.limpiarContenedores();
                     if (siguienteTiempo == simulacion.revision_lista)
                     {
                         nombreEvento = "Fin revision" + "(" + servidor_almacen.cliente.numero.ToString() + ")";
@@ -115,6 +115,7 @@ namespace SimTP2Q.Lógica
                     }
                     else
                     {
+                        simulacion.limpiarContenedores();
                         if (siguienteTiempo == simulacion.fin_descarga)
                         {
                             nombreEvento = "Fin descarga" + "(" + servidor_barco.cliente.numero.ToString() + ")";

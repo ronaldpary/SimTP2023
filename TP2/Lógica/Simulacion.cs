@@ -93,8 +93,13 @@ namespace SimTP2Q.Lógica
 
         public void limpiarContenedores()
         {
+            this.rnd_llegada = -1;
+            this.tiempo_entre_llegada = -1;
             this.rnd_cantidad_cont = -1;
             this.cantidad_contenedores = -1;
+
+            //this.rnd_cantidad_cont = -1;
+            //this.cantidad_contenedores = -1;
         }
 
         public void limpiarHoraRevisionYHoraDescarga()
