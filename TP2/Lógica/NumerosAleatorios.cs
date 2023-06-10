@@ -35,5 +35,11 @@ namespace SimTP2Q.Lógica
             }
             return lista;
         }
+
+        public double generarRdnExponencial(double media, double rnd)
+        {
+            double exp = -media * Math.Log(1 - rnd);
+            return exp;
+        }
     }
 }

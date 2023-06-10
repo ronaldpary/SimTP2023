@@ -45,5 +45,10 @@ namespace SimTP2Q
             fp.ShowDialog();
             fp.Dispose();
         }
+
+        private void frmVariablesAleatorias_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -60,6 +60,8 @@
             this.txtCom = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textLlamada = new System.Windows.Forms.TextBox();
             this.horafinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.llamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,9 +73,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textLlamada = new System.Windows.Forms.TextBox();
+            this.ingresoHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCallCenter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -376,13 +376,13 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
+            this.ingresoHora});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.NullValue = "3";
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -392,6 +392,25 @@
             this.dataGridView1.RowHeadersWidth = 50;
             this.dataGridView1.Size = new System.Drawing.Size(1028, 190);
             this.dataGridView1.TabIndex = 43;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(619, 57);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 16);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Llamadas:";
+            // 
+            // textLlamada
+            // 
+            this.textLlamada.Enabled = false;
+            this.textLlamada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLlamada.Location = new System.Drawing.Point(704, 54);
+            this.textLlamada.Name = "textLlamada";
+            this.textLlamada.Size = new System.Drawing.Size(100, 22);
+            this.textLlamada.TabIndex = 44;
             // 
             // horafinal
             // 
@@ -453,29 +472,10 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "Ingreso AC";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
-            // dataGridViewTextBoxColumn13
+            // ingresoHora
             // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Ingreso por hora";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(619, 57);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 16);
-            this.label12.TabIndex = 45;
-            this.label12.Text = "Llamadas:";
-            // 
-            // textLlamada
-            // 
-            this.textLlamada.Enabled = false;
-            this.textLlamada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLlamada.Location = new System.Drawing.Point(704, 54);
-            this.textLlamada.Name = "textLlamada";
-            this.textLlamada.Size = new System.Drawing.Size(100, 22);
-            this.textLlamada.TabIndex = 44;
+            this.ingresoHora.HeaderText = "Ingreso por hora";
+            this.ingresoHora.Name = "ingresoHora";
             // 
             // frmMontecarloV2
             // 
@@ -560,6 +560,8 @@
         private System.Windows.Forms.TextBox txtCom;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textLlamada;
         private System.Windows.Forms.DataGridViewTextBoxColumn horafinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn llamada;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -571,8 +573,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textLlamada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingresoHora;
     }
 }

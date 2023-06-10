@@ -168,6 +168,7 @@ namespace SimTP2Q.Presentación
         {
             
             dataGridView1.Rows.Add(hora, Convert.ToString(llamadas), rnd_atencion, atencion, rnd_quien, quien, rnd_compra, compra, rnd_gasto, gasto, ingresoAC, ingreso_hora);
+            dataGridView1.Columns["ingresoHora"].DefaultCellStyle.Format = "N3";
 
         }
 

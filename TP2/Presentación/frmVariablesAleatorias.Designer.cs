@@ -105,6 +105,7 @@
             this.Name = "frmVariablesAleatorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Variables Aleatorias";
+            this.Load += new System.EventHandler(this.frmVariablesAleatorias_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
