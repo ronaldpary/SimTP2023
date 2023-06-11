@@ -17,7 +17,6 @@ namespace SimTP2Q.Lógica
         private Prueba interfaz;
         private Eventos eventos;
 
-        //private NumerosAleatorios generador = new NumerosAleatorios();
         private NumerosAleatorios numerosAleatorios;
 
         public Random llegada = new Random();
@@ -142,13 +141,10 @@ namespace SimTP2Q.Lógica
                         }
                         else
                         {
-                            if (siguienteTiempo == simulacion.barco_listo)
-                            {
-                                nombreEvento = "Fin preparacion" + "(" + servidor_barco.cliente.numero.ToString() + ")";
+                            nombreEvento = "Fin preparacion" + "(" + servidor_barco.cliente.numero.ToString() + ")";
 
-                                eventos.finPreparacion();
-                            }
-                            
+                            eventos.finPreparacion();
+
                         }
                     }
                 }
@@ -179,21 +175,12 @@ namespace SimTP2Q.Lógica
         {
             return obj.estado == (double)Estado.destruido;
 
-            //eventos.borrarTren(obj);
-
         }
 
         public double definirSiguienteTiempo(Simulacion simulacion)
         {
             List<double> listaEventos = new double[] {simulacion.proxima_llegada, simulacion.fin_descarga, simulacion.revision_lista, simulacion.barco_listo}.ToList();
-            //if (enViaje.Count == 0 )
-            //{
-            //    for (int i = 0; i < enViaje.Count; i++)
-            //    {
-            //        //listaEventos.Add(enViaje[i]);
-            //    }
-            //}
-            
+
             listaEventos.RemoveAll(x => x == -1);
             double minimo = listaEventos.Min();
             return minimo;

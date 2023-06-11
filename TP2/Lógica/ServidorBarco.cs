@@ -15,7 +15,6 @@ namespace SimTP2Q.Lógica
         #endregion
 
         #region Contructor
-        //public ServidorBarco() { }
         public ServidorBarco()
         {
             this.cola = new Queue<Cliente>();

@@ -48,7 +48,8 @@ namespace SimTP2Q.Presentación
 
         private void guna2PictureBox3_Click(object sender, EventArgs e)
         {
-            prueba1.reiniciar();
+            Application.Restart();
+            //prueba1.reiniciar();
         }
 
         private void prueba1_Load(object sender, EventArgs e)

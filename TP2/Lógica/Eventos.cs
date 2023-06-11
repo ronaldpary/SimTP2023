@@ -46,8 +46,6 @@ namespace SimTP2Q.Lógica
 
             gestor.enElSistema.Add(cliente);
 
-            
-
             return cliente;
         }
 
@@ -81,18 +79,18 @@ namespace SimTP2Q.Lógica
                     }
                 }
 
-
-                if (gestor.servidor_barco.estado == (double)EstadoBarco.Cargando)
-                {
-                    gestor.servidor_barco.cola.Enqueue(tren);
-                    tren.estado = (double)Estado.esperando_atencion;
-                }
-                else
-                {
-                    tren.estado = (double)Estado.siendo_atendido;
-                    gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
-                    enDescarga(tren);
-                }
+                consultarCola(tren);
+                //if (gestor.servidor_barco.estado == (double)EstadoBarco.Cargando)
+                //{
+                //    gestor.servidor_barco.cola.Enqueue(tren);
+                //    tren.estado = (double)Estado.esperando_atencion;
+                //}
+                //else
+                //{
+                //    tren.estado = (double)Estado.siendo_atendido;
+                //    gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
+                //    enDescarga(tren);
+                //}
 
 
             }
@@ -121,21 +119,26 @@ namespace SimTP2Q.Lógica
                     }
                 }
 
-                if (gestor.servidor_barco.estado == (double)EstadoBarco.Cargando)
-                {
-                    gestor.servidor_barco.cola.Enqueue(tren);
-                    tren.estado = (double)Estado.esperando_atencion;
-                }
-                else
-                {
-                    tren.estado = (double)Estado.siendo_atendido;
-                    gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
-                    enDescarga(tren);
-                }
+                consultarCola(tren);
             }
             
 
             return tren;
+        }
+
+        public void consultarCola(Cliente tren)
+        {
+            if (gestor.servidor_barco.estado == (double)EstadoBarco.Cargando)
+            {
+                gestor.servidor_barco.cola.Enqueue(tren);
+                tren.estado = (double)Estado.esperando_atencion;
+            }
+            else
+            {
+                tren.estado = (double)Estado.siendo_atendido;
+                gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
+                enDescarga(tren);
+            }
         }
 
         public void enRevision(Cliente tren)
@@ -162,7 +165,6 @@ namespace SimTP2Q.Lógica
         public void enDescarga(Cliente tren)
         {
             desde = simulacion.Reloj;
-            //gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
 
             gestor.servidor_barco.cliente = tren;
 
@@ -172,32 +174,7 @@ namespace SimTP2Q.Lógica
 
             tren.tiempo_descarga = simulacion.tiempo_descarga;
 
-            //tren.estado = (double)Estado.siendo_atendido;
-
-            //if (gestor.servidor_barco.estado == (double)EstadoBarco.Libre)
-            //{
-            //    desde = simulacion.Reloj;
-            //    gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
-
-            //    gestor.servidor_barco.cliente = tren;
-
-            //    gestor.generarTiempoDescarga(gestor.servidor_barco.cliente.cantidad_contenedores);
-
-            //    tren.hora_descarga = simulacion.Reloj;
-
-            //    tren.tiempo_descarga = simulacion.tiempo_descarga;
-
-            //    tren.estado = (double)Estado.siendo_atendido;
-
-            //    //borrarTren(tren);
-
-
-            //}
-            //else
-            //{
-            //    gestor.servidor_barco.cola.Enqueue(tren);
-            //    tren.estado = (double)Estado.esperando_atencion;
-            //}
+           
         }
 
         public void finRevisionTren()
@@ -219,13 +196,9 @@ namespace SimTP2Q.Lógica
             
             simulacion.limpiarFinDescargaTren();
 
-
             if (gestor.servidor_barco.cola.Count > 0)
             {
                 Cliente tren = gestor.servidor_barco.cola.Dequeue();
-
-                //gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
-
 
                 tren.estado = (double)Estado.siendo_atendido;
 
@@ -243,14 +216,6 @@ namespace SimTP2Q.Lógica
         {
             tren.estado = (double)Estado.destruido;
             tren.Dispose();
-        }
-
-        public void cambioNombre(Cliente tren)
-        {
-            //if (tren.estado == (double)Estado.esperando_revision)
-            //{
-            //    tren.estado = Estado.
-            //}
         }
 
 

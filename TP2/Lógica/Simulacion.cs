@@ -47,10 +47,6 @@ namespace SimTP2Q.Lógica
 
         public double contenedores_cargados { get; set; } = 0;
 
-        //
-        //public ServidorBarco servidor_barco = new ServidorBarco();
-        //public ServidorAlmacen servidor_almacen = new ServidorAlmacen();
-
         #endregion
 
         #region Metodos
@@ -98,8 +94,6 @@ namespace SimTP2Q.Lógica
             this.rnd_cantidad_cont = -1;
             this.cantidad_contenedores = -1;
 
-            //this.rnd_cantidad_cont = -1;
-            //this.cantidad_contenedores = -1;
         }
 
         public void limpiarHoraRevisionYHoraDescarga()
@@ -113,7 +107,6 @@ namespace SimTP2Q.Lógica
             this.se_revisa = -1;
             this.rnd_revision = -1;
             this.tiempo_revision = -1;
-            //this.revision_lista = -1;
         }
 
         public void ColumnasFinDescarga()

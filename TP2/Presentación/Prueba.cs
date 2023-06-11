@@ -105,7 +105,7 @@ namespace SimTP2Q.Presentación
                         dgvEventos.Rows[index].Cells["HID" + i.ToString()].Value = Convert.ToDecimal(enElSistema[i].hora_descarga.ToString()).ToString("N");
                         
                         //dgvEventos.Rows[index].Cells["HIR" + i.ToString()].Value = simulacion.Reloj.ToString();
-                        dgvEventos.Rows[index].Cells["Contenedores" + i.ToString()].Value = enElSistema[i].cantidad_contenedores.ToString();
+                        //dgvEventos.Rows[index].Cells["Contenedores" + i.ToString()].Value = enElSistema[i].cantidad_contenedores.ToString();
                     }
                     else
                     {
@@ -118,8 +118,8 @@ namespace SimTP2Q.Presentación
                         //int indiceColumna3 = dgvEventos.Columns.Add("HIR" + i.ToString(), "HIR");
                         //dgvEventos.Rows[index].Cells[indiceColumna3].Value = simulacion.Reloj.ToString();
 
-                        int indiceColumna4 = dgvEventos.Columns.Add("Contenedores" + i.ToString(), "Contenedores");
-                        dgvEventos.Rows[index].Cells[indiceColumna4].Value = enElSistema[i].cantidad_contenedores.ToString();
+                        //int indiceColumna4 = dgvEventos.Columns.Add("Contenedores" + i.ToString(), "Contenedores");
+                        //dgvEventos.Rows[index].Cells[indiceColumna4].Value = enElSistema[i].cantidad_contenedores.ToString();
                     }
                 }
 
