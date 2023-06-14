@@ -57,6 +57,9 @@ namespace SimTP2Q.Presentación
             {
                 MessageBox.Show("Complete todos los datos");
             }
+
+            
+
         }
 
         private void ValidarDatos(Parametros parametros)
@@ -134,6 +137,41 @@ namespace SimTP2Q.Presentación
             txtHasta.Text = "";
             cargarValores();
             dgvEventos.Rows.Clear();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Prueba_Load(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+        }
+
+        public void mostrarPuntos(double acumulador_descargas, int contador_barcos, int contador_8, int contador_fragiles, int acumulador_revision)
+        {
+
+            label1.Visible = true;
+            label1.Text = acumulador_descargas.ToString("N");
+
+            label2.Visible = true;
+            label2.Text = contador_barcos.ToString();
+
+            //label2.Caption = Format(label2.Caption, "#######.00")
+
+            label3.Visible = true;
+            label3.Text = contador_8.ToString();
+
+            label4.Visible = true;
+            label4.Text = contador_fragiles.ToString();
+
+            label5.Visible = true;
+            label5.Text = acumulador_revision.ToString();
         }
     }
 }

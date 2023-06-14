@@ -41,11 +41,11 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.prueba1 = new SimTP2Q.Presentación.Prueba();
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.prueba1 = new SimTP2Q.Presentación.Prueba();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -74,8 +74,9 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(200, 707);
+            this.guna2Panel1.Size = new System.Drawing.Size(200, 824);
             this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2Button3
             // 
@@ -166,7 +167,7 @@
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel2.Location = new System.Drawing.Point(200, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(911, 50);
+            this.guna2Panel2.Size = new System.Drawing.Size(858, 50);
             this.guna2Panel2.TabIndex = 1;
             // 
             // guna2PictureBox3
@@ -174,7 +175,7 @@
             this.guna2PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox3.Image = global::SimTP2Q.Properties.Resources.actualizar;
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(847, 12);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(796, 12);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.Size = new System.Drawing.Size(24, 24);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -187,31 +188,13 @@
             this.guna2PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox2.Image = global::SimTP2Q.Properties.Resources.R__1_;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(877, 12);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(826, 12);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(24, 24);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox2.TabIndex = 0;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.Click += new System.EventHandler(this.guna2PictureBox2_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.prueba1);
-            this.panel1.Location = new System.Drawing.Point(206, 56);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(895, 639);
-            this.panel1.TabIndex = 2;
-            // 
-            // prueba1
-            // 
-            this.prueba1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prueba1.Location = new System.Drawing.Point(0, 0);
-            this.prueba1.Name = "prueba1";
-            this.prueba1.Size = new System.Drawing.Size(895, 639);
-            this.prueba1.TabIndex = 0;
-            this.prueba1.Load += new System.EventHandler(this.prueba1_Load);
             // 
             // guna2Elipse3
             // 
@@ -227,12 +210,30 @@
             this.guna2Elipse5.BorderRadius = 8;
             this.guna2Elipse5.TargetControl = this.panel1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.prueba1);
+            this.panel1.Location = new System.Drawing.Point(206, 56);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(844, 760);
+            this.panel1.TabIndex = 2;
+            // 
+            // prueba1
+            // 
+            this.prueba1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.prueba1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prueba1.Location = new System.Drawing.Point(0, 0);
+            this.prueba1.Name = "prueba1";
+            this.prueba1.Size = new System.Drawing.Size(844, 760);
+            this.prueba1.TabIndex = 0;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1111, 707);
+            this.ClientSize = new System.Drawing.Size(1058, 824);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
@@ -257,7 +258,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
@@ -268,7 +268,8 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse5;
-        private Prueba prueba1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private System.Windows.Forms.Panel panel1;
+        private Prueba prueba1;
     }
 }

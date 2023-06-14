@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SimTP2Q.Lógica.Cliente;
 
 namespace SimTP2Q.Lógica
 {
@@ -45,7 +47,17 @@ namespace SimTP2Q.Lógica
         public double estado_barco { get; set; } = -1;
         public double cola_barco { get; set; } = -1;
 
+
+        //Puntos
         public double contenedores_cargados { get; set; } = 0;
+        public double contador_barcos { get; set; } = 0;
+
+        public double acumulador_descarga { get; set; } = 0;
+
+        //Metricas
+        public double contador_trenes_fragiles { get; set; } = 0;
+        public double cont_trenes_fragiles_8 { get; set; } = 0;
+        public double acumulador_revision { get; set; } = 0;
 
         #endregion
 
@@ -84,7 +96,9 @@ namespace SimTP2Q.Lógica
 
         public void limpiarEventoFinPreparacion()
         {
-            throw new NotImplementedException();
+            this.rnd_preparacion = -1;
+            this.tiempo_preparacion = -1;
+            this.barco_listo = -1;
         }
 
         public void limpiarContenedores()
@@ -117,7 +131,14 @@ namespace SimTP2Q.Lógica
 
         public void sumarContenedoresCargados(Cliente tren)
         {
-            this.contenedores_cargados = this.contenedores_cargados + tren.cantidad_contenedores; 
+            this.contenedores_cargados = this.contenedores_cargados + tren.cantidad_contenedores;
+            borrarTren(tren);
+        }
+
+        public void borrarTren(Cliente tren)
+        {
+            tren.estado = (double)Estado.destruido;
+            tren.Dispose();
         }
 
 

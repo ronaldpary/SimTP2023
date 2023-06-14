@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using SimTP2Q.Presentación;
 using static SimTP2Q.Lógica.Cliente;
 
@@ -36,8 +38,14 @@ namespace SimTP2Q.Lógica
         public List<Cliente> enElSistema;
         public int cant_filas_mostrar;
 
-        private int cont_cant_llegadas;
-        //internal object generarTipoCliente;
+        public int cont_cant_llegadas;
+
+        private double acumulador_descargas;
+        private int contador_barcos;
+        private int contador_8;
+        private int contador_fragiles;
+        private int acumulador_revision;
+        
         #endregion
 
         #region Constructor
@@ -86,6 +94,8 @@ namespace SimTP2Q.Lógica
             double numeroSimulacion = 0;
             interfaz.mostrarFila(numeroSimulacion, simulacion, enElSistema, nombreEvento, enViaje);
 
+            Stopwatch sw = new Stopwatch();
+
             for (int i = 0; i < n; i++)
             {
                 double siguienteTiempo = definirSiguienteTiempo(simulacion);
@@ -101,49 +111,55 @@ namespace SimTP2Q.Lógica
                 }
                 else
                 {
-                    // ver como limpiar
                     //simulacion.limpiarContenedores();
                     if (siguienteTiempo == simulacion.revision_lista)
                     {
-                        nombreEvento = "Fin revision" + "(" + servidor_almacen.cliente.numero.ToString() + ")";
-                        //simulacion.limpiarEventoLlegada();
-                        //simulacion.ColumnasFinDescarga();
 
-                        eventos.finRevisionTren();
+                        for (int j = 0; j < enElSistema.Count; j++)
+                        {
+
+
+                            if (Convert.ToDecimal((enElSistema[j].hora_revision + enElSistema[j].tiempo_revision).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N")) ;
+                            {
+
+                                nombreEvento = "Fin revision" + "(" + servidor_almacen.cliente.numero.ToString() + ")";
+                                eventos.finRevisionTren(enElSistema[j]);
+
+                                break;
+                            }
+
+                        }
+
+
 
                     }
                     else
                     {
                         simulacion.limpiarContenedores();
-                        if (siguienteTiempo == simulacion.fin_descarga)
+                        if (siguienteTiempo == simulacion.barco_listo)
                         {
-                            nombreEvento = "Fin descarga" + "(" + servidor_barco.cliente.numero.ToString() + ")";
-                            //simulacion.limpiarEventoLlegada();
-                            //simulacion.limpiarColumnasRevision();
-                            //simulacion.ColumnasFinDescarga();
-                            eventos.finDescargaTren();
+                            nombreEvento = "Fin preparacion";
 
-                            for (int m = 0; m < enElSistema.Count; m++)
-                            {
-
-
-
-                                if (Convert.ToDecimal(enElSistema[m].hora_descarga.ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo - enElSistema[m].tiempo_descarga).ToString()).ToString("N")) ;
-                                {
-                                    simulacion.sumarContenedoresCargados(enElSistema[m]);
-                                    eventos.borrarTren(enElSistema[m]);
-                                    break;
-                                }
-                            }
-
-                            
+                            eventos.finPreparacion();
 
                         }
                         else
                         {
-                            nombreEvento = "Fin preparacion" + "(" + servidor_barco.cliente.numero.ToString() + ")";
+                            
+                            for (int j = 0; j < enElSistema.Count; j++)
+                            {
 
-                            eventos.finPreparacion();
+
+                                if (Convert.ToDecimal((enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N"));
+                                {
+
+                                    nombreEvento = "Fin descarga" + "(" + servidor_barco.cliente.numero.ToString() + ")";
+                                    eventos.finDescargaTren(enElSistema[j]);
+
+                                    break;
+                                }
+
+                            }
 
                         }
                     }
@@ -151,16 +167,28 @@ namespace SimTP2Q.Lógica
                 actualizarColas();
                 actualizarEstados();
 
+                
+                sw.Start();
+
                 if (i+1 >= desde && i+1 <= hasta)
                 {
                     interfaz.mostrarFila(numeroSimulacion, simulacion, enElSistema, nombreEvento, enViaje);
                     cant_filas_mostrar++;
 
                 }
+
+                sw.Stop();
+
                 eliminarTrenesDescargados();
                 //simulacion.limpiarHoraRevisionYHoraDescarga();
 
             }
+
+            interfaz.mostrarFila(numeroSimulacion, simulacion, enElSistema, nombreEvento, enViaje);
+            interfaz.mostrarPuntos(acumulador_descargas, contador_barcos, contador_8, contador_fragiles, acumulador_revision);
+
+            
+            MessageBox.Show("Time", sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
 
 
 
@@ -217,6 +245,16 @@ namespace SimTP2Q.Lógica
             simulacion.rnd_preparacion = preparacion.NextDouble();
             simulacion.tiempo_preparacion = numerosAleatorios.generarRdnExponencial(mediaPreparacion, simulacion.rnd_preparacion);
             simulacion.barco_listo = simulacion.Reloj + simulacion.tiempo_preparacion;
+        }
+
+        public void acumuladorTiempoDescarga(double punto)
+        {
+            acumulador_descargas = punto; 
+        }
+
+        public void trenesFragiles(double metrica1)
+        {
+            contador_fragiles = (int)metrica1;
         }
         #endregion
     }

@@ -17,7 +17,8 @@ namespace SimTP2Q.Lógica
         public double hora_descarga { get; set; }
         public double hora_revision { get; set; }
         public double tiempo_descarga { get; set; }
-        
+        public double tiempo_revision { get; set; }
+
         #endregion
 
         #region Constructor
@@ -66,7 +67,7 @@ namespace SimTP2Q.Lógica
                     estadoActual = "S_Revisado";
                     break;
                 case 5:
-                    estadoActual = "Destruido";
+                    estadoActual = "Descargado";
                     break;
 
             }

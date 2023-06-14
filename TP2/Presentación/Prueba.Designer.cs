@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.gpDescripcionRespuesta = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -50,16 +48,15 @@
             this.txtDesde = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtSimulaciones = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvEventos = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEventos = new System.Windows.Forms.DataGridView();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_entre_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proxima_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_cantidad_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_contenedores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proxima_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_prob_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.se_revisa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,15 +73,28 @@
             this.estado_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cola_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenedores_cargados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contador_barcos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acumulador_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_trenes_fragiles_8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contador_trenes_fragiles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acumulador_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.gpDescripcionRespuesta.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
+            this.guna2GradientPanel1.SuspendLayout();
+            this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -101,8 +111,9 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(895, 158);
+            this.guna2Panel1.Size = new System.Drawing.Size(844, 158);
             this.guna2Panel1.TabIndex = 3;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // gpDescripcionRespuesta
             // 
@@ -119,7 +130,7 @@
             this.gpDescripcionRespuesta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.gpDescripcionRespuesta.Location = new System.Drawing.Point(220, 15);
             this.gpDescripcionRespuesta.Name = "gpDescripcionRespuesta";
-            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(647, 120);
+            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(591, 120);
             this.gpDescripcionRespuesta.TabIndex = 3;
             this.gpDescripcionRespuesta.Text = "Parametros";
             this.gpDescripcionRespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -363,44 +374,28 @@
             this.txtSimulaciones.Size = new System.Drawing.Size(85, 21);
             this.txtSimulaciones.TabIndex = 1;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.guna2Panel2.Controls.Add(this.dgvEventos);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 157);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(895, 482);
-            this.guna2Panel2.TabIndex = 4;
-            // 
             // dgvEventos
             // 
             this.dgvEventos.AllowUserToAddRows = false;
             this.dgvEventos.AllowUserToDeleteRows = false;
-            this.dgvEventos.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvEventos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEventos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvEventos.BackgroundColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEventos.ColumnHeadersHeight = 41;
-            this.dgvEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEventos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEventos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numero,
+            this.Numero,
             this.Evento,
             this.Reloj,
             this.rnd_llegada,
             this.tiempo_entre_llegada,
+            this.proxima_llegada,
             this.rnd_cantidad_cont,
             this.cantidad_contenedores,
-            this.proxima_llegada,
             this.rnd_prob_revision,
             this.se_revisa,
             this.rnd_revision,
@@ -417,103 +412,74 @@
             this.estado_barco,
             this.cola_barco,
             this.contenedores_cargados,
-            this.Column24,
-            this.Column25,
-            this.Column26,
-            this.Column27,
-            this.Column28});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.contador_barcos,
+            this.acumulador_descarga,
+            this.cont_trenes_fragiles_8,
+            this.contador_trenes_fragiles,
+            this.acumulador_revision});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEventos.GridColor = System.Drawing.Color.Black;
-            this.dgvEventos.Location = new System.Drawing.Point(12, 14);
+            this.dgvEventos.Location = new System.Drawing.Point(0, 6);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEventos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvEventos.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dgvEventos.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvEventos.Size = new System.Drawing.Size(871, 443);
-            this.dgvEventos.TabIndex = 0;
-            this.dgvEventos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvEventos.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvEventos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvEventos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvEventos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvEventos.ThemeStyle.BackColor = System.Drawing.Color.LightGray;
-            this.dgvEventos.ThemeStyle.GridColor = System.Drawing.Color.Black;
-            this.dgvEventos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvEventos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvEventos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvEventos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvEventos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvEventos.ThemeStyle.HeaderStyle.Height = 41;
-            this.dgvEventos.ThemeStyle.ReadOnly = true;
-            this.dgvEventos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvEventos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvEventos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvEventos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvEventos.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvEventos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvEventos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEventos.Size = new System.Drawing.Size(841, 419);
+            this.dgvEventos.TabIndex = 47;
             // 
-            // numero
+            // Numero
             // 
-            this.numero.HeaderText = "Numero";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            this.numero.Width = 67;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Width = 50;
             // 
             // Evento
             // 
-            this.Evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Evento.DefaultCellStyle = dataGridViewCellStyle2;
             this.Evento.HeaderText = "Evento";
             this.Evento.Name = "Evento";
             this.Evento.ReadOnly = true;
-            this.Evento.Width = 64;
+            this.Evento.Width = 80;
             // 
             // Reloj
             // 
-            this.Reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Reloj.HeaderText = "Reloj(H)";
+            this.Reloj.HeaderText = "Reloj (H)";
             this.Reloj.Name = "Reloj";
             this.Reloj.ReadOnly = true;
-            this.Reloj.Width = 68;
+            this.Reloj.Width = 80;
             // 
             // rnd_llegada
             // 
-            this.rnd_llegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_llegada.HeaderText = "Rnd";
             this.rnd_llegada.Name = "rnd_llegada";
             this.rnd_llegada.ReadOnly = true;
-            this.rnd_llegada.Width = 50;
+            this.rnd_llegada.Width = 80;
             // 
             // tiempo_entre_llegada
             // 
-            this.tiempo_entre_llegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tiempo_entre_llegada.HeaderText = "Tiempo entre llegada";
             this.tiempo_entre_llegada.Name = "tiempo_entre_llegada";
             this.tiempo_entre_llegada.ReadOnly = true;
-            this.tiempo_entre_llegada.Width = 87;
+            this.tiempo_entre_llegada.Width = 80;
+            // 
+            // proxima_llegada
+            // 
+            this.proxima_llegada.HeaderText = "Proxima llegada";
+            this.proxima_llegada.Name = "proxima_llegada";
+            this.proxima_llegada.ReadOnly = true;
+            this.proxima_llegada.Width = 80;
             // 
             // rnd_cantidad_cont
             // 
-            this.rnd_cantidad_cont.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_cantidad_cont.HeaderText = "Rnd";
             this.rnd_cantidad_cont.Name = "rnd_cantidad_cont";
             this.rnd_cantidad_cont.ReadOnly = true;
@@ -521,202 +487,317 @@
             // 
             // cantidad_contenedores
             // 
-            this.cantidad_contenedores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.cantidad_contenedores.HeaderText = "Cantidad contenedores";
             this.cantidad_contenedores.Name = "cantidad_contenedores";
             this.cantidad_contenedores.ReadOnly = true;
-            this.cantidad_contenedores.Width = 128;
-            // 
-            // proxima_llegada
-            // 
-            this.proxima_llegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.proxima_llegada.HeaderText = "Proxima llegada";
-            this.proxima_llegada.Name = "proxima_llegada";
-            this.proxima_llegada.ReadOnly = true;
-            this.proxima_llegada.Width = 95;
+            this.cantidad_contenedores.Width = 80;
             // 
             // rnd_prob_revision
             // 
-            this.rnd_prob_revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_prob_revision.HeaderText = "Rnd";
             this.rnd_prob_revision.Name = "rnd_prob_revision";
             this.rnd_prob_revision.ReadOnly = true;
-            this.rnd_prob_revision.Width = 50;
+            this.rnd_prob_revision.Width = 80;
             // 
             // se_revisa
             // 
-            this.se_revisa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.se_revisa.HeaderText = "Revision";
             this.se_revisa.Name = "se_revisa";
             this.se_revisa.ReadOnly = true;
-            this.se_revisa.Width = 71;
+            this.se_revisa.Width = 80;
             // 
             // rnd_revision
             // 
-            this.rnd_revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_revision.HeaderText = "Rnd";
             this.rnd_revision.Name = "rnd_revision";
             this.rnd_revision.ReadOnly = true;
-            this.rnd_revision.Width = 50;
+            this.rnd_revision.Width = 80;
             // 
             // tiempo_revision
             // 
-            this.tiempo_revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempo_revision.HeaderText = "Tiempo demora";
+            this.tiempo_revision.HeaderText = "Tiempo revision";
             this.tiempo_revision.Name = "tiempo_revision";
             this.tiempo_revision.ReadOnly = true;
-            this.tiempo_revision.Width = 95;
+            this.tiempo_revision.Width = 80;
             // 
             // revision_lista
             // 
-            this.revision_lista.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.revision_lista.HeaderText = "Fin revision";
             this.revision_lista.Name = "revision_lista";
             this.revision_lista.ReadOnly = true;
-            this.revision_lista.Width = 77;
+            this.revision_lista.Width = 80;
             // 
             // estado_almacen
             // 
-            this.estado_almacen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.estado_almacen.HeaderText = "Estado";
             this.estado_almacen.Name = "estado_almacen";
             this.estado_almacen.ReadOnly = true;
-            this.estado_almacen.Width = 63;
+            this.estado_almacen.Width = 80;
             // 
             // cola_almacen
             // 
-            this.cola_almacen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.cola_almacen.HeaderText = "Cola";
             this.cola_almacen.Name = "cola_almacen";
             this.cola_almacen.ReadOnly = true;
-            this.cola_almacen.Width = 51;
+            this.cola_almacen.Width = 80;
             // 
             // rnd_descarga
             // 
-            this.rnd_descarga.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_descarga.HeaderText = "Rnd";
             this.rnd_descarga.Name = "rnd_descarga";
             this.rnd_descarga.ReadOnly = true;
-            this.rnd_descarga.Width = 50;
+            this.rnd_descarga.Width = 80;
             // 
             // tiempo_descarga
             // 
-            this.tiempo_descarga.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tiempo_descarga.HeaderText = "Tiempo descarga";
             this.tiempo_descarga.Name = "tiempo_descarga";
             this.tiempo_descarga.ReadOnly = true;
-            this.tiempo_descarga.Width = 103;
+            this.tiempo_descarga.Width = 80;
             // 
             // fin_descarga
             // 
-            this.fin_descarga.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.fin_descarga.HeaderText = "Fin descarga";
             this.fin_descarga.Name = "fin_descarga";
             this.fin_descarga.ReadOnly = true;
-            this.fin_descarga.Width = 84;
+            this.fin_descarga.Width = 80;
             // 
             // rnd_preparacion
             // 
-            this.rnd_preparacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd_preparacion.HeaderText = "Rnd";
             this.rnd_preparacion.Name = "rnd_preparacion";
             this.rnd_preparacion.ReadOnly = true;
-            this.rnd_preparacion.Width = 50;
+            this.rnd_preparacion.Width = 80;
             // 
             // tiempo_preparacion
             // 
-            this.tiempo_preparacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tiempo_preparacion.HeaderText = "Tiempo demora";
             this.tiempo_preparacion.Name = "tiempo_preparacion";
             this.tiempo_preparacion.ReadOnly = true;
-            this.tiempo_preparacion.Width = 95;
+            this.tiempo_preparacion.Width = 80;
             // 
             // barco_listo
             // 
-            this.barco_listo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.barco_listo.HeaderText = "Fin preparacion";
             this.barco_listo.Name = "barco_listo";
             this.barco_listo.ReadOnly = true;
-            this.barco_listo.Width = 95;
+            this.barco_listo.Width = 80;
             // 
             // estado_barco
             // 
-            this.estado_barco.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.estado_barco.HeaderText = "Estado";
             this.estado_barco.Name = "estado_barco";
             this.estado_barco.ReadOnly = true;
-            this.estado_barco.Width = 63;
             // 
             // cola_barco
             // 
-            this.cola_barco.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.cola_barco.HeaderText = "Cola";
             this.cola_barco.Name = "cola_barco";
             this.cola_barco.ReadOnly = true;
-            this.cola_barco.Width = 51;
+            this.cola_barco.Width = 70;
             // 
             // contenedores_cargados
             // 
-            this.contenedores_cargados.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.contenedores_cargados.HeaderText = "Contenedores cargados";
             this.contenedores_cargados.Name = "contenedores_cargados";
             this.contenedores_cargados.ReadOnly = true;
-            this.contenedores_cargados.Width = 131;
+            this.contenedores_cargados.Width = 75;
             // 
-            // Column24
+            // contador_barcos
             // 
-            this.Column24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column24.HeaderText = "Barcos finalizados";
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
-            this.Column24.Width = 105;
+            this.contador_barcos.HeaderText = "Contador Barcos finalizados";
+            this.contador_barcos.Name = "contador_barcos";
+            this.contador_barcos.ReadOnly = true;
+            this.contador_barcos.Width = 70;
             // 
-            // Column25
+            // acumulador_descarga
             // 
-            this.Column25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column25.HeaderText = "Tiempo descarga tren AC";
-            this.Column25.Name = "Column25";
-            this.Column25.ReadOnly = true;
-            this.Column25.Width = 90;
+            this.acumulador_descarga.HeaderText = "Acumulador Horas de descarga";
+            this.acumulador_descarga.Name = "acumulador_descarga";
+            this.acumulador_descarga.ReadOnly = true;
+            this.acumulador_descarga.Width = 80;
             // 
-            // Column26
+            // cont_trenes_fragiles_8
             // 
-            this.Column26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column26.HeaderText = "Contenedores de 8";
-            this.Column26.Name = "Column26";
-            this.Column26.ReadOnly = true;
-            this.Column26.Width = 110;
+            this.cont_trenes_fragiles_8.HeaderText = "Contador Trenes con 8 cont.";
+            this.cont_trenes_fragiles_8.Name = "cont_trenes_fragiles_8";
+            this.cont_trenes_fragiles_8.ReadOnly = true;
+            this.cont_trenes_fragiles_8.Width = 70;
             // 
-            // Column27
+            // contador_trenes_fragiles
             // 
-            this.Column27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column27.HeaderText = "Trenes fragiles";
-            this.Column27.Name = "Column27";
-            this.Column27.ReadOnly = true;
-            this.Column27.Width = 91;
+            this.contador_trenes_fragiles.HeaderText = "Contador Trenes fragiles";
+            this.contador_trenes_fragiles.Name = "contador_trenes_fragiles";
+            this.contador_trenes_fragiles.ReadOnly = true;
+            this.contador_trenes_fragiles.Width = 50;
             // 
-            // Column28
+            // acumulador_revision
             // 
-            this.Column28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column28.HeaderText = "Horas de revision";
-            this.Column28.Name = "Column28";
-            this.Column28.ReadOnly = true;
-            this.Column28.Width = 70;
+            this.acumulador_revision.HeaderText = "Acumulador Horas de revision";
+            this.acumulador_revision.Name = "acumulador_revision";
+            this.acumulador_revision.ReadOnly = true;
+            this.acumulador_revision.Width = 70;
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.Controls.Add(this.dgvEventos);
+            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 158);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(844, 433);
+            this.guna2GradientPanel1.TabIndex = 5;
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.BorderRadius = 2;
+            this.guna2GroupBox1.Controls.Add(this.label5);
+            this.guna2GroupBox1.Controls.Add(this.label4);
+            this.guna2GroupBox1.Controls.Add(this.label3);
+            this.guna2GroupBox1.Controls.Add(this.label2);
+            this.guna2GroupBox1.Controls.Add(this.label1);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel12);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel8);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel9);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel10);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel11);
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(27, 597);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(784, 149);
+            this.guna2GroupBox1.TabIndex = 6;
+            this.guna2GroupBox1.Text = "     Puntos                                                                      " +
+    "                        Metricas";
+            this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(627, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 21);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(627, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 21);
+            this.label4.TabIndex = 48;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(627, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 21);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 21);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 21);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "label1";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(324, 110);
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(227, 18);
+            this.guna2HtmlLabel12.TabIndex = 11;
+            this.guna2HtmlLabel12.Text = "3) Horas de revision acumulada:";
+            // 
+            // guna2HtmlLabel8
+            // 
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(324, 43);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(269, 18);
+            this.guna2HtmlLabel8.TabIndex = 9;
+            this.guna2HtmlLabel8.Text = "1) Trenes fragiles con 8 contenedores:";
+            // 
+            // guna2HtmlLabel9
+            // 
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(3, 91);
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(164, 18);
+            this.guna2HtmlLabel9.TabIndex = 6;
+            this.guna2HtmlLabel9.Text = "2) Barcos que zarparon";
+            // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(324, 77);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(211, 18);
+            this.guna2HtmlLabel10.TabIndex = 10;
+            this.guna2HtmlLabel10.Text = "2) Cantidad de trenes fragiles:";
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(3, 43);
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(234, 18);
+            this.guna2HtmlLabel11.TabIndex = 6;
+            this.guna2HtmlLabel11.Text = "1) Horas de descarga acumulada";
             // 
             // Prueba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "Prueba";
-            this.Size = new System.Drawing.Size(895, 639);
+            this.Size = new System.Drawing.Size(844, 760);
+            this.Load += new System.EventHandler(this.Prueba_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.gpDescripcionRespuesta.ResumeLayout(false);
             this.gpDescripcionRespuesta.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
+            this.guna2GradientPanel1.ResumeLayout(false);
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -740,16 +821,15 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDesde;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtSimulaciones;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvEventos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
+        private System.Windows.Forms.DataGridView dgvEventos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_llegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_entre_llegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proxima_llegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_cantidad_cont;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_contenedores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proxima_llegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_prob_revision;
         private System.Windows.Forms.DataGridViewTextBoxColumn se_revisa;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_revision;
@@ -766,10 +846,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado_barco;
         private System.Windows.Forms.DataGridViewTextBoxColumn cola_barco;
         private System.Windows.Forms.DataGridViewTextBoxColumn contenedores_cargados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contador_barcos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_descarga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cont_trenes_fragiles_8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contador_trenes_fragiles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_revision;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -12,6 +12,10 @@ namespace SimTP2Q.Lógica
         public double estado { get; set; }
         public Queue<Cliente> cola { get; set; }
         public Cliente cliente { get; set; }
+        public double tiempo_preparacion { get; set; }
+        //public double hora_prepara
+
+
         #endregion
 
         #region Contructor

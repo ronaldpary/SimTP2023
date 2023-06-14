@@ -56,5 +56,10 @@ namespace SimTP2Q.Presentación
         {
 
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
