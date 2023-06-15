@@ -53,7 +53,7 @@ namespace SimTP2Q.Lógica
         public Cliente primerTren(double rnd_prob_revision, double rnd_cantidad_cont)
         {
             Cliente tren;
-            if (rnd_prob_revision < 0.70)
+            if (rnd_prob_revision < 0.95)
             {
 
                 if (rnd_cantidad_cont < 0.10)
