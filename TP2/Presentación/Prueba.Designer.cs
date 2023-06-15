@@ -61,6 +61,9 @@
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,6 +121,7 @@
             // gpDescripcionRespuesta
             // 
             this.gpDescripcionRespuesta.BorderRadius = 2;
+            this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel15);
             this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel6);
             this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel5);
             this.gpDescripcionRespuesta.Controls.Add(this.txtPreparacion);
@@ -132,8 +136,8 @@
             this.gpDescripcionRespuesta.Name = "gpDescripcionRespuesta";
             this.gpDescripcionRespuesta.Size = new System.Drawing.Size(591, 120);
             this.gpDescripcionRespuesta.TabIndex = 3;
-            this.gpDescripcionRespuesta.Text = "Parametros";
             this.gpDescripcionRespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gpDescripcionRespuesta.Click += new System.EventHandler(this.gpDescripcionRespuesta_Click);
             // 
             // guna2HtmlLabel6
             // 
@@ -432,7 +436,7 @@
             this.dgvEventos.Location = new System.Drawing.Point(0, 6);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEventos.Size = new System.Drawing.Size(841, 419);
+            this.dgvEventos.Size = new System.Drawing.Size(844, 419);
             this.dgvEventos.TabIndex = 47;
             // 
             // guna2GradientPanel1
@@ -447,6 +451,8 @@
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BorderRadius = 2;
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel14);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel13);
             this.guna2GroupBox1.Controls.Add(this.label5);
             this.guna2GroupBox1.Controls.Add(this.label4);
             this.guna2GroupBox1.Controls.Add(this.label3);
@@ -457,14 +463,13 @@
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel9);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel10);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel11);
+            this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(27, 597);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 591);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(784, 149);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(844, 169);
             this.guna2GroupBox1.TabIndex = 6;
-            this.guna2GroupBox1.Text = "     Puntos                                                                      " +
-    "                        Metricas";
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
@@ -540,9 +545,9 @@
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(324, 43);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(269, 18);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(277, 18);
             this.guna2HtmlLabel8.TabIndex = 9;
-            this.guna2HtmlLabel8.Text = "1) Trenes fragiles con 8 contenedores:";
+            this.guna2HtmlLabel8.Text = "1) Trenes fragiles con 15 contenedores:";
             // 
             // guna2HtmlLabel9
             // 
@@ -576,6 +581,39 @@
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(234, 18);
             this.guna2HtmlLabel11.TabIndex = 6;
             this.guna2HtmlLabel11.Text = "1) Horas de descarga acumulada";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(21, 9);
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(50, 18);
+            this.guna2HtmlLabel13.TabIndex = 48;
+            this.guna2HtmlLabel13.Text = "Puntos";
+            // 
+            // guna2HtmlLabel14
+            // 
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(336, 9);
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(62, 18);
+            this.guna2HtmlLabel14.TabIndex = 49;
+            this.guna2HtmlLabel14.Text = "Metricas";
+            // 
+            // guna2HtmlLabel15
+            // 
+            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel15.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel15.Location = new System.Drawing.Point(259, 12);
+            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(83, 18);
+            this.guna2HtmlLabel15.TabIndex = 50;
+            this.guna2HtmlLabel15.Text = "Parametros";
             // 
             // Numero
             // 
@@ -736,7 +774,7 @@
             // 
             // cont_trenes_fragiles_8
             // 
-            this.cont_trenes_fragiles_8.HeaderText = "Contador Trenes con 8 cont.";
+            this.cont_trenes_fragiles_8.HeaderText = "Cantidad Trenes con 15 cont.";
             this.cont_trenes_fragiles_8.Name = "cont_trenes_fragiles_8";
             this.cont_trenes_fragiles_8.Width = 70;
             // 
@@ -806,6 +844,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reloj;

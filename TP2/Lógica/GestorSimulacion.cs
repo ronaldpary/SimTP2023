@@ -44,7 +44,7 @@ namespace SimTP2Q.Lógica
         private int contador_barcos;
         private int contador_8;
         private int contador_fragiles;
-        private int acumulador_revision;
+        private double acumulador_revision;
 
         public int numeroBarco;
         
@@ -109,31 +109,25 @@ namespace SimTP2Q.Lógica
                     Cliente trenCreado = eventos.proximaLLegada();
                     nombreEvento = "Llegada de tren " + "(" + trenCreado.numero.ToString() + ")";
                     
-                    //simulacion.ColumnasFinDescarga();
                 }
                 else
                 {
-                    //simulacion.limpiarContenedores();
                     if (siguienteTiempo == simulacion.revision_lista)
                     {
 
                         for (int j = 0; j < enElSistema.Count; j++)
                         {
-
-
                             if (Convert.ToDecimal((enElSistema[j].hora_revision + enElSistema[j].tiempo_revision).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N")) ;
                             {
 
-                                nombreEvento = "Fin revision " + "(" + servidor_almacen.cliente.numero.ToString() + ")";
+                                //nombreEvento = "Fin revision " + "(" + servidor_almacen.cliente.numero.ToString() + ")";
+                                nombreEvento = "Fin revision ";
                                 eventos.finRevisionTren(enElSistema[j]);
 
                                 break;
                             }
 
                         }
-
-
-
                     }
                     else
                     {
@@ -185,6 +179,7 @@ namespace SimTP2Q.Lógica
                 sw.Stop();
 
                 eliminarTrenesDescargados();
+                eliminarTrenesRevisados();
                 //simulacion.limpiarHoraRevisionYHoraDescarga();
 
             }
@@ -197,6 +192,16 @@ namespace SimTP2Q.Lógica
 
 
 
+        }
+
+        public void eliminarTrenesRevisados()
+        {
+            enElSistema.RemoveAll(trenRevisado);
+        }
+
+        public bool trenRevisado(Cliente obj)
+        {
+            return obj.estado == (double)Estado.revisado;
         }
 
         public void eliminarTrenesDescargados()
@@ -265,6 +270,16 @@ namespace SimTP2Q.Lógica
         public void contarBarcosZarpados()
         {
             contador_barcos = contador_barcos + 1;
+        }
+
+        public void acumuladorTiempoRevision(double puntoRevision)
+        {
+            acumulador_revision = puntoRevision;
+        }
+
+        public void trenesCon8(double metrica2)
+        {
+            contador_8 = (int)metrica2;
         }
         #endregion
     }

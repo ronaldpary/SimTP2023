@@ -53,7 +53,7 @@ namespace SimTP2Q.Lógica
         public Cliente primerTren(double rnd_prob_revision, double rnd_cantidad_cont)
         {
             Cliente tren;
-            if (rnd_prob_revision < 0.50)
+            if (rnd_prob_revision < 0.70)
             {
 
                 if (rnd_cantidad_cont < 0.10)
@@ -62,9 +62,11 @@ namespace SimTP2Q.Lógica
                 }
                 else
                 {
-                    if (rnd_cantidad_cont > 0.9 && rnd_cantidad_cont < 0.30)
+                    if (rnd_cantidad_cont > 0.09 && rnd_cantidad_cont < 0.30)
                     {
                         tren = new Cliente((double)TipoCliente.A, (double)CantidadCont.B);
+                        
+
                     }
                     else
                     {
@@ -93,29 +95,36 @@ namespace SimTP2Q.Lógica
                 if (rnd_cantidad_cont < 0.10)
                 {
                     tren = new Cliente((double)TipoCliente.B, (double)CantidadCont.A);
-                    
+
 
                 }
                 else
                 {
-                    if (rnd_cantidad_cont > 0.9 && rnd_cantidad_cont < 0.30)
+                    if (rnd_cantidad_cont > 0.09 && rnd_cantidad_cont < 0.30)
                     {
                         tren = new Cliente((double)TipoCliente.B, (double)CantidadCont.B);
+                        
                     }
                     else
                     {
                         if (rnd_cantidad_cont > 0.29 && rnd_cantidad_cont < 0.80)
                         {
                             tren = new Cliente((double)TipoCliente.B, (double)CantidadCont.C);
+                            
+
                         }
                         else
                         {
                             tren = new Cliente((double)TipoCliente.B, (double)CantidadCont.D);
+
+                            simulacion.cont_trenes_fragiles_8 = simulacion.cont_trenes_fragiles_8 + 1;
+                            gestor.trenesCon8(simulacion.cont_trenes_fragiles_8);
+
                         }
                     }
                 }
 
-                consultarColaBarco(tren);
+                consultarColaAlmacen(tren);
             }
             
 
@@ -183,13 +192,21 @@ namespace SimTP2Q.Lógica
            
         }
 
-        public void finRevisionTren(Cliente trenRevisado)
+        public void finRevisionTren(Cliente tren1)
         {
-            //gestor.servidor_almacen.estado = (double)EstadoAlmacen.Libre;
+
+            // Acumulador tiempo descarga
+
+            double tiempo_revision = simulacion.Reloj - tren1.hora_revision;
+            simulacion.acumulador_revision = simulacion.acumulador_revision + tiempo_revision;
+
+            gestor.acumuladorTiempoRevision(simulacion.acumulador_revision);
 
             simulacion.limpiarEventoFinRevision();
 
-            consultarColaBarco(trenRevisado);
+            borrarTrenRevisado(tren1);
+
+            //consultarColaBarco(tren1);
 
             if (gestor.servidor_almacen.cola.Count > 0)
             {
@@ -242,23 +259,93 @@ namespace SimTP2Q.Lógica
             {
                 enPreparacion();
             }
-         
 
-            
-
-            
 
         }
 
-        private void enPreparacion()
+        //public void finRevisionAlternativa(Cliente tren1)
+        //{
+        //    // Acumulador tiempo descarga
+
+        //    double tiempo_revision = simulacion.Reloj - tren1.hora_revision;
+        //    simulacion.acumulador_revision = simulacion.acumulador_revision + tiempo_revision;
+
+        //    gestor.acumuladorTiempoRevision(simulacion.acumulador_revision);
+
+        //    //gestor.servidor_almacen.estado = (double)EstadoAlmacen.Libre;
+
+        //    simulacion.limpiarEventoFinRevision();
+
+        //    //gestor.servidor_barco.cliente = trenRevisado;
+
+        //    //Cliente trenRevisado = gestor.servidor_almacen.cola.Dequeue();
+
+        //    //consultarColaBarco(tren1);
+
+        //    borrarTrenRevisado(tren1);
+
+        //    //if (gestor.servidor_almacen.cola.Count > 0)
+        //    //{
+        //    //    Cliente siguienteTren = gestor.servidor_almacen.cola.Dequeue();
+
+        //    //    enRevision(siguienteTren);
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    gestor.servidor_almacen.estado = (double)EstadoAlmacen.Libre;
+        //    //}
+
+        //    if (simulacion.contenedores_cargados <= 50)
+        //    {
+
+        //        if (gestor.servidor_almacen.cola.Count > 0)
+        //        {
+        //            Cliente tren = gestor.servidor_almacen.cola.Dequeue();
+
+        //            tren.estado = (double)Estado.siendo_atendido;
+
+        //            enRevisionAlternativa(tren);
+
+        //        }
+        //        else
+        //        {
+        //            gestor.servidor_almacen.estado = (double)EstadoBarco.Libre;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        enPreparacion();
+        //    }
+
+
+        //}
+
+        public void borrarTrenRevisado(Cliente tren)
+        {
+            tren.estado = (double)Estado.revisado;
+            tren.Dispose();
+        }
+
+        //public void enRevisionAlternativa(Cliente tren)
+        //{
+        //    desde = simulacion.Reloj;
+
+        //    gestor.servidor_almacen.cliente = tren;
+
+        //    gestor.generarTiempoRevision(gestor.servidor_almacen.cliente.cantidad_contenedores);
+
+        //    tren.hora_revision = simulacion.Reloj;
+
+        //    tren.tiempo_revision = simulacion.tiempo_revision;
+        //}
+
+        public void enPreparacion()
         {
             desde = simulacion.Reloj;
-            simulacion.contenedores_cargados = 0;
+            simulacion.contenedores_cargados = 50;
             gestor.servidor_barco.estado = (double)EstadoBarco.Lleno;
             gestor.generarTiempoPreparacion();
-
-            
-
 
         }
 
@@ -271,9 +358,13 @@ namespace SimTP2Q.Lógica
 
         public void finPreparacion()
         {
+            simulacion.contenedores_cargados = 0;
+
             gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
             
             simulacion.limpiarEventoFinPreparacion();
+
+            simulacion.contador_barcos = simulacion.contador_barcos + 1;
 
             gestor.contarBarcosZarpados();
 
