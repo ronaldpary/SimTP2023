@@ -219,37 +219,45 @@ namespace SimTP2Q.Lógica
 
             borrarTren(trenDescargado);
 
-            if (simulacion.contenedores_cargados >= 50)
-            {
-                
-                //enPreparacion();
-            }
-         
-
             simulacion.limpiarFinDescargaTren();
 
-            if (gestor.servidor_barco.cola.Count > 0)
+            if (simulacion.contenedores_cargados <= 50)
             {
-                Cliente tren = gestor.servidor_barco.cola.Dequeue();
 
-                tren.estado = (double)Estado.siendo_atendido;
+                if (gestor.servidor_barco.cola.Count > 0)
+                {
+                    Cliente tren = gestor.servidor_barco.cola.Dequeue();
 
-                enDescarga(tren);
-     
+                    tren.estado = (double)Estado.siendo_atendido;
+
+                    enDescarga(tren);
+
+                }
+                else
+                {
+                    gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+                }
             }
             else
             {
-                gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+                enPreparacion();
             }
+         
+
+            
+
+            
 
         }
 
         private void enPreparacion()
         {
             desde = simulacion.Reloj;
-            //simulacion.contenedores_cargados = 0;
+            simulacion.contenedores_cargados = 0;
             gestor.servidor_barco.estado = (double)EstadoBarco.Lleno;
             gestor.generarTiempoPreparacion();
+
+            
 
 
         }
@@ -267,7 +275,25 @@ namespace SimTP2Q.Lógica
             
             simulacion.limpiarEventoFinPreparacion();
 
-            
+            gestor.contarBarcosZarpados();
+
+            gestor.numeroBarco = gestor.numeroBarco + 1;
+
+            if (gestor.servidor_barco.cola.Count > 0)
+            {
+                Cliente tren = gestor.servidor_barco.cola.Dequeue();
+
+                tren.estado = (double)Estado.siendo_atendido;
+
+                enDescarga(tren);
+
+            }
+            else
+            {
+                gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+            }
+
+
         }
 
         #endregion

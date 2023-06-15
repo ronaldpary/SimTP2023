@@ -52,6 +52,11 @@ namespace SimTP2Q.Presentación
                 dgvEventos.Rows.Clear();
                 ValidarDatos(parametros);
                 gestor.iniciarSimulacion(Convert.ToInt32(txtSimulaciones.Text), this.parametros, Convert.ToInt32(txtDesde.Text), Convert.ToInt32(txtHasta.Text));
+
+                dgvEventos.SelectedRows[0].Selected = false;
+                dgvEventos.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
+                dgvEventos.Rows[(hasta-desde) + 2].DefaultCellStyle.BackColor = Color.Yellow;
+
             }
             else
             {
@@ -146,6 +151,7 @@ namespace SimTP2Q.Presentación
 
         private void Prueba_Load(object sender, EventArgs e)
         {
+
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;

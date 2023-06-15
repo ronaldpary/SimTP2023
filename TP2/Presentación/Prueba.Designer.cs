@@ -49,6 +49,18 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtSimulaciones = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvEventos = new System.Windows.Forms.DataGridView();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,18 +90,6 @@
             this.cont_trenes_fragiles_8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contador_trenes_fragiles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumulador_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.gpDescripcionRespuesta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
@@ -378,6 +378,8 @@
             // 
             this.dgvEventos.AllowUserToAddRows = false;
             this.dgvEventos.AllowUserToDeleteRows = false;
+            this.dgvEventos.AllowUserToResizeColumns = false;
+            this.dgvEventos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -429,214 +431,9 @@
             this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEventos.Location = new System.Drawing.Point(0, 6);
             this.dgvEventos.Name = "dgvEventos";
-            this.dgvEventos.ReadOnly = true;
             this.dgvEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEventos.Size = new System.Drawing.Size(841, 419);
             this.dgvEventos.TabIndex = 47;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "Numero";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            this.Numero.Width = 50;
-            // 
-            // Evento
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Evento.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Evento.HeaderText = "Evento";
-            this.Evento.Name = "Evento";
-            this.Evento.ReadOnly = true;
-            this.Evento.Width = 80;
-            // 
-            // Reloj
-            // 
-            this.Reloj.HeaderText = "Reloj (H)";
-            this.Reloj.Name = "Reloj";
-            this.Reloj.ReadOnly = true;
-            this.Reloj.Width = 80;
-            // 
-            // rnd_llegada
-            // 
-            this.rnd_llegada.HeaderText = "Rnd";
-            this.rnd_llegada.Name = "rnd_llegada";
-            this.rnd_llegada.ReadOnly = true;
-            this.rnd_llegada.Width = 80;
-            // 
-            // tiempo_entre_llegada
-            // 
-            this.tiempo_entre_llegada.HeaderText = "Tiempo entre llegada";
-            this.tiempo_entre_llegada.Name = "tiempo_entre_llegada";
-            this.tiempo_entre_llegada.ReadOnly = true;
-            this.tiempo_entre_llegada.Width = 80;
-            // 
-            // proxima_llegada
-            // 
-            this.proxima_llegada.HeaderText = "Proxima llegada";
-            this.proxima_llegada.Name = "proxima_llegada";
-            this.proxima_llegada.ReadOnly = true;
-            this.proxima_llegada.Width = 80;
-            // 
-            // rnd_cantidad_cont
-            // 
-            this.rnd_cantidad_cont.HeaderText = "Rnd";
-            this.rnd_cantidad_cont.Name = "rnd_cantidad_cont";
-            this.rnd_cantidad_cont.ReadOnly = true;
-            this.rnd_cantidad_cont.Width = 50;
-            // 
-            // cantidad_contenedores
-            // 
-            this.cantidad_contenedores.HeaderText = "Cantidad contenedores";
-            this.cantidad_contenedores.Name = "cantidad_contenedores";
-            this.cantidad_contenedores.ReadOnly = true;
-            this.cantidad_contenedores.Width = 80;
-            // 
-            // rnd_prob_revision
-            // 
-            this.rnd_prob_revision.HeaderText = "Rnd";
-            this.rnd_prob_revision.Name = "rnd_prob_revision";
-            this.rnd_prob_revision.ReadOnly = true;
-            this.rnd_prob_revision.Width = 80;
-            // 
-            // se_revisa
-            // 
-            this.se_revisa.HeaderText = "Revision";
-            this.se_revisa.Name = "se_revisa";
-            this.se_revisa.ReadOnly = true;
-            this.se_revisa.Width = 80;
-            // 
-            // rnd_revision
-            // 
-            this.rnd_revision.HeaderText = "Rnd";
-            this.rnd_revision.Name = "rnd_revision";
-            this.rnd_revision.ReadOnly = true;
-            this.rnd_revision.Width = 80;
-            // 
-            // tiempo_revision
-            // 
-            this.tiempo_revision.HeaderText = "Tiempo revision";
-            this.tiempo_revision.Name = "tiempo_revision";
-            this.tiempo_revision.ReadOnly = true;
-            this.tiempo_revision.Width = 80;
-            // 
-            // revision_lista
-            // 
-            this.revision_lista.HeaderText = "Fin revision";
-            this.revision_lista.Name = "revision_lista";
-            this.revision_lista.ReadOnly = true;
-            this.revision_lista.Width = 80;
-            // 
-            // estado_almacen
-            // 
-            this.estado_almacen.HeaderText = "Estado";
-            this.estado_almacen.Name = "estado_almacen";
-            this.estado_almacen.ReadOnly = true;
-            this.estado_almacen.Width = 80;
-            // 
-            // cola_almacen
-            // 
-            this.cola_almacen.HeaderText = "Cola";
-            this.cola_almacen.Name = "cola_almacen";
-            this.cola_almacen.ReadOnly = true;
-            this.cola_almacen.Width = 80;
-            // 
-            // rnd_descarga
-            // 
-            this.rnd_descarga.HeaderText = "Rnd";
-            this.rnd_descarga.Name = "rnd_descarga";
-            this.rnd_descarga.ReadOnly = true;
-            this.rnd_descarga.Width = 80;
-            // 
-            // tiempo_descarga
-            // 
-            this.tiempo_descarga.HeaderText = "Tiempo descarga";
-            this.tiempo_descarga.Name = "tiempo_descarga";
-            this.tiempo_descarga.ReadOnly = true;
-            this.tiempo_descarga.Width = 80;
-            // 
-            // fin_descarga
-            // 
-            this.fin_descarga.HeaderText = "Fin descarga";
-            this.fin_descarga.Name = "fin_descarga";
-            this.fin_descarga.ReadOnly = true;
-            this.fin_descarga.Width = 80;
-            // 
-            // rnd_preparacion
-            // 
-            this.rnd_preparacion.HeaderText = "Rnd";
-            this.rnd_preparacion.Name = "rnd_preparacion";
-            this.rnd_preparacion.ReadOnly = true;
-            this.rnd_preparacion.Width = 80;
-            // 
-            // tiempo_preparacion
-            // 
-            this.tiempo_preparacion.HeaderText = "Tiempo demora";
-            this.tiempo_preparacion.Name = "tiempo_preparacion";
-            this.tiempo_preparacion.ReadOnly = true;
-            this.tiempo_preparacion.Width = 80;
-            // 
-            // barco_listo
-            // 
-            this.barco_listo.HeaderText = "Fin preparacion";
-            this.barco_listo.Name = "barco_listo";
-            this.barco_listo.ReadOnly = true;
-            this.barco_listo.Width = 80;
-            // 
-            // estado_barco
-            // 
-            this.estado_barco.HeaderText = "Estado";
-            this.estado_barco.Name = "estado_barco";
-            this.estado_barco.ReadOnly = true;
-            // 
-            // cola_barco
-            // 
-            this.cola_barco.HeaderText = "Cola";
-            this.cola_barco.Name = "cola_barco";
-            this.cola_barco.ReadOnly = true;
-            this.cola_barco.Width = 70;
-            // 
-            // contenedores_cargados
-            // 
-            this.contenedores_cargados.HeaderText = "Contenedores cargados";
-            this.contenedores_cargados.Name = "contenedores_cargados";
-            this.contenedores_cargados.ReadOnly = true;
-            this.contenedores_cargados.Width = 75;
-            // 
-            // contador_barcos
-            // 
-            this.contador_barcos.HeaderText = "Contador Barcos finalizados";
-            this.contador_barcos.Name = "contador_barcos";
-            this.contador_barcos.ReadOnly = true;
-            this.contador_barcos.Width = 70;
-            // 
-            // acumulador_descarga
-            // 
-            this.acumulador_descarga.HeaderText = "Acumulador Horas de descarga";
-            this.acumulador_descarga.Name = "acumulador_descarga";
-            this.acumulador_descarga.ReadOnly = true;
-            this.acumulador_descarga.Width = 80;
-            // 
-            // cont_trenes_fragiles_8
-            // 
-            this.cont_trenes_fragiles_8.HeaderText = "Contador Trenes con 8 cont.";
-            this.cont_trenes_fragiles_8.Name = "cont_trenes_fragiles_8";
-            this.cont_trenes_fragiles_8.ReadOnly = true;
-            this.cont_trenes_fragiles_8.Width = 70;
-            // 
-            // contador_trenes_fragiles
-            // 
-            this.contador_trenes_fragiles.HeaderText = "Contador Trenes fragiles";
-            this.contador_trenes_fragiles.Name = "contador_trenes_fragiles";
-            this.contador_trenes_fragiles.ReadOnly = true;
-            this.contador_trenes_fragiles.Width = 50;
-            // 
-            // acumulador_revision
-            // 
-            this.acumulador_revision.HeaderText = "Acumulador Horas de revision";
-            this.acumulador_revision.Name = "acumulador_revision";
-            this.acumulador_revision.ReadOnly = true;
-            this.acumulador_revision.Width = 70;
             // 
             // guna2GradientPanel1
             // 
@@ -780,6 +577,181 @@
             this.guna2HtmlLabel11.TabIndex = 6;
             this.guna2HtmlLabel11.Text = "1) Horas de descarga acumulada";
             // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.Width = 50;
+            // 
+            // Evento
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Evento.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Evento.HeaderText = "Evento";
+            this.Evento.Name = "Evento";
+            this.Evento.Width = 120;
+            // 
+            // Reloj
+            // 
+            this.Reloj.HeaderText = "Reloj (H)";
+            this.Reloj.Name = "Reloj";
+            this.Reloj.Width = 80;
+            // 
+            // rnd_llegada
+            // 
+            this.rnd_llegada.HeaderText = "Rnd";
+            this.rnd_llegada.Name = "rnd_llegada";
+            this.rnd_llegada.Width = 80;
+            // 
+            // tiempo_entre_llegada
+            // 
+            this.tiempo_entre_llegada.HeaderText = "Tiempo entre llegada";
+            this.tiempo_entre_llegada.Name = "tiempo_entre_llegada";
+            this.tiempo_entre_llegada.Width = 80;
+            // 
+            // proxima_llegada
+            // 
+            this.proxima_llegada.HeaderText = "Proxima llegada";
+            this.proxima_llegada.Name = "proxima_llegada";
+            this.proxima_llegada.Width = 80;
+            // 
+            // rnd_cantidad_cont
+            // 
+            this.rnd_cantidad_cont.HeaderText = "Rnd";
+            this.rnd_cantidad_cont.Name = "rnd_cantidad_cont";
+            this.rnd_cantidad_cont.Width = 50;
+            // 
+            // cantidad_contenedores
+            // 
+            this.cantidad_contenedores.HeaderText = "Cantidad contenedores";
+            this.cantidad_contenedores.Name = "cantidad_contenedores";
+            this.cantidad_contenedores.Width = 80;
+            // 
+            // rnd_prob_revision
+            // 
+            this.rnd_prob_revision.HeaderText = "Rnd";
+            this.rnd_prob_revision.Name = "rnd_prob_revision";
+            this.rnd_prob_revision.Width = 80;
+            // 
+            // se_revisa
+            // 
+            this.se_revisa.HeaderText = "Revision";
+            this.se_revisa.Name = "se_revisa";
+            this.se_revisa.Width = 80;
+            // 
+            // rnd_revision
+            // 
+            this.rnd_revision.HeaderText = "Rnd";
+            this.rnd_revision.Name = "rnd_revision";
+            this.rnd_revision.Width = 80;
+            // 
+            // tiempo_revision
+            // 
+            this.tiempo_revision.HeaderText = "Tiempo revision";
+            this.tiempo_revision.Name = "tiempo_revision";
+            this.tiempo_revision.Width = 80;
+            // 
+            // revision_lista
+            // 
+            this.revision_lista.HeaderText = "Fin revision";
+            this.revision_lista.Name = "revision_lista";
+            this.revision_lista.Width = 80;
+            // 
+            // estado_almacen
+            // 
+            this.estado_almacen.HeaderText = "Estado";
+            this.estado_almacen.Name = "estado_almacen";
+            this.estado_almacen.Width = 80;
+            // 
+            // cola_almacen
+            // 
+            this.cola_almacen.HeaderText = "Cola";
+            this.cola_almacen.Name = "cola_almacen";
+            this.cola_almacen.Width = 80;
+            // 
+            // rnd_descarga
+            // 
+            this.rnd_descarga.HeaderText = "Rnd";
+            this.rnd_descarga.Name = "rnd_descarga";
+            this.rnd_descarga.Width = 80;
+            // 
+            // tiempo_descarga
+            // 
+            this.tiempo_descarga.HeaderText = "Tiempo descarga";
+            this.tiempo_descarga.Name = "tiempo_descarga";
+            this.tiempo_descarga.Width = 80;
+            // 
+            // fin_descarga
+            // 
+            this.fin_descarga.HeaderText = "Fin descarga";
+            this.fin_descarga.Name = "fin_descarga";
+            this.fin_descarga.Width = 80;
+            // 
+            // rnd_preparacion
+            // 
+            this.rnd_preparacion.HeaderText = "Rnd";
+            this.rnd_preparacion.Name = "rnd_preparacion";
+            this.rnd_preparacion.Width = 80;
+            // 
+            // tiempo_preparacion
+            // 
+            this.tiempo_preparacion.HeaderText = "Tiempo demora";
+            this.tiempo_preparacion.Name = "tiempo_preparacion";
+            this.tiempo_preparacion.Width = 80;
+            // 
+            // barco_listo
+            // 
+            this.barco_listo.HeaderText = "Fin preparacion";
+            this.barco_listo.Name = "barco_listo";
+            this.barco_listo.Width = 80;
+            // 
+            // estado_barco
+            // 
+            this.estado_barco.HeaderText = "Estado";
+            this.estado_barco.Name = "estado_barco";
+            // 
+            // cola_barco
+            // 
+            this.cola_barco.HeaderText = "Cola";
+            this.cola_barco.Name = "cola_barco";
+            this.cola_barco.Width = 70;
+            // 
+            // contenedores_cargados
+            // 
+            this.contenedores_cargados.HeaderText = "Contenedores cargados";
+            this.contenedores_cargados.Name = "contenedores_cargados";
+            this.contenedores_cargados.Width = 75;
+            // 
+            // contador_barcos
+            // 
+            this.contador_barcos.HeaderText = "Contador Barcos finalizados";
+            this.contador_barcos.Name = "contador_barcos";
+            this.contador_barcos.Width = 70;
+            // 
+            // acumulador_descarga
+            // 
+            this.acumulador_descarga.HeaderText = "Acumulador Horas de descarga";
+            this.acumulador_descarga.Name = "acumulador_descarga";
+            this.acumulador_descarga.Width = 80;
+            // 
+            // cont_trenes_fragiles_8
+            // 
+            this.cont_trenes_fragiles_8.HeaderText = "Contador Trenes con 8 cont.";
+            this.cont_trenes_fragiles_8.Name = "cont_trenes_fragiles_8";
+            this.cont_trenes_fragiles_8.Width = 70;
+            // 
+            // contador_trenes_fragiles
+            // 
+            this.contador_trenes_fragiles.HeaderText = "Contador Trenes fragiles";
+            this.contador_trenes_fragiles.Name = "contador_trenes_fragiles";
+            this.contador_trenes_fragiles.Width = 50;
+            // 
+            // acumulador_revision
+            // 
+            this.acumulador_revision.HeaderText = "Acumulador Horas de revision";
+            this.acumulador_revision.Name = "acumulador_revision";
+            this.acumulador_revision.Width = 70;
+            // 
             // Prueba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -822,6 +794,18 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtSimulaciones;
         private System.Windows.Forms.DataGridView dgvEventos;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reloj;
@@ -851,17 +835,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cont_trenes_fragiles_8;
         private System.Windows.Forms.DataGridViewTextBoxColumn contador_trenes_fragiles;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_revision;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
     }
 }

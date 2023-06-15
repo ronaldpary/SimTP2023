@@ -45,6 +45,8 @@ namespace SimTP2Q.Lógica
         private int contador_8;
         private int contador_fragiles;
         private int acumulador_revision;
+
+        public int numeroBarco;
         
         #endregion
 
@@ -122,7 +124,7 @@ namespace SimTP2Q.Lógica
                             if (Convert.ToDecimal((enElSistema[j].hora_revision + enElSistema[j].tiempo_revision).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N")) ;
                             {
 
-                                nombreEvento = "Fin revision" + "(" + servidor_almacen.cliente.numero.ToString() + ")";
+                                nombreEvento = "Fin revision " + "(" + servidor_almacen.cliente.numero.ToString() + ")";
                                 eventos.finRevisionTren(enElSistema[j]);
 
                                 break;
@@ -138,9 +140,12 @@ namespace SimTP2Q.Lógica
                         simulacion.limpiarContenedores();
                         if (siguienteTiempo == simulacion.barco_listo)
                         {
-                            nombreEvento = "Fin preparacion";
 
                             eventos.finPreparacion();
+
+                            nombreEvento = "Fin preparacion " + "(" + numeroBarco + ")";
+
+                            
 
                         }
                         else
@@ -153,7 +158,7 @@ namespace SimTP2Q.Lógica
                                 if (Convert.ToDecimal((enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N"));
                                 {
 
-                                    nombreEvento = "Fin descarga" + "(" + servidor_barco.cliente.numero.ToString() + ")";
+                                    nombreEvento = "Fin descarga " + "(" + servidor_barco.cliente.numero.ToString() + ")";
                                     eventos.finDescargaTren(enElSistema[j]);
 
                                     break;
@@ -255,6 +260,11 @@ namespace SimTP2Q.Lógica
         public void trenesFragiles(double metrica1)
         {
             contador_fragiles = (int)metrica1;
+        }
+
+        public void contarBarcosZarpados()
+        {
+            contador_barcos = contador_barcos + 1;
         }
         #endregion
     }
