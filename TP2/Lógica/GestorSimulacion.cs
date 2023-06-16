@@ -281,6 +281,11 @@ namespace SimTP2Q.Lógica
         {
             contador_8 = (int)metrica2;
         }
+
+        public void contadorContenedoresSobrantes(double contador_contenedores)
+        {
+            
+        }
         #endregion
     }
 }

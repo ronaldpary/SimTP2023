@@ -13,6 +13,7 @@ namespace SimTP2Q.Lógica
 
         #region Atributos
 
+        public double ContenedoresRemanentes { get; set; } = 0;
         public double Reloj { get; set; }
 
         //Llegada del tren

@@ -183,6 +183,22 @@ namespace SimTP2Q.Lógica
 
             gestor.servidor_barco.cliente = tren;
 
+
+
+            if (simulacion.cantidad_contenedores + gestor.servidor_barco.cliente.cantidad_contenedores >= 50)
+            {
+                double sobrante = simulacion.cantidad_contenedores + gestor.servidor_barco.cliente.cantidad_contenedores - 50;
+                gestor.generarTiempoDescarga(sobrante);
+
+                simulacion.ContenedoresRemanentes = sobrante;
+
+                //gestor.contadorContenedoresSobrantes(simulacion.ContenedoresRemanentes);
+
+            }
+            else
+            {
+                gestor.generarTiempoDescarga(gestor.servidor_barco.cliente.cantidad_contenedores);
+            }
             gestor.generarTiempoDescarga(gestor.servidor_barco.cliente.cantidad_contenedores);
 
             tren.hora_descarga = simulacion.Reloj;
