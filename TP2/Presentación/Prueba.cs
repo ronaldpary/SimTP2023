@@ -56,6 +56,7 @@ namespace SimTP2Q.Presentación
                 dgvEventos.SelectedRows[0].Selected = false;
                 dgvEventos.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
                 dgvEventos.Rows[(hasta-desde) + 2].DefaultCellStyle.BackColor = Color.Yellow;
+                //dgvEventos.Rows[-1].Cells[0].Style.BackColor = Color.Blue;
 
             }
             else
@@ -192,6 +193,12 @@ namespace SimTP2Q.Presentación
         private void gpDescripcionRespuesta_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvEventos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            //DataGridViewHeaderCell s = new DataGridViewHeaderCell();
+            //s.Style.SelectionBackColor = Color.Blue;
         }
     }
 }

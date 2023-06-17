@@ -124,7 +124,7 @@ namespace SimTP2Q.Lógica
                     }
                 }
 
-                consultarColaAlmacen(tren);
+                consultarColaBarco(tren);
             }
             
 
@@ -185,21 +185,20 @@ namespace SimTP2Q.Lógica
 
 
 
-            if (simulacion.cantidad_contenedores + gestor.servidor_barco.cliente.cantidad_contenedores >= 50)
+            if (simulacion.contenedores_cargados + gestor.servidor_barco.cliente.cantidad_contenedores > 50)
             {
-                double sobrante = simulacion.cantidad_contenedores + gestor.servidor_barco.cliente.cantidad_contenedores - 50;
-                gestor.generarTiempoDescarga(sobrante);
+                double sobrante = simulacion.contenedores_cargados + gestor.servidor_barco.cliente.cantidad_contenedores - 50;
 
-                simulacion.ContenedoresRemanentes = sobrante;
+                gestor.generarTiempoDescargaSinSobrantes(gestor.servidor_barco.cliente.cantidad_contenedores, sobrante);
 
-                //gestor.contadorContenedoresSobrantes(simulacion.ContenedoresRemanentes);
+                tren.estado = (double)Estado.esperando_descarga;
 
             }
             else
             {
                 gestor.generarTiempoDescarga(gestor.servidor_barco.cliente.cantidad_contenedores);
             }
-            gestor.generarTiempoDescarga(gestor.servidor_barco.cliente.cantidad_contenedores);
+
 
             tren.hora_descarga = simulacion.Reloj;
 
@@ -220,7 +219,7 @@ namespace SimTP2Q.Lógica
 
             simulacion.limpiarEventoFinRevision();
 
-            borrarTrenRevisado(tren1);
+            borrarTren(tren1);
 
             //consultarColaBarco(tren1);
 
@@ -244,39 +243,146 @@ namespace SimTP2Q.Lógica
             simulacion.contenedores_cargados = simulacion.contenedores_cargados + trenDescargado.cantidad_contenedores;
 
             // Acumulador tiempo descarga
-
             double tiempo_descarga = simulacion.Reloj - trenDescargado.hora_descarga;
             simulacion.acumulador_descarga = simulacion.acumulador_descarga + tiempo_descarga;
-
             gestor.acumuladorTiempoDescarga(simulacion.acumulador_descarga);
 
-            borrarTren(trenDescargado);
+            //Metodo 1, no funciona
 
-            simulacion.limpiarFinDescargaTren();
+            //if (trenDescargado.estado == (double)Estado.esperando_descarga)
+            //{
+            //    enDescargaSobrantes(trenDescargado);
+            //    trenDescargado.estado = (double)Estado.siendo_atendido;
+            //}
+            //else
+            //{
+            //    if (simulacion.contenedores_cargados >= 50)
+            //    {
+            //        gestor.servidor_barco.estado = (double)EstadoBarco.Lleno;
+            //        enPreparacion();
 
-            if (simulacion.contenedores_cargados <= 50)
+            //    }
+            //    else
+            //    {
+            //        borrarTren(trenDescargado);
+            //        simulacion.limpiarFinDescargaTren();
+
+            //        if (gestor.servidor_barco.cola.Count > 0)
+            //        {
+            //            Cliente tren = gestor.servidor_barco.cola.Dequeue();
+
+            //            tren.estado = (double)Estado.siendo_atendido;
+
+            //            enDescarga(tren);
+
+            //        }
+            //        else
+            //        {
+            //            gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+            //        }
+            //    }
+            //}
+
+
+            // Metodo2, tampoco
+
+            //if (simulacion.contenedores_cargados >= 50)
+            //{
+            //    gestor.servidor_barco.estado = (double)EstadoBarco.Lleno;
+            //}
+
+
+            //if (trenDescargado.estado == (double)Estado.esperando_descarga)
+            //{
+            //    enPreparacion();
+            
+            //    enDescargaSobrantes(trenDescargado);
+            //    trenDescargado.estado = (double)Estado.siendo_atendido;
+
+            //    simulacion.limpiarRemanente();
+            //}
+            //else
+            //{
+            //    borrarTren(trenDescargado);
+            //    simulacion.limpiarFinDescargaTren();
+
+            //    if (gestor.servidor_barco.cola.Count > 0)
+            //    {
+            //        Cliente tren = gestor.servidor_barco.cola.Dequeue();
+
+            //        tren.estado = (double)Estado.siendo_atendido;
+
+            //        enDescarga(tren);
+
+            //    }
+            //    else
+            //    {
+            //        gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+            //    }
+
+            //}
+
+
+            // Metodo 3, funciona mas o menos
+
+            if (simulacion.contenedores_cargados >= 50)
             {
+                gestor.servidor_barco.estado = (double)EstadoBarco.Lleno;
+            }
 
-                if (gestor.servidor_barco.cola.Count > 0)
-                {
-                    Cliente tren = gestor.servidor_barco.cola.Dequeue();
 
-                    tren.estado = (double)Estado.siendo_atendido;
+            if (trenDescargado.estado == (double)Estado.esperando_descarga)
+            {
+                enDescargaSobrantes(trenDescargado);
+                trenDescargado.estado = (double)Estado.siendo_atendido;
 
-                    enDescarga(tren);
-
-                }
-                else
-                {
-                    gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
-                }
+                //simulacion.limpiarRemanente();
             }
             else
             {
-                enPreparacion();
+                borrarTren(trenDescargado);
+                simulacion.limpiarFinDescargaTren();
+
+                if (simulacion.contenedores_cargados < 50)
+                {
+
+                    if (gestor.servidor_barco.cola.Count > 0)
+                    {
+                        Cliente tren = gestor.servidor_barco.cola.Dequeue();
+
+                        tren.estado = (double)Estado.siendo_atendido;
+
+                        enDescarga(tren);
+
+                    }
+                    else
+                    {
+                        gestor.servidor_barco.estado = (double)EstadoBarco.Libre;
+                    }
+                }
+                else
+                {
+
+                    enPreparacion();
+
+                }
             }
 
+        }
 
+        public void enDescargaSobrantes(Cliente trenDescargado)
+        {
+            desde = simulacion.Reloj;
+
+            gestor.servidor_barco.cliente = trenDescargado;
+
+            simulacion.rnd_descarga = 0;
+            simulacion.tiempo_descarga = simulacion.tiempo_remanente;
+            simulacion.fin_descarga = simulacion.Reloj + simulacion.tiempo_descarga + simulacion.tiempo_preparacion + 1;
+
+            trenDescargado.hora_descarga = simulacion.Reloj;
+            trenDescargado.tiempo_descarga = simulacion.tiempo_descarga;
+            trenDescargado.cantidad_contenedores = simulacion.contenedores_remanentes;
         }
 
         //public void finRevisionAlternativa(Cliente tren1)
@@ -339,8 +445,8 @@ namespace SimTP2Q.Lógica
 
         public void borrarTrenRevisado(Cliente tren)
         {
-            tren.estado = (double)Estado.revisado;
-            tren.Dispose();
+            //tren.estado = (double)Estado.revisado;
+            //tren.Dispose();
         }
 
         //public void enRevisionAlternativa(Cliente tren)
@@ -374,7 +480,7 @@ namespace SimTP2Q.Lógica
 
         public void finPreparacion()
         {
-            simulacion.contenedores_cargados = 0;
+            simulacion.contenedores_cargados = 0 + simulacion.contenedores_remanentes;
 
             gestor.servidor_barco.estado = (double)EstadoBarco.Cargando;
             

@@ -43,7 +43,7 @@ namespace SimTP2Q.Lógica
         public enum Estado 
         { esperando_atencion = 1, siendo_atendido = 2, 
             esperando_revision = 3, siendo_revisado = 4, 
-            destruido = 5, revisado = 6
+            destruido = 5, esperando_descarga = 6
         }
 
         #endregion
@@ -70,7 +70,7 @@ namespace SimTP2Q.Lógica
                     estadoActual = "Descargado";
                     break;
                 case 6:
-                    estadoActual = "Revisado";
+                    estadoActual = "Desc_Parcial";
                     break;
 
             }

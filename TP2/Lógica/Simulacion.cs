@@ -13,7 +13,7 @@ namespace SimTP2Q.Lógica
 
         #region Atributos
 
-        public double ContenedoresRemanentes { get; set; } = 0;
+        
         public double Reloj { get; set; }
 
         //Llegada del tren
@@ -60,6 +60,10 @@ namespace SimTP2Q.Lógica
         public double cont_trenes_fragiles_8 { get; set; } = 0;
         public double acumulador_revision { get; set; } = 0;
 
+        //Para contenedores remanentes
+        public double contenedores_remanentes { get; set; } = 0;
+        public double tiempo_remanente { get; set; } = 0;
+
         #endregion
 
         #region Metodos
@@ -88,13 +92,6 @@ namespace SimTP2Q.Lógica
             this.fin_descarga = -1;
         }
 
-        public void preparacionBarco()
-        {
-            this.rnd_preparacion = -1;
-            this.tiempo_preparacion = -1;
-            this.barco_listo = -1;
-        }
-
         public void limpiarEventoFinPreparacion()
         {
             this.rnd_preparacion = -1;
@@ -111,35 +108,10 @@ namespace SimTP2Q.Lógica
 
         }
 
-        public void limpiarHoraRevisionYHoraDescarga()
+        public void limpiarRemanente()
         {
-            throw new NotImplementedException();
-        }
-
-        public void limpiarColumnasRevision()
-        {
-            this.rnd_prob_revision = -1;
-            this.se_revisa = -1;
-            this.rnd_revision = -1;
-            this.tiempo_revision = -1;
-        }
-
-        public void ColumnasFinDescarga()
-        {
-            this.rnd_descarga = -1;
-            this.tiempo_descarga = -1;
-        }
-
-        public void sumarContenedoresCargados(Cliente tren)
-        {
-            this.contenedores_cargados = this.contenedores_cargados + tren.cantidad_contenedores;
-            borrarTren(tren);
-        }
-
-        public void borrarTren(Cliente tren)
-        {
-            tren.estado = (double)Estado.destruido;
-            tren.Dispose();
+            this.tiempo_remanente = -1;
+            this.contenedores_remanentes = -1;
         }
 
 

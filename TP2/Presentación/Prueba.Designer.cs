@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.gpDescripcionRespuesta = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -82,12 +83,13 @@
             this.rnd_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fin_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_remanente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenedores_remanentes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_preparacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_preparacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barco_listo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cola_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContenedoresRemanentes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenedores_cargados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contador_barcos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumulador_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,9 +116,8 @@
             this.guna2Panel1.Controls.Add(this.txtSimulaciones);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1266, 243);
+            this.guna2Panel1.Size = new System.Drawing.Size(844, 158);
             this.guna2Panel1.TabIndex = 3;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -134,10 +135,9 @@
             this.gpDescripcionRespuesta.Controls.Add(this.txtLlegada);
             this.gpDescripcionRespuesta.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpDescripcionRespuesta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gpDescripcionRespuesta.Location = new System.Drawing.Point(330, 23);
-            this.gpDescripcionRespuesta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpDescripcionRespuesta.Location = new System.Drawing.Point(220, 15);
             this.gpDescripcionRespuesta.Name = "gpDescripcionRespuesta";
-            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(886, 185);
+            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(591, 120);
             this.gpDescripcionRespuesta.TabIndex = 3;
             this.gpDescripcionRespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gpDescripcionRespuesta.Click += new System.EventHandler(this.gpDescripcionRespuesta_Click);
@@ -147,10 +147,9 @@
             this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel15.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel15.Location = new System.Drawing.Point(388, 18);
-            this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel15.Location = new System.Drawing.Point(259, 12);
             this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(113, 27);
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(83, 18);
             this.guna2HtmlLabel15.TabIndex = 50;
             this.guna2HtmlLabel15.Text = "Parametros";
             // 
@@ -159,10 +158,9 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(489, 88);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(326, 57);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(233, 27);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(165, 18);
             this.guna2HtmlLabel6.TabIndex = 9;
             this.guna2HtmlLabel6.Text = "Fin revision del tren (u):";
             // 
@@ -171,10 +169,9 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(44, 140);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(29, 91);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(247, 27);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(176, 18);
             this.guna2HtmlLabel5.TabIndex = 6;
             this.guna2HtmlLabel5.Text = "Fin descarga del tren (u):";
             // 
@@ -190,13 +187,13 @@
             this.txtPreparacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPreparacion.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtPreparacion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPreparacion.Location = new System.Drawing.Point(746, 140);
-            this.txtPreparacion.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtPreparacion.Location = new System.Drawing.Point(497, 91);
+            this.txtPreparacion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtPreparacion.Name = "txtPreparacion";
             this.txtPreparacion.PasswordChar = '\0';
             this.txtPreparacion.PlaceholderText = "";
             this.txtPreparacion.SelectedText = "";
-            this.txtPreparacion.Size = new System.Drawing.Size(94, 32);
+            this.txtPreparacion.Size = new System.Drawing.Size(63, 21);
             this.txtPreparacion.TabIndex = 7;
             // 
             // txtDescarga
@@ -211,13 +208,13 @@
             this.txtDescarga.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescarga.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtDescarga.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescarga.Location = new System.Drawing.Point(316, 140);
-            this.txtDescarga.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtDescarga.Location = new System.Drawing.Point(211, 91);
+            this.txtDescarga.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDescarga.Name = "txtDescarga";
             this.txtDescarga.PasswordChar = '\0';
             this.txtDescarga.PlaceholderText = "";
             this.txtDescarga.SelectedText = "";
-            this.txtDescarga.Size = new System.Drawing.Size(94, 32);
+            this.txtDescarga.Size = new System.Drawing.Size(63, 21);
             this.txtDescarga.TabIndex = 5;
             // 
             // guna2HtmlLabel7
@@ -225,10 +222,9 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(460, 140);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(307, 91);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(255, 27);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(184, 18);
             this.guna2HtmlLabel7.TabIndex = 10;
             this.guna2HtmlLabel7.Text = "Preparacion del barco (u):";
             // 
@@ -244,13 +240,13 @@
             this.txtRevision.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtRevision.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtRevision.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRevision.Location = new System.Drawing.Point(746, 88);
-            this.txtRevision.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtRevision.Location = new System.Drawing.Point(497, 57);
+            this.txtRevision.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtRevision.Name = "txtRevision";
             this.txtRevision.PasswordChar = '\0';
             this.txtRevision.PlaceholderText = "";
             this.txtRevision.SelectedText = "";
-            this.txtRevision.Size = new System.Drawing.Size(94, 32);
+            this.txtRevision.Size = new System.Drawing.Size(63, 21);
             this.txtRevision.TabIndex = 8;
             // 
             // guna2HtmlLabel4
@@ -258,10 +254,9 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(94, 88);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(63, 57);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(199, 27);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(142, 18);
             this.guna2HtmlLabel4.TabIndex = 6;
             this.guna2HtmlLabel4.Text = "Llegada del tren (u):";
             // 
@@ -277,13 +272,13 @@
             this.txtLlegada.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLlegada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtLlegada.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLlegada.Location = new System.Drawing.Point(316, 88);
-            this.txtLlegada.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtLlegada.Location = new System.Drawing.Point(211, 57);
+            this.txtLlegada.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtLlegada.Name = "txtLlegada";
             this.txtLlegada.PasswordChar = '\0';
             this.txtLlegada.PlaceholderText = "";
             this.txtLlegada.SelectedText = "";
-            this.txtLlegada.Size = new System.Drawing.Size(94, 32);
+            this.txtLlegada.Size = new System.Drawing.Size(63, 21);
             this.txtLlegada.TabIndex = 5;
             // 
             // btnComenzar
@@ -291,7 +286,7 @@
             this.btnComenzar.Animated = true;
             this.btnComenzar.AutoRoundedCorners = true;
             this.btnComenzar.BackColor = System.Drawing.Color.Transparent;
-            this.btnComenzar.BorderRadius = 18;
+            this.btnComenzar.BorderRadius = 13;
             this.btnComenzar.DefaultAutoSize = true;
             this.btnComenzar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnComenzar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -300,10 +295,9 @@
             this.btnComenzar.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComenzar.ForeColor = System.Drawing.Color.Black;
             this.btnComenzar.IndicateFocus = true;
-            this.btnComenzar.Location = new System.Drawing.Point(162, 163);
-            this.btnComenzar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnComenzar.Location = new System.Drawing.Point(108, 106);
             this.btnComenzar.Name = "btnComenzar";
-            this.btnComenzar.Size = new System.Drawing.Size(126, 39);
+            this.btnComenzar.Size = new System.Drawing.Size(93, 29);
             this.btnComenzar.TabIndex = 5;
             this.btnComenzar.Text = "Comenzar";
             this.btnComenzar.UseTransparentBackground = true;
@@ -314,10 +308,9 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(93, 111);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(62, 72);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(66, 27);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(48, 18);
             this.guna2HtmlLabel3.TabIndex = 6;
             this.guna2HtmlLabel3.Text = "Hasta:";
             // 
@@ -333,13 +326,13 @@
             this.txtHasta.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHasta.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtHasta.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHasta.Location = new System.Drawing.Point(174, 106);
-            this.txtHasta.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtHasta.Location = new System.Drawing.Point(116, 69);
+            this.txtHasta.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.PasswordChar = '\0';
             this.txtHasta.PlaceholderText = "";
             this.txtHasta.SelectedText = "";
-            this.txtHasta.Size = new System.Drawing.Size(128, 32);
+            this.txtHasta.Size = new System.Drawing.Size(85, 21);
             this.txtHasta.TabIndex = 5;
             // 
             // guna2HtmlLabel2
@@ -347,10 +340,9 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(92, 65);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(61, 42);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(72, 27);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(53, 18);
             this.guna2HtmlLabel2.TabIndex = 4;
             this.guna2HtmlLabel2.Text = "Desde:";
             // 
@@ -366,13 +358,13 @@
             this.txtDesde.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDesde.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtDesde.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDesde.Location = new System.Drawing.Point(174, 65);
-            this.txtDesde.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtDesde.Location = new System.Drawing.Point(116, 42);
+            this.txtDesde.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.PasswordChar = '\0';
             this.txtDesde.PlaceholderText = "";
             this.txtDesde.SelectedText = "";
-            this.txtDesde.Size = new System.Drawing.Size(128, 32);
+            this.txtDesde.Size = new System.Drawing.Size(85, 21);
             this.txtDesde.TabIndex = 3;
             // 
             // guna2HtmlLabel1
@@ -380,10 +372,9 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(15, 23);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(10, 15);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(139, 27);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(100, 18);
             this.guna2HtmlLabel1.TabIndex = 2;
             this.guna2HtmlLabel1.Text = "Simulaciones:";
             // 
@@ -399,13 +390,13 @@
             this.txtSimulaciones.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSimulaciones.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtSimulaciones.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSimulaciones.Location = new System.Drawing.Point(174, 23);
-            this.txtSimulaciones.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.txtSimulaciones.Location = new System.Drawing.Point(116, 15);
+            this.txtSimulaciones.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSimulaciones.Name = "txtSimulaciones";
             this.txtSimulaciones.PasswordChar = '\0';
             this.txtSimulaciones.PlaceholderText = "";
             this.txtSimulaciones.SelectedText = "";
-            this.txtSimulaciones.Size = new System.Drawing.Size(128, 32);
+            this.txtSimulaciones.Size = new System.Drawing.Size(85, 21);
             this.txtSimulaciones.TabIndex = 1;
             // 
             // dgvEventos
@@ -442,44 +433,45 @@
             this.rnd_descarga,
             this.tiempo_descarga,
             this.fin_descarga,
+            this.tiempo_remanente,
+            this.contenedores_remanentes,
             this.rnd_preparacion,
             this.tiempo_preparacion,
             this.barco_listo,
             this.estado_barco,
             this.cola_barco,
-            this.ContenedoresRemanentes,
             this.contenedores_cargados,
             this.contador_barcos,
             this.acumulador_descarga,
             this.cont_trenes_fragiles_8,
             this.contador_trenes_fragiles,
             this.acumulador_revision});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEventos.Location = new System.Drawing.Point(1, 9);
-            this.dgvEventos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvEventos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEventos.Location = new System.Drawing.Point(0, 0);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.RowHeadersWidth = 62;
             this.dgvEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEventos.Size = new System.Drawing.Size(1266, 645);
+            this.dgvEventos.Size = new System.Drawing.Size(844, 433);
             this.dgvEventos.TabIndex = 47;
+            this.dgvEventos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEventos_CellFormatting);
             // 
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.Controls.Add(this.dgvEventos);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 243);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 158);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1266, 666);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(844, 433);
             this.guna2GradientPanel1.TabIndex = 5;
             // 
             // guna2GroupBox1
@@ -500,10 +492,9 @@
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 909);
-            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 591);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(1266, 260);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(844, 169);
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -512,10 +503,9 @@
             this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(504, 14);
-            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(336, 9);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(85, 27);
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(62, 18);
             this.guna2HtmlLabel14.TabIndex = 49;
             this.guna2HtmlLabel14.Text = "Metricas";
             // 
@@ -524,10 +514,9 @@
             this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel13.Location = new System.Drawing.Point(32, 14);
-            this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(21, 9);
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(70, 27);
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(50, 18);
             this.guna2HtmlLabel13.TabIndex = 48;
             this.guna2HtmlLabel13.Text = "Puntos";
             // 
@@ -536,10 +525,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(940, 165);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(627, 107);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 31);
+            this.label5.Size = new System.Drawing.Size(57, 21);
             this.label5.TabIndex = 48;
             this.label5.Text = "label5";
             // 
@@ -548,10 +536,9 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(940, 114);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(627, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 31);
+            this.label4.Size = new System.Drawing.Size(57, 21);
             this.label4.TabIndex = 48;
             this.label4.Text = "label4";
             // 
@@ -560,10 +547,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(940, 66);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(627, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 31);
+            this.label3.Size = new System.Drawing.Size(57, 21);
             this.label3.TabIndex = 48;
             this.label3.Text = "label3";
             // 
@@ -572,10 +558,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 172);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(77, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 31);
+            this.label2.Size = new System.Drawing.Size(57, 21);
             this.label2.TabIndex = 48;
             this.label2.Text = "label2";
             // 
@@ -584,10 +569,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 103);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(77, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 31);
+            this.label1.Size = new System.Drawing.Size(57, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "label1";
             // 
@@ -596,10 +580,9 @@
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(486, 169);
-            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(324, 110);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(315, 27);
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(227, 18);
             this.guna2HtmlLabel12.TabIndex = 11;
             this.guna2HtmlLabel12.Text = "3) Horas de revision acumulada:";
             // 
@@ -608,10 +591,9 @@
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(486, 66);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(324, 43);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(388, 27);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(277, 18);
             this.guna2HtmlLabel8.TabIndex = 9;
             this.guna2HtmlLabel8.Text = "1) Trenes fragiles con 15 contenedores:";
             // 
@@ -620,10 +602,9 @@
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(4, 140);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(3, 91);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(229, 27);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(164, 18);
             this.guna2HtmlLabel9.TabIndex = 6;
             this.guna2HtmlLabel9.Text = "2) Barcos que zarparon";
             // 
@@ -632,10 +613,9 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(486, 118);
-            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(324, 77);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(295, 27);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(211, 18);
             this.guna2HtmlLabel10.TabIndex = 10;
             this.guna2HtmlLabel10.Text = "2) Cantidad de trenes fragiles:";
             // 
@@ -644,10 +624,9 @@
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(4, 66);
-            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(3, 43);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(322, 27);
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(234, 18);
             this.guna2HtmlLabel11.TabIndex = 6;
             this.guna2HtmlLabel11.Text = "1) Horas de descarga acumulada";
             // 
@@ -779,6 +758,18 @@
             this.fin_descarga.Name = "fin_descarga";
             this.fin_descarga.Width = 80;
             // 
+            // tiempo_remanente
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.tiempo_remanente.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tiempo_remanente.HeaderText = "Tiempo remanente";
+            this.tiempo_remanente.Name = "tiempo_remanente";
+            // 
+            // contenedores_remanentes
+            // 
+            this.contenedores_remanentes.HeaderText = "Contenedores remanentes";
+            this.contenedores_remanentes.Name = "contenedores_remanentes";
+            // 
             // rnd_preparacion
             // 
             this.rnd_preparacion.HeaderText = "Rnd";
@@ -813,13 +804,6 @@
             this.cola_barco.MinimumWidth = 8;
             this.cola_barco.Name = "cola_barco";
             this.cola_barco.Width = 70;
-            // 
-            // ContenedoresRemanentes
-            // 
-            this.ContenedoresRemanentes.HeaderText = "Contador Contenedores Remanentes";
-            this.ContenedoresRemanentes.MinimumWidth = 8;
-            this.ContenedoresRemanentes.Name = "ContenedoresRemanentes";
-            this.ContenedoresRemanentes.Width = 150;
             // 
             // contenedores_cargados
             // 
@@ -865,14 +849,13 @@
             // 
             // Prueba
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.guna2Panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Prueba";
-            this.Size = new System.Drawing.Size(1266, 1169);
+            this.Size = new System.Drawing.Size(844, 760);
             this.Load += new System.EventHandler(this.Prueba_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -939,12 +922,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_descarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_descarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin_descarga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_remanente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contenedores_remanentes;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_preparacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_preparacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn barco_listo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado_barco;
         private System.Windows.Forms.DataGridViewTextBoxColumn cola_barco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContenedoresRemanentes;
         private System.Windows.Forms.DataGridViewTextBoxColumn contenedores_cargados;
         private System.Windows.Forms.DataGridViewTextBoxColumn contador_barcos;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_descarga;

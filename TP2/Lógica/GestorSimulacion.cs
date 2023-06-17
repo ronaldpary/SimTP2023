@@ -179,8 +179,7 @@ namespace SimTP2Q.Lógica
                 sw.Stop();
 
                 eliminarTrenesDescargados();
-                eliminarTrenesRevisados();
-                //simulacion.limpiarHoraRevisionYHoraDescarga();
+                //eliminarTrenesRevisados();
 
             }
 
@@ -201,7 +200,7 @@ namespace SimTP2Q.Lógica
 
         public bool trenRevisado(Cliente obj)
         {
-            return obj.estado == (double)Estado.revisado;
+            return obj.estado == (double)Estado.esperando_descarga;
         }
 
         public void eliminarTrenesDescargados()
@@ -285,6 +284,19 @@ namespace SimTP2Q.Lógica
         public void contadorContenedoresSobrantes(double contador_contenedores)
         {
             
+        }
+
+        public void generarTiempoDescargaSinSobrantes(double cantidad_contenedores, double sobrante)
+        {
+            simulacion.rnd_descarga = descarga.NextDouble();
+            double tiempo_descarga_total = cantidad_contenedores * numerosAleatorios.generarRdnExponencial(mediaFinDescarga, simulacion.rnd_descarga);
+
+            simulacion.tiempo_descarga = (tiempo_descarga_total / cantidad_contenedores) * (cantidad_contenedores-sobrante);
+
+            simulacion.fin_descarga = simulacion.Reloj + simulacion.tiempo_descarga;
+
+            simulacion.contenedores_remanentes = sobrante;
+            simulacion.tiempo_remanente = (tiempo_descarga_total / cantidad_contenedores) * (sobrante);
         }
         #endregion
     }
