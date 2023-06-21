@@ -122,9 +122,13 @@ namespace SimTP2Q.Presentación
                         if (dgvEventos.Columns["Estado" + i.ToString()] != null)
                         {
                             dgvEventos.Rows[index].Cells["Estado" + i.ToString()].Value = (enElSistema[i].estadoCliente(enElSistema[i].estado) + "(" + enElSistema[i].numero + ")").ToString();
-                            dgvEventos.Rows[index].Cells["HID" + i.ToString()].Value = Convert.ToDecimal(enElSistema[i].hora_descarga.ToString()).ToString("N");
+                            //dgvEventos.Rows[index].Cells["HID" + i.ToString()].Value = Convert.ToDecimal(enElSistema[i].hora_descarga.ToString()).ToString("N");
+                            dgvEventos.Rows[index].Cells["HID" + i.ToString()].Value = enElSistema[i].hora_descarga.ToString();
 
-                            dgvEventos.Rows[index].Cells["HIR" + i.ToString()].Value = Convert.ToDecimal(enElSistema[i].hora_revision.ToString()).ToString("N");
+                            //dgvEventos.Rows[index].Cells["HIR" + i.ToString()].Value = Convert.ToDecimal(enElSistema[i].hora_revision.ToString()).ToString("N");
+                            dgvEventos.Rows[index].Cells["HIR" + i.ToString()].Value = enElSistema[i].hora_revision.ToString();
+
+                            //dgvEventos.Rows[index].Cells["Contenedores" + i.ToString()].Value = enElSistema[i].cantidad_contenedores.ToString();
                             dgvEventos.Rows[index].Cells["Contenedores" + i.ToString()].Value = enElSistema[i].cantidad_contenedores.ToString();
                         }
                         else
@@ -133,10 +137,12 @@ namespace SimTP2Q.Presentación
                             dgvEventos.Rows[index].Cells[indiceColumna].Value = (enElSistema[i].estadoCliente(enElSistema[i].estado) + "(" + enElSistema[i].numero + ")").ToString();
 
                             int indiceColumna2 = dgvEventos.Columns.Add("HID" + i.ToString(), "HID");
-                            dgvEventos.Rows[index].Cells[indiceColumna2].Value = Convert.ToDecimal(enElSistema[i].hora_descarga.ToString()).ToString("N");
+                            //dgvEventos.Rows[index].Cells[indiceColumna2].Value = Convert.ToDecimal(enElSistema[i].hora_descarga.ToString()).ToString("N");
+                            dgvEventos.Rows[index].Cells[indiceColumna2].Value = enElSistema[i].hora_descarga.ToString();
 
                             int indiceColumna3 = dgvEventos.Columns.Add("HIR" + i.ToString(), "HIR");
-                            dgvEventos.Rows[index].Cells[indiceColumna3].Value = Convert.ToDecimal(enElSistema[i].hora_revision.ToString()).ToString("N");
+                            //dgvEventos.Rows[index].Cells[indiceColumna3].Value = Convert.ToDecimal(enElSistema[i].hora_revision.ToString()).ToString("N");
+                            dgvEventos.Rows[index].Cells[indiceColumna3].Value = enElSistema[i].hora_revision.ToString();
 
                             int indiceColumna4 = dgvEventos.Columns.Add("Contenedores" + i.ToString(), "Contenedores");
                             dgvEventos.Rows[index].Cells[indiceColumna4].Value = enElSistema[i].cantidad_contenedores.ToString();
@@ -147,7 +153,7 @@ namespace SimTP2Q.Presentación
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Error");
             }
 
             

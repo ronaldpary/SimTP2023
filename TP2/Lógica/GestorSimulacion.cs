@@ -109,6 +109,7 @@ namespace SimTP2Q.Lógica
             generarTiempoProximaLLegada();
             actualizarEstados();
             actualizarColas();
+
             string nombreEvento = "Inicio";
             double numeroSimulacion = 0;
             interfaz.mostrarFila(numeroSimulacion, simulacion, enElSistema, nombreEvento, enViaje);
@@ -120,6 +121,7 @@ namespace SimTP2Q.Lógica
                 double siguienteTiempo = definirSiguienteTiempo(simulacion);
                 simulacion.Reloj = siguienteTiempo;
                 numeroSimulacion = i+1;
+
                 if (siguienteTiempo == simulacion.proxima_llegada)
                 {
                     cont_cant_llegadas += 1;
@@ -127,60 +129,50 @@ namespace SimTP2Q.Lógica
                     nombreEvento = "Llegada de tren " + "(" + trenCreado.numero.ToString() + ")";
                     
                 }
-                else
+                else if (siguienteTiempo == simulacion.revision_lista)
                 {
-                    if (siguienteTiempo == simulacion.revision_lista)
+                    simulacion.limpiarContenedores();
+                    for (int j = 0; j < enElSistema.Count; j++)
                     {
-
-                        for (int j = 0; j < enElSistema.Count; j++)
-                        {
-                            if (Convert.ToDecimal((enElSistema[j].hora_revision + enElSistema[j].tiempo_revision).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N")) ;
-                            {
-
-                                nombreEvento = "Fin revision " + "(" + servidorAlmacen.Puerto.cliente.numero.ToString() + ")";
-                                
-                                eventos.finRevisionTren(enElSistema[j]);
-
-                                break;
-                            }
-
-                        }
-                    }
-                    else
-                    {
-                        simulacion.limpiarContenedores();
-
-                        if (siguienteTiempo == simulacion.barco_listo)
+                        if (Math.Truncate((enElSistema[j].hora_revision + enElSistema[j].tiempo_revision) * 10000) / 10000 == Math.Truncate(siguienteTiempo * 10000) / 10000)
                         {
 
-                            eventos.finPreparacion();
+                            nombreEvento = "Fin revision " + "(" + enElSistema[j].numero.ToString() + ")";
 
-                            nombreEvento = "Fin preparacion " + "(" + numeroBarco + ")";
+                            eventos.finRevisionTren(enElSistema[j]);
 
-                            
-
+                            break;
                         }
-                        else
-                        {
-                            
-                            for (int j = 0; j < enElSistema.Count; j++)
-                            {
 
-
-                                if (Convert.ToDecimal((enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga).ToString()).ToString("N") == Convert.ToDecimal((siguienteTiempo).ToString()).ToString("N"));
-                                {
-
-                                    nombreEvento = "Fin descarga " + "(" + servidorBarco.Puerto.cliente.numero.ToString() + ")";
-                                    eventos.finDescargaTren(enElSistema[j]);
-
-                                    break;
-                                }
-
-                            }
-
-                        }
                     }
                 }
+                else if (siguienteTiempo == simulacion.barco_listo)
+                {
+                    simulacion.limpiarContenedores();
+                    eventos.finPreparacion();
+
+                    nombreEvento = "Fin preparacion " + "(" + numeroBarco + ")";
+                }
+                else
+                {
+                    simulacion.limpiarContenedores();
+                    for (int j = 0; j < enElSistema.Count; j++)
+                    {
+
+
+                        if (Math.Truncate((enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga)*10000) / 10000 == Math.Truncate(siguienteTiempo * 10000)/10000)
+                        {
+
+                            nombreEvento = "Fin descarga " + "(" + enElSistema[j].numero.ToString() + ")";
+
+                            eventos.finDescargaTren(enElSistema[j]);
+
+                            break;
+                        }
+
+                    }
+                }
+
                 actualizarColas();
                 actualizarEstados();
 
@@ -206,6 +198,62 @@ namespace SimTP2Q.Lógica
 
             
             MessageBox.Show("Time", sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
+
+            //else
+            //{
+            //    simulacion.limpiarContenedores();
+
+            //    if (siguienteTiempo == simulacion.revision_lista)
+            //    {
+
+            //        for (int j = 0; j < enElSistema.Count; j++)
+            //        {
+            //            if (enElSistema[j].hora_revision + enElSistema[j].tiempo_revision == siguienteTiempo)
+            //            {
+            //                eventos.finRevisionTren(enElSistema[j]);
+            //                nombreEvento = "Fin revision " + "(" + enElSistema[j].numero.ToString() + ")";
+
+            //                break;
+            //            }
+
+            //        }
+            //    }
+            //    else
+            //    {
+
+
+            //        if (siguienteTiempo == simulacion.barco_listo)
+            //        {
+
+            //            eventos.finPreparacion();
+
+            //            nombreEvento = "Fin preparacion " + "(" + numeroBarco + ")";
+
+            //            //break;
+
+
+
+            //        }
+            //        else
+            //        {
+
+            //            for (int j = 0; j < enElSistema.Count; j++)
+            //            {
+
+
+            //                if (enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga == siguienteTiempo)
+            //                {
+            //                    eventos.finDescargaTren(enElSistema[j]);
+            //                    nombreEvento = "Fin descarga " + "(" + enElSistema[j].numero.ToString() + ")";
+
+            //                    break;
+            //                }
+
+            //            }
+
+            //        }
+            //    }
+            //}
 
 
 
@@ -313,6 +361,13 @@ namespace SimTP2Q.Lógica
 
             simulacion.contenedores_remanentes = sobrante;
             simulacion.tiempo_remanente = (tiempo_descarga_total / cantidad_contenedores) * (sobrante);
+        }
+
+        public void generarTiempoDescargaConPreparacion(double cantidad_contenedores)
+        {
+            simulacion.rnd_descarga = descarga.NextDouble();
+            simulacion.tiempo_descarga = cantidad_contenedores * numerosAleatorios.generarRdnExponencial(mediaFinDescarga, simulacion.rnd_descarga);
+            simulacion.fin_descarga = simulacion.Reloj + simulacion.tiempo_descarga + simulacion.tiempo_preparacion;
         }
         #endregion
     }
