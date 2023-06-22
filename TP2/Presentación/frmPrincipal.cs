@@ -54,7 +54,9 @@ namespace SimTP2Q.Presentación
 
         private void prueba1_Load(object sender, EventArgs e)
         {
-
+            //var bounds = Screen.FromControl(this).Bounds;
+            //this.Width = bounds.Width - 100;
+            //this.Height = bounds.Height - 100;
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)

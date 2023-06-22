@@ -197,63 +197,7 @@ namespace SimTP2Q.Lógica
             interfaz.mostrarPuntos(acumulador_descargas, contador_barcos, contador_8, contador_fragiles, acumulador_revision);
 
             
-            MessageBox.Show("Time", sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
-
-            //else
-            //{
-            //    simulacion.limpiarContenedores();
-
-            //    if (siguienteTiempo == simulacion.revision_lista)
-            //    {
-
-            //        for (int j = 0; j < enElSistema.Count; j++)
-            //        {
-            //            if (enElSistema[j].hora_revision + enElSistema[j].tiempo_revision == siguienteTiempo)
-            //            {
-            //                eventos.finRevisionTren(enElSistema[j]);
-            //                nombreEvento = "Fin revision " + "(" + enElSistema[j].numero.ToString() + ")";
-
-            //                break;
-            //            }
-
-            //        }
-            //    }
-            //    else
-            //    {
-
-
-            //        if (siguienteTiempo == simulacion.barco_listo)
-            //        {
-
-            //            eventos.finPreparacion();
-
-            //            nombreEvento = "Fin preparacion " + "(" + numeroBarco + ")";
-
-            //            //break;
-
-
-
-            //        }
-            //        else
-            //        {
-
-            //            for (int j = 0; j < enElSistema.Count; j++)
-            //            {
-
-
-            //                if (enElSistema[j].hora_descarga + enElSistema[j].tiempo_descarga == siguienteTiempo)
-            //                {
-            //                    eventos.finDescargaTren(enElSistema[j]);
-            //                    nombreEvento = "Fin descarga " + "(" + enElSistema[j].numero.ToString() + ")";
-
-            //                    break;
-            //                }
-
-            //            }
-
-            //        }
-            //    }
-            //}
+            //MessageBox.Show("Time", sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff"));
 
 
 

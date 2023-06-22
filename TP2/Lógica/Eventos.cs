@@ -165,22 +165,6 @@ namespace SimTP2Q.Lógica
             }
         }
 
-        public void consultarColaBarcoFragiles(Cliente tren)
-        {
-            if (gestor.servidorBarcoFragiles.Puerto.estado == (double)EstadoPuerto.Ocupado || gestor.servidorBarcoFragiles.Puerto.estado == (double)EstadoPuerto.Lleno)
-            {
-                gestor.servidorBarcoFragiles.Cola.Enqueue(tren);
-                tren.estado = (double)Estado.esperando_atencion;
-            }
-            else if (gestor.servidorBarcoFragiles.Puerto.estado == (double)EstadoPuerto.Libre)
-            {
-
-                gestor.servidorBarcoFragiles.Puerto.estado = (double)EstadoPuerto.Ocupado;
-                enDescargaFragiles(tren);
-                //tren.estado = (double)Estado.siendo_atendido;
-
-            }
-        }
 
         public void enRevision(Cliente tren)
         {
@@ -242,38 +226,7 @@ namespace SimTP2Q.Lógica
 
         }
 
-        public void enDescargaFragiles(Cliente tren)
-        {
-            desde = simulacion.Reloj;
-
-            gestor.servidorBarcoFragiles.Puerto.cliente = tren;
-
-
-            if (simulacion.contenedores_cargados + gestor.servidorBarcoFragiles.Puerto.cliente.cantidad_contenedores > 20)
-            {
-                double sobrante = simulacion.contenedores_cargados + gestor.servidorBarcoFragiles.Puerto.cliente.cantidad_contenedores - 20;
-
-                gestor.generarTiempoDescargaSinSobrantes(gestor.servidorBarcoFragiles.Puerto.cliente.cantidad_contenedores, sobrante);
-
-                tren.estado = (double)Estado.esperando_descarga;
-
-                tren.hora_descarga = simulacion.Reloj;
-
-                tren.tiempo_descarga = simulacion.tiempo_descarga;
-
-            }
-            else
-            {
-                gestor.generarTiempoDescarga(gestor.servidorBarcoFragiles.Puerto.cliente.cantidad_contenedores);
-                tren.estado = (double)Estado.siendo_atendido;
-
-                tren.hora_descarga = simulacion.Reloj;
-
-                tren.tiempo_descarga = simulacion.tiempo_descarga;
-            }
-
-
-        }
+        
 
         public void finRevisionTren(Cliente tren1)
         {
@@ -418,55 +371,7 @@ namespace SimTP2Q.Lógica
 
         }
 
-        public void finDescargaTrenFragiles(Cliente trenDescargado)
-        {
-            // Contador de contenedores cargados
-            //simulacion.contenedores_cargados = simulacion.contenedores_cargados + trenDescargado.cantidad_contenedores;
-
-            // Acumulador tiempo descarga
-            //double tiempo_descarga = simulacion.Reloj - trenDescargado.hora_descarga;
-            //simulacion.acumulador_descarga = simulacion.acumulador_descarga + tiempo_descarga;
-            //gestor.acumuladorTiempoDescarga(simulacion.acumulador_descarga);
-
-            // Metodo 3, funciona mas o menos
-
-            if (simulacion.contenedores_cargados >= 20)
-            {
-                gestor.servidorBarcoFragiles.Puerto.estado = (double)EstadoPuerto.Lleno;
-                //enPreparacion();
-            }
-
-            if (trenDescargado.estado == (double)Estado.esperando_descarga)
-            {
-                enPreparacionFragiles();
-                enDescargaSobrantesFragiles(trenDescargado);
-                trenDescargado.estado = (double)Estado.siendo_atendido;
-            }
-            else
-            {
-                borrarTren(trenDescargado);
-                simulacion.limpiarFinDescargaTren();
-
-                simulacion.limpiarRemanenteFragiles();
-
-                if (gestor.servidorBarcoFragiles.Cola.Count > 0)
-                {
-
-                    Cliente tren = gestor.servidorBarcoFragiles.Cola.Dequeue();
-
-                    gestor.servidorBarcoFragiles.Puerto.estado = (double)EstadoPuerto.Ocupado;
-
-                    enDescargaFragiles(tren);
-
-                }
-                else
-                {
-                    gestor.servidorBarcoFragiles.Puerto.estado = (double)EstadoPuerto.Libre;
-                }
-            }
-
-
-        }
+        
 
         public void enDescargaSobrantes(Cliente trenDescargado)
         {
@@ -483,20 +388,6 @@ namespace SimTP2Q.Lógica
             trenDescargado.cantidad_contenedores = simulacion.contenedores_remanentes;
         }
 
-        public void enDescargaSobrantesFragiles(Cliente trenDescargado)
-        {
-            desde = simulacion.Reloj;
-
-            gestor.servidorBarcoFragiles.Puerto.cliente = trenDescargado;
-
-            simulacion.rnd_descarga = 0;
-            simulacion.tiempo_descarga = simulacion.tiempo_remanente;
-            simulacion.fin_descarga = simulacion.Reloj + simulacion.tiempo_descarga + simulacion.tiempo_preparacion;
-
-            trenDescargado.hora_descarga = simulacion.Reloj;
-            trenDescargado.tiempo_descarga = simulacion.tiempo_remanente;
-            trenDescargado.cantidad_contenedores = simulacion.contenedores_remanentes;
-        }
 
 
         public void enPreparacion()
@@ -507,14 +398,6 @@ namespace SimTP2Q.Lógica
 
         }
 
-        public void enPreparacionFragiles()
-        {
-            desde = simulacion.Reloj;
-            simulacion.contenedores_cargados = 20;
-            gestor.servidorBarcoFragiles.Puerto.estado = (double)EstadoPuerto.Lleno;
-            gestor.generarTiempoPreparacion();
-
-        }
 
         public void borrarTren(Cliente tren)
         {
@@ -541,19 +424,6 @@ namespace SimTP2Q.Lógica
 
             //gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Libre;
 
-
-        }
-        public void finPreparacionFragiles()
-        {
-            simulacion.contenedores_cargados = 0;
-
-            simulacion.limpiarEventoFinPreparacion();
-
-            simulacion.contador_barcos = simulacion.contador_barcos + 1;
-
-            gestor.contarBarcosZarpados();
-
-            gestor.numeroBarco = gestor.numeroBarco + 1;
 
         }
 

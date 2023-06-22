@@ -109,6 +109,8 @@ namespace SimTP2Q.Lógica
             this.tiempo_entre_llegada = -1;
             this.rnd_cantidad_cont = -1;
             this.cantidad_contenedores = -1;
+            this.rnd_prob_revision = -1;
+            this.se_revisa = -1;
 
         }
 
