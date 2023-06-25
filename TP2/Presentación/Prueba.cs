@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using SimTP2Q.Lógica;
 
 namespace SimTP2Q.Presentación
@@ -20,7 +21,39 @@ namespace SimTP2Q.Presentación
         {
             InitializeComponent();
             cargarValores();
+
+            //gbAccion.BringToFront();
+            gbAccion.MouseDown += GbAccion_MouseDown; ;
+            gbAccion.MouseUp += GbAccion_MouseUp; ;
+            gbAccion.MouseMove += GbAccion_MouseMove;
+
+
         }
+
+        bool down = false;
+        Point inicial;
+        private void GbAccion_MouseUp(object sender, MouseEventArgs e) =>down = false;
+
+        private void GbAccion_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                down = true;
+                inicial = e.Location;
+            }
+        }
+
+        private void GbAccion_MouseMove(object sender, MouseEventArgs e)
+        {
+            Guna2GroupBox ctr = (Guna2GroupBox)sender;
+            if (down)
+            {
+                ctr.Left = e.X + ctr.Left - inicial.X;
+                ctr.Top = e.Y + ctr.Top - inicial.Y;
+            }
+        }
+
+       
         private void cargarValores()
         {
             txtLlegada.Text = this.parametros.media_llegada.ToString();
@@ -214,6 +247,21 @@ namespace SimTP2Q.Presentación
         {
             //DataGridViewHeaderCell s = new DataGridViewHeaderCell();
             //s.Style.SelectionBackColor = Color.Blue;
+        }
+
+        private void gbAccion_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void gbAccion_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void gbAccion_MouseUp(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

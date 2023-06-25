@@ -15,6 +15,7 @@ namespace SimTP2Q.Presentación
         public frmPrincipal()
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
@@ -57,6 +58,8 @@ namespace SimTP2Q.Presentación
             //var bounds = Screen.FromControl(this).Bounds;
             //this.Width = bounds.Width - 100;
             //this.Height = bounds.Height - 100;
+            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -73,6 +76,23 @@ namespace SimTP2Q.Presentación
             m = 1;
             mx = e.X;
             my = e.Y;
+        }
+
+        private void guna2PictureBox5_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void guna2Panel2_MouseMove(object sender, MouseEventArgs e)
