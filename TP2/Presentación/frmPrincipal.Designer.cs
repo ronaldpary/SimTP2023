@@ -175,7 +175,7 @@
             this.guna2Panel2.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1058, 50);
+            this.guna2Panel2.Size = new System.Drawing.Size(1402, 50);
             this.guna2Panel2.TabIndex = 1;
             this.guna2Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2Panel2_MouseDown);
             this.guna2Panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2Panel2_MouseMove);
@@ -187,7 +187,7 @@
             this.guna2PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox5.Image = global::SimTP2Q.Properties.Resources.maximizar__1_;
             this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(992, 12);
+            this.guna2PictureBox5.Location = new System.Drawing.Point(1336, 12);
             this.guna2PictureBox5.Name = "guna2PictureBox5";
             this.guna2PictureBox5.Size = new System.Drawing.Size(24, 24);
             this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -201,7 +201,7 @@
             this.guna2PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox4.Image = global::SimTP2Q.Properties.Resources.menos__2_;
             this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(962, 12);
+            this.guna2PictureBox4.Location = new System.Drawing.Point(1306, 12);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
             this.guna2PictureBox4.Size = new System.Drawing.Size(24, 24);
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -228,7 +228,7 @@
             this.guna2PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2PictureBox2.Image = global::SimTP2Q.Properties.Resources.R__1_;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(1022, 12);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(1366, 12);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(24, 24);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -259,7 +259,7 @@
             this.panel1.Controls.Add(this.prueba1);
             this.panel1.Location = new System.Drawing.Point(206, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 760);
+            this.panel1.Size = new System.Drawing.Size(1188, 760);
             this.panel1.TabIndex = 2;
             // 
             // prueba1
@@ -270,7 +270,7 @@
             this.prueba1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.prueba1.Location = new System.Drawing.Point(0, 0);
             this.prueba1.Name = "prueba1";
-            this.prueba1.Size = new System.Drawing.Size(844, 760);
+            this.prueba1.Size = new System.Drawing.Size(1188, 760);
             this.prueba1.TabIndex = 0;
             // 
             // guna2Elipse6
@@ -283,7 +283,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1058, 824);
+            this.ClientSize = new System.Drawing.Size(1402, 824);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);

@@ -16,7 +16,9 @@ namespace SimTP2Q.Presentación
     public partial class Prueba : UserControl
     {
         Parametros parametros = new Parametros();
-        //Parametros parametros;
+
+        GestorSimulacion gestor;
+        // Parametros parametros;
         public Prueba()
         {
             InitializeComponent();
@@ -60,6 +62,11 @@ namespace SimTP2Q.Presentación
             txtRevision.Text = this.parametros.fin_revision.ToString();
             txtDescarga.Text = this.parametros.fin_descarga.ToString();
             txtPreparacion.Text = this.parametros.preparacion_barco.ToString();
+
+            //tp5
+            txt_prox_interrupcion.Text = this.parametros.hProxInterrupcion.ToString();
+            txt_fin_llegadas.Text = this.parametros.hLlegadas.ToString();
+            txt_fin_servidor.Text = this.parametros.hServidor.ToString();
         }
 
         //private void frmColas_Load(object sender, EventArgs e)
@@ -76,25 +83,33 @@ namespace SimTP2Q.Presentación
 
         private void btnComenzar_Click_1(object sender, EventArgs e)
         {
-            GestorSimulacion gestor = new GestorSimulacion(this);
-            if (txtSimulaciones.Text != "" && txtDesde.Text != "" && txtHasta.Text != "")
+            try
             {
-                int n = Convert.ToInt32(txtSimulaciones.Text);
-                int desde = Convert.ToInt32(txtDesde.Text);
-                int hasta = Convert.ToInt32(txtHasta.Text);
-                dgvEventos.Rows.Clear();
-                ValidarDatos(parametros);
-                gestor.iniciarSimulacion(Convert.ToInt32(txtSimulaciones.Text), this.parametros, Convert.ToInt32(txtDesde.Text), Convert.ToInt32(txtHasta.Text));
+                gestor = new GestorSimulacion(this);
+                if (txtSimulaciones.Text != "" && txtDesde.Text != "" && txtHasta.Text != "")
+                {
+                    int n = Convert.ToInt32(txtSimulaciones.Text);
+                    int desde = Convert.ToInt32(txtDesde.Text);
+                    int hasta = Convert.ToInt32(txtHasta.Text);
+                    dgvEventos.Rows.Clear();
+                    ValidarDatos(parametros);
+                    gestor.iniciarSimulacion(Convert.ToInt32(txtSimulaciones.Text), this.parametros, Convert.ToInt32(txtDesde.Text), Convert.ToInt32(txtHasta.Text));
 
-                dgvEventos.SelectedRows[0].Selected = false;
-                dgvEventos.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
-                dgvEventos.Rows[(hasta-desde) + 2].DefaultCellStyle.BackColor = Color.Yellow;
-                //dgvEventos.Rows[-1].Cells[0].Style.BackColor = Color.Blue;
+                    dgvEventos.SelectedRows[0].Selected = false;
+                    dgvEventos.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
+                    dgvEventos.Rows[(hasta - desde) + 2].DefaultCellStyle.BackColor = Color.Yellow;
+                    //dgvEventos.Rows[-1].Cells[0].Style.BackColor = Color.Blue;
 
+                }
+                else
+                {
+                    MessageBox.Show("Complete todos los datos");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Complete todos los datos");
+
+                MostrarError(ex.Message);
             }
 
             
@@ -114,6 +129,9 @@ namespace SimTP2Q.Presentación
             try
             {
                 int index = dgvEventos.Rows.Add();
+                //tp5
+                dgvEventos.Rows[index].Resizable = DataGridViewTriState.False;
+
 
                 PropertyInfo[] properties = typeof(Simulacion).GetProperties();
 
@@ -129,14 +147,14 @@ namespace SimTP2Q.Presentación
                     {
                         if (nombreAtributo == "estado_almacen" || nombreAtributo == "estado_barco")
                         {
-                            if (valor == 2)
+                            if (valor == 3)
                             {
-                                string estado = "Lleno";
+                                string estado = "Interrumpido";
                                 dgvEventos.Rows[index].Cells[nombreAtributo].Value = estado;
                             }
                             else
                             {
-                                string estado = valor == 0 ? "Libre" : "Ocupado";
+                                string estado = valor == 0 ? "Libre" : valor == 1 ? "Ocupado" : "Lleno";
                                 dgvEventos.Rows[index].Cells[nombreAtributo].Value = estado;
                             }
 
@@ -179,6 +197,8 @@ namespace SimTP2Q.Presentación
 
                             int indiceColumna4 = dgvEventos.Columns.Add("Contenedores" + i.ToString(), "Contenedores");
                             dgvEventos.Rows[index].Cells[indiceColumna4].Value = enElSistema[i].cantidad_contenedores.ToString();
+
+                            //dgvEventos.Columns[indiceColumna2]
                         }
                     }
 
@@ -186,7 +206,7 @@ namespace SimTP2Q.Presentación
             }
             catch (Exception)
             {
-                MessageBox.Show("Time");
+                MessageBox.Show("CERRAR CON EL ADMINISTRADOR DE TAREAS JA");
             }
 
             
@@ -262,6 +282,48 @@ namespace SimTP2Q.Presentación
         private void gbAccion_MouseUp(object sender, MouseEventArgs e)
         {
 
+        }
+
+
+        // para tp5
+        public void MostrarAdvertencia(string advertencia)
+        {
+            MessageBox.Show(advertencia, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        public void MostrarError(string error)
+        {
+            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dgvEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexColumn = e.ColumnIndex;
+            int index = e.RowIndex;
+            string nombrecolumna = dgvEventos.Columns[indexColumn].Name.ToString();
+            //string fila = 
+            if (nombrecolumna == "ProximaInterrupcion")
+            {
+                double reloj80 = gestor.A0;
+                ITipoRK tipoRk = new InicioInterrupcion();
+                Global.RND = (double)dgvEventos.Rows[index].Cells["Beta"].Value;
+                RungeKuttaForm form = new RungeKuttaForm(parametros.hProxInterrupcion, 0.00, reloj80, tipoRk);
+                form.Show();
+            }
+            else if (nombrecolumna == "FinInterrupcionLlegadas")
+            {
+                double reloj = Convert.ToDouble(dgvEventos.Rows[index].Cells["Reloj"].Value.ToString());
+                ITipoRK tipoRk = new FinInterrupcionCliente();
+                RungeKuttaForm form = new RungeKuttaForm(parametros.hLlegadas, 0.00, reloj, tipoRk);
+                form.Show();
+            }
+            else if (nombrecolumna == "FinInterrupcionServidor")
+            {
+                double reloj = Convert.ToDouble(dgvEventos.Rows[index].Cells["Reloj"].Value.ToString());
+                ITipoRK tipoRk = new FinInterrupcionVentanilla();
+                RungeKuttaForm form = new RungeKuttaForm(parametros.hServidor, 0.00, reloj, tipoRk);
+                form.Show();
+            }
         }
     }
 }

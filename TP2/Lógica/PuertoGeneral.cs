@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace SimTP2Q.Lógica
 {
-    public class Servidor
+    public class PuertoGeneral
     {
-        public Servidor(Puerto puerto)
+        public PuertoGeneral()
         {
-            this.Puerto = puerto;
             this.Cola = new Queue<Cliente>();
-
         }
-
         public Queue<Cliente> Cola { get; set; }
+        public EstadoPuertoGeneral estadoPuerto { get; set; }
 
-
-        public Puerto Puerto;
-        public Puerto Puerto2;
+        public enum EstadoPuertoGeneral
+        {
+            SinInterrupcion = 1, Interrumpido = 2
+        }
     }
 }

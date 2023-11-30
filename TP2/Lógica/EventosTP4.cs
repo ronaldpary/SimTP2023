@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Guna.UI2.AnimatorNS;
 using static SimTP2Q.Lógica.Cliente;
 using static SimTP2Q.Lógica.Puerto;
-using static SimTP2Q.Lógica.PuertoGeneral;
 
 namespace SimTP2Q.Lógica
 {
-    public class Eventos
+    public class EventosTP4
     {
         #region Atributos
-        public GestorSimulacion gestor;
+        public GestorSimulacionTP4 gestor;
 
         private Simulacion simulacion;
         private int numero;
@@ -24,7 +22,7 @@ namespace SimTP2Q.Lógica
         #endregion
 
         #region Constructor
-        public Eventos(Simulacion Simulacion, GestorSimulacion Gestor)
+        public EventosTP4(Simulacion Simulacion, GestorSimulacionTP4 Gestor)
         {
             this.simulacion = Simulacion;
             this.numero = 0;
@@ -56,7 +54,7 @@ namespace SimTP2Q.Lógica
         public Cliente primerTren(double rnd_prob_revision, double rnd_cantidad_cont)
         {
             Cliente tren;
-            if (rnd_prob_revision < 0.80)
+            if (rnd_prob_revision < 0.70)
             {
 
                 if (rnd_cantidad_cont < 0.10)
@@ -84,17 +82,7 @@ namespace SimTP2Q.Lógica
                     }
                 }
 
-                if (gestor.puertoGeneral.estadoPuerto == EstadoPuertoGeneral.Interrumpido)
-                {
-                    tren.estado = (double)Estado.esperando_entrada;
-                    gestor.puertoGeneral.Cola.Enqueue(tren);
-                }
-                else
-                {
-                    consultarColaBarco(tren);
-                }
-
-                
+                consultarColaBarco(tren);
 
 
             }
@@ -137,17 +125,7 @@ namespace SimTP2Q.Lógica
                     }
                 }
 
-
-                if (gestor.puertoGeneral.estadoPuerto == EstadoPuertoGeneral.Interrumpido)
-                {
-                    tren.estado = (double)Estado.esperando_entrada;
-                    gestor.puertoGeneral.Cola.Enqueue(tren);
-                }
-                else
-                {
-                    consultarColaAlmacen(tren);
-                }
-                
+                consultarColaAlmacen(tren);
             }
 
 
@@ -156,32 +134,19 @@ namespace SimTP2Q.Lógica
 
         private void consultarColaAlmacen(Cliente tren)
         {
-
-            if (gestor.servidorAlmacen.Puerto.estado == (double)EstadoPuerto.Libre)
-            {
-                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Ocupado;
-                enRevision(tren);
-                //  tren.estado = (double)Estado.siendo_revisado;
-            }
-            else
+            if (gestor.servidorAlmacen.Puerto.estado == (double)EstadoPuerto.Ocupado)
             {
                 gestor.servidorAlmacen.Cola.Enqueue(tren);
                 tren.estado = (double)Estado.esperando_revision;
             }
+            else if (gestor.servidorAlmacen.Puerto.estado == (double)EstadoPuerto.Libre)
+            {
 
-            //if (gestor.servidorAlmacen.Puerto.estado == (double)EstadoPuerto.Ocupado)
-            //{
-            //    gestor.servidorAlmacen.Cola.Enqueue(tren);
-            //    tren.estado = (double)Estado.esperando_revision;
-            //}
-            //else if (gestor.servidorAlmacen.Puerto.estado == (double)EstadoPuerto.Libre)
-            //{
+                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Ocupado;
+                enRevision(tren);
+                //tren.estado = (double)Estado.siendo_revisado;
 
-            //    gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Ocupado;
-            //    enRevision(tren);
-            //    // tren.estado = (double)Estado.siendo_revisado;
-
-            //}
+            }
         }
 
         public void consultarColaBarco(Cliente tren)
@@ -193,7 +158,7 @@ namespace SimTP2Q.Lógica
             }
             else if (gestor.servidorBarco.Puerto.estado == (double)EstadoPuerto.Libre)
             {
-                
+
                 gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Ocupado;
                 enDescarga(tren);
                 //tren.estado = (double)Estado.siendo_atendido;
@@ -262,7 +227,7 @@ namespace SimTP2Q.Lógica
 
         }
 
-        
+
 
         public void finRevisionTren(Cliente tren1)
         {
@@ -274,8 +239,6 @@ namespace SimTP2Q.Lógica
             gestor.acumuladorTiempoRevision(simulacion.acumulador_revision);
 
             simulacion.limpiarEventoFinRevision();
-
-            gestor.servidorAlmacen.Puerto.cliente = null;
 
             consultarColaBarco(tren1);
 
@@ -305,6 +268,55 @@ namespace SimTP2Q.Lógica
             simulacion.acumulador_descarga = simulacion.acumulador_descarga + tiempo_descarga;
             gestor.acumuladorTiempoDescarga(simulacion.acumulador_descarga);
 
+            //Prueba
+            //if (simulacion.contenedores_cargados >= 50)
+            //{
+            //    borrarTren(trenDescargado);
+            //    enPreparacion();
+
+            //    //simulacion.limpiarFinDescargaTren();
+            //    gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Lleno;
+
+
+            //    if (gestor.servidorBarco.Cola.Count > 0)
+            //    {
+
+            //        Cliente tren = gestor.servidorBarco.Cola.Dequeue();
+
+            //        gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Ocupado;
+
+            //        enDescarga(tren);
+            //        //enDescargaConPreparacion(tren);
+
+            //    }
+            //    else
+            //    {
+            //        gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Libre;
+            //    }
+            //}
+            //else
+            //{
+            //    borrarTren(trenDescargado);
+
+            //    simulacion.limpiarFinDescargaTren();
+
+            //    simulacion.limpiarRemanente();
+
+            //    if (gestor.servidorBarco.Cola.Count > 0)
+            //    {
+
+            //        Cliente tren = gestor.servidorBarco.Cola.Dequeue();
+
+            //        gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Ocupado;
+
+            //        enDescarga(tren);
+
+            //    }
+            //    else
+            //    {
+            //        gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Libre;
+            //    }
+            //}
 
             simulacion.limpiarFinDescargaTren();
 
@@ -360,7 +372,7 @@ namespace SimTP2Q.Lógica
 
         }
 
-        
+
 
         public void enDescargaSobrantes(Cliente trenDescargado)
         {
@@ -393,7 +405,7 @@ namespace SimTP2Q.Lógica
 
             tren.estado = (double)Estado.destruido;
             tren.Dispose();
-            
+
 
         }
 
@@ -411,103 +423,11 @@ namespace SimTP2Q.Lógica
 
             gestor.numeroBarco = gestor.numeroBarco + 1;
 
-            //gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Libre;
+            // gestor.servidorBarco.Puerto.estado = (double)EstadoPuerto.Libre;
 
 
-        }
-
-
-        //tp5
-        public string interrupcion()
-        {
-            simulacion.limpiarColumnasInterrupcion();
-            gestor.definirTipoInterrupcion();
-            string tipoInterrupcion;
-            if (simulacion.TipoInterrupcion == 1)
-            {
-                RungeKutta rk = new RungeKutta(gestor.hFinInterrupcionLlegadas, 0.00, simulacion.Reloj, new FinInterrupcionCliente(), null);
-                double t = rk.calcularRK();
-                tipoInterrupcion = "Interrupción trenes";
-                double tiempoInterrupcionCliente = t * 5;
-                simulacion.TiempoInterrupcionLlegadas = tiempoInterrupcionCliente;
-                gestor.puertoGeneral.estadoPuerto = EstadoPuertoGeneral.Interrumpido;
-                simulacion.FinInterrupcionLlegadas = simulacion.Reloj + simulacion.TiempoInterrupcionLlegadas;
-
-                //definir que el sistema esta en interrupcion de llegadas
-            }
-            else
-            {
-                RungeKutta rk = new RungeKutta(gestor.hFinInterrupcionServidor, 0.00, simulacion.Reloj, new FinInterrupcionVentanilla(), null);
-                double t = rk.calcularRK();
-                tipoInterrupcion = "Interrupción almacen";
-                double tiempoInterrupcionVentanilla = t * 2;
-                simulacion.TiempoInterrupcionServidor = tiempoInterrupcionVentanilla;
-
-                simulacion.FinInterrupcionServidor = simulacion.Reloj + simulacion.TiempoInterrupcionServidor;
-
-                if (gestor.servidorAlmacen.Puerto.estado != (double)EstadoPuerto.Libre)//guardo el tiempo remanente si tiene asignado un pasajero (if empleado.Pasajero != null o if empleado.Estado !=Libre)
-                {
-                    gestor.servidorAlmacen.Puerto.TiempoRemanente = simulacion.revision_lista - simulacion.Reloj;
-                    gestor.servidorAlmacen.Puerto.cliente.estado = (double)Estado.interrumpido_almacen;
-                    simulacion.TiempoRemanente = simulacion.revision_lista - simulacion.Reloj;
-                }
-                simulacion.revision_lista = -1;
-                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Interrumpido;
-            }
-            return tipoInterrupcion;
-        }
-
-        public void finInterrupcionLlegadas()
-        {
-            while (gestor.puertoGeneral.Cola.Count != 0)
-            {
-                Cliente p = gestor.puertoGeneral.Cola.Dequeue();
-                if (p.tipo_cliente == (double)TipoCliente.A)
-                {
-                    consultarColaBarco(p);
-                }
-                else if (p.tipo_cliente == (double)TipoCliente.B)
-                {
-                    consultarColaAlmacen(p);
-                }
-            }
-            gestor.puertoGeneral.estadoPuerto = EstadoPuertoGeneral.SinInterrupcion;
-            gestor.generarTiempoProximaInterrupcion();
-            simulacion.LimpiarColumnasInterrupcionLlegadas();
-        }
-
-        public void finInterrupcionServidor()
-        {
-            gestor.generarTiempoProximaInterrupcion();
-            simulacion.LimpiarColumnasInterrupcionServidor();
-
-            if (gestor.servidorAlmacen.Puerto.cliente != null)
-            {
-                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Ocupado;
-                gestor.servidorAlmacen.Puerto.cliente.estado = (double)Estado.siendo_revisado;
-
-                //simulacion.tiempo_revision = simulacion.TiempoRemanente;
-                gestor.servidorAlmacen.Puerto.cliente.tiempo_revision = simulacion.TiempoRemanente;
-
-                simulacion.revision_lista = simulacion.Reloj + simulacion.TiempoRemanente;
-            }
-            else if (gestor.servidorAlmacen.Cola.Count > 0)
-            {
-                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Libre;
-                Cliente siguientePasajero = gestor.servidorAlmacen.Cola.Dequeue();
-
-                consultarColaAlmacen(siguientePasajero);
-            }
-            else
-            {
-                gestor.servidorAlmacen.Puerto.estado = (double)EstadoPuerto.Libre;
-            }
-            //cambiar estado del empleado
-            //actualizar el tiempo fin de atencion
         }
 
         #endregion
-
-
     }
 }

@@ -50,7 +50,7 @@ namespace SimTP2Q.Presentación
         private void guna2PictureBox3_Click(object sender, EventArgs e)
         {
             Application.Restart();
-            //prueba1.reiniciar();
+            // prueba1.reiniciar();
         }
 
         private void prueba1_Load(object sender, EventArgs e)
@@ -93,6 +93,11 @@ namespace SimTP2Q.Presentación
         private void guna2PictureBox4_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void prueba1_Load_1(object sender, EventArgs e)
+        {
+
         }
 
         private void guna2Panel2_MouseMove(object sender, MouseEventArgs e)

@@ -23,6 +23,21 @@ namespace SimTP2Q.Lógica
         public double cantidad_contenedores { get; set; } = -1;
         public double proxima_llegada { get; set; } = -1;
 
+        //tp5
+        public double Beta { get; set; } = -1;
+        public double TiempoDeInterrupcion { get; set; } = -1;
+        public double ProximaInterrupcion { get; set; } = -1;
+        public double RNDTipoInterrupcion { get; set; } = -1;
+        public double TipoInterrupcion { get; set; } = -1;
+        public double TiempoInterrupcionLlegadas { get; set; } = -1;
+        public double FinInterrupcionLlegadas { get; set; } = -1;
+        public double TiempoInterrupcionServidor { get; set; } = -1;
+        public double FinInterrupcionServidor { get; set; } = -1;
+
+        public double TiempoRemanente { get; set; } = -1;
+        public double ColaPuertoGeneral { get; set; } = -1;
+
+
         //Fin de revision del tren
         public double rnd_prob_revision { get;  set; } = -1;
         public double se_revisa { get; set; } = -1;
@@ -123,6 +138,39 @@ namespace SimTP2Q.Lógica
         {
             this.tiempo_remanente_fragiles = -1;
             this.contenedores_remanentes_fragiles = -1;
+        }
+
+
+
+
+        //  para tp5
+
+        public void LimpiarColumnasTipoInterrupcion()
+        {
+            this.RNDTipoInterrupcion = -1;
+            this.TipoInterrupcion = -1;
+        }
+        public void LimpiarColumnasInterrupcionLlegadas()
+        {
+            this.TiempoInterrupcionLlegadas = -1;
+            this.FinInterrupcionLlegadas = -1;
+            this.ColaPuertoGeneral = -1;
+        }
+        public void LimpiarColumnasInterrupcionServidor()
+        {
+            this.TiempoInterrupcionServidor = -1;
+            this.FinInterrupcionServidor = -1;
+        }
+        public void limpiarColumnasInterrupcion()
+        {
+            this.TiempoDeInterrupcion = -1;
+            this.ProximaInterrupcion = -1;
+            this.Beta = -1;
+        }        
+        public void limpiarColumnasCalculoInterrupcion()
+        {
+            this.TiempoDeInterrupcion = -1;
+            this.Beta = -1;
         }
 
 

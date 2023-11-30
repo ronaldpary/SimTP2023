@@ -55,14 +55,18 @@
   <ItemGroup>
     <Compile Include="Lógica\Cliente.cs" />
     <Compile Include="Lógica\Eventos.cs" />
+    <Compile Include="Lógica\EventosTP4.cs" />
     <Compile Include="Lógica\Exponencial.cs" />
     <Compile Include="Lógica\GestorSimulacion.cs" />
+    <Compile Include="Lógica\GestorSimulacionTP4.cs" />
     <Compile Include="Lógica\Normal.cs" />
     <Compile Include="Lógica\NumerosAleatorios.cs" />
     <Compile Include="Lógica\Parametros.cs" />
     <Compile Include="Lógica\Poisson.cs" />
     <Compile Include="Lógica\PruebasBondad.cs" />
     <Compile Include="Lógica\Puerto.cs" />
+    <Compile Include="Lógica\PuertoGeneral.cs" />
+    <Compile Include="Lógica\RungeKutta.cs" />
     <Compile Include="Lógica\Servidor.cs" />
     <Compile Include="Lógica\Simulacion.cs" />
     <Compile Include="Lógica\Uniforme.cs" />
@@ -120,6 +124,12 @@
     <Compile Include="Presentación\Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\RungeKuttaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\RungeKuttaForm.Designer.cs">
+      <DependentUpon>RungeKuttaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentación\frmColas.resx">
@@ -148,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\Prueba.resx">
       <DependentUpon>Prueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\RungeKuttaForm.resx">
+      <DependentUpon>RungeKuttaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -30,11 +30,24 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.gpDescripcionRespuesta = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txt_fin_servidor = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_fin_llegadas = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txt_prox_interrupcion = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -58,6 +71,15 @@
             this.rnd_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_entre_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proxima_llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Beta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoDeInterrupcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProximaInterrupcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RNDTipoInterrupcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoInterrupcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoInterrupcionLlegadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinInterrupcionLlegadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoInterrupcionServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinInterrupcionServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_cantidad_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_contenedores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_prob_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +89,7 @@
             this.revision_lista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado_almacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cola_almacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoRemanente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rnd_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fin_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +100,7 @@
             this.barco_listo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cola_barco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColaPuertoGeneral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenedores_cargados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contador_barcos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumulador_descarga = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +152,7 @@
             this.guna2Panel1.Controls.Add(this.txtSimulaciones);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(844, 158);
+            this.guna2Panel1.Size = new System.Drawing.Size(1230, 158);
             this.guna2Panel1.TabIndex = 3;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -137,6 +161,12 @@
             this.gpDescripcionRespuesta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpDescripcionRespuesta.BorderRadius = 2;
+            this.gpDescripcionRespuesta.Controls.Add(this.txt_fin_servidor);
+            this.gpDescripcionRespuesta.Controls.Add(this.txt_fin_llegadas);
+            this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel18);
+            this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel17);
+            this.gpDescripcionRespuesta.Controls.Add(this.txt_prox_interrupcion);
+            this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel16);
             this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel15);
             this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel6);
             this.gpDescripcionRespuesta.Controls.Add(this.guna2HtmlLabel5);
@@ -150,10 +180,106 @@
             this.gpDescripcionRespuesta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.gpDescripcionRespuesta.Location = new System.Drawing.Point(220, 15);
             this.gpDescripcionRespuesta.Name = "gpDescripcionRespuesta";
-            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(591, 120);
+            this.gpDescripcionRespuesta.Size = new System.Drawing.Size(977, 120);
             this.gpDescripcionRespuesta.TabIndex = 3;
             this.gpDescripcionRespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gpDescripcionRespuesta.Click += new System.EventHandler(this.gpDescripcionRespuesta_Click);
+            // 
+            // txt_fin_servidor
+            // 
+            this.txt_fin_servidor.BorderRadius = 2;
+            this.txt_fin_servidor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_fin_servidor.DefaultText = "";
+            this.txt_fin_servidor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_fin_servidor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_fin_servidor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_fin_servidor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_fin_servidor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_fin_servidor.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txt_fin_servidor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_fin_servidor.Location = new System.Drawing.Point(813, 91);
+            this.txt_fin_servidor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txt_fin_servidor.Name = "txt_fin_servidor";
+            this.txt_fin_servidor.PasswordChar = '\0';
+            this.txt_fin_servidor.PlaceholderText = "";
+            this.txt_fin_servidor.SelectedText = "";
+            this.txt_fin_servidor.Size = new System.Drawing.Size(63, 21);
+            this.txt_fin_servidor.TabIndex = 59;
+            // 
+            // txt_fin_llegadas
+            // 
+            this.txt_fin_llegadas.BorderRadius = 2;
+            this.txt_fin_llegadas.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_fin_llegadas.DefaultText = "";
+            this.txt_fin_llegadas.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_fin_llegadas.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_fin_llegadas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_fin_llegadas.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_fin_llegadas.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_fin_llegadas.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txt_fin_llegadas.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_fin_llegadas.Location = new System.Drawing.Point(813, 67);
+            this.txt_fin_llegadas.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txt_fin_llegadas.Name = "txt_fin_llegadas";
+            this.txt_fin_llegadas.PasswordChar = '\0';
+            this.txt_fin_llegadas.PlaceholderText = "";
+            this.txt_fin_llegadas.SelectedText = "";
+            this.txt_fin_llegadas.Size = new System.Drawing.Size(63, 21);
+            this.txt_fin_llegadas.TabIndex = 58;
+            // 
+            // guna2HtmlLabel18
+            // 
+            this.guna2HtmlLabel18.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel18.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel18.Location = new System.Drawing.Point(617, 94);
+            this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
+            this.guna2HtmlLabel18.Size = new System.Drawing.Size(182, 18);
+            this.guna2HtmlLabel18.TabIndex = 57;
+            this.guna2HtmlLabel18.Text = "Fin interrupcion servidor:h";
+            // 
+            // guna2HtmlLabel17
+            // 
+            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel17.Location = new System.Drawing.Point(613, 70);
+            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            this.guna2HtmlLabel17.Size = new System.Drawing.Size(186, 18);
+            this.guna2HtmlLabel17.TabIndex = 55;
+            this.guna2HtmlLabel17.Text = "Fin interrupcion llegadas:h";
+            // 
+            // txt_prox_interrupcion
+            // 
+            this.txt_prox_interrupcion.BorderRadius = 2;
+            this.txt_prox_interrupcion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_prox_interrupcion.DefaultText = "";
+            this.txt_prox_interrupcion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_prox_interrupcion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_prox_interrupcion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_prox_interrupcion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_prox_interrupcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_prox_interrupcion.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txt_prox_interrupcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_prox_interrupcion.Location = new System.Drawing.Point(813, 43);
+            this.txt_prox_interrupcion.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txt_prox_interrupcion.Name = "txt_prox_interrupcion";
+            this.txt_prox_interrupcion.PasswordChar = '\0';
+            this.txt_prox_interrupcion.PlaceholderText = "";
+            this.txt_prox_interrupcion.SelectedText = "";
+            this.txt_prox_interrupcion.Size = new System.Drawing.Size(63, 21);
+            this.txt_prox_interrupcion.TabIndex = 54;
+            // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel16.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel16.Location = new System.Drawing.Point(668, 46);
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(131, 18);
+            this.guna2HtmlLabel16.TabIndex = 53;
+            this.guna2HtmlLabel16.Text = "Prox interrupcion:h";
             // 
             // guna2HtmlLabel15
             // 
@@ -439,6 +565,15 @@
             this.rnd_llegada,
             this.tiempo_entre_llegada,
             this.proxima_llegada,
+            this.Beta,
+            this.TiempoDeInterrupcion,
+            this.ProximaInterrupcion,
+            this.RNDTipoInterrupcion,
+            this.TipoInterrupcion,
+            this.TiempoInterrupcionLlegadas,
+            this.FinInterrupcionLlegadas,
+            this.TiempoInterrupcionServidor,
+            this.FinInterrupcionServidor,
             this.rnd_cantidad_cont,
             this.cantidad_contenedores,
             this.rnd_prob_revision,
@@ -448,6 +583,7 @@
             this.revision_lista,
             this.estado_almacen,
             this.cola_almacen,
+            this.TiempoRemanente,
             this.rnd_descarga,
             this.tiempo_descarga,
             this.fin_descarga,
@@ -458,32 +594,36 @@
             this.barco_listo,
             this.estado_barco,
             this.cola_barco,
+            this.ColaPuertoGeneral,
             this.contenedores_cargados,
             this.contador_barcos,
             this.acumulador_descarga,
             this.cont_trenes_fragiles_8,
             this.contador_trenes_fragiles,
             this.acumulador_revision});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEventos.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvEventos.Location = new System.Drawing.Point(0, 0);
             this.dgvEventos.Name = "dgvEventos";
+            this.dgvEventos.RowHeadersVisible = false;
             this.dgvEventos.RowHeadersWidth = 62;
             this.dgvEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEventos.Size = new System.Drawing.Size(844, 440);
+            this.dgvEventos.Size = new System.Drawing.Size(1230, 440);
             this.dgvEventos.TabIndex = 47;
+            this.dgvEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEventos_CellContentClick);
             this.dgvEventos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEventos_CellFormatting);
             // 
             // Numero
             // 
+            this.Numero.Frozen = true;
             this.Numero.HeaderText = "Numero";
             this.Numero.MinimumWidth = 8;
             this.Numero.Name = "Numero";
@@ -493,6 +633,7 @@
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Evento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Evento.Frozen = true;
             this.Evento.HeaderText = "Evento";
             this.Evento.MinimumWidth = 8;
             this.Evento.Name = "Evento";
@@ -500,6 +641,9 @@
             // 
             // Reloj
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Wheat;
+            this.Reloj.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Reloj.Frozen = true;
             this.Reloj.HeaderText = "Reloj (H)";
             this.Reloj.MinimumWidth = 8;
             this.Reloj.Name = "Reloj";
@@ -525,6 +669,51 @@
             this.proxima_llegada.MinimumWidth = 8;
             this.proxima_llegada.Name = "proxima_llegada";
             this.proxima_llegada.Width = 80;
+            // 
+            // Beta
+            // 
+            this.Beta.HeaderText = "B";
+            this.Beta.Name = "Beta";
+            // 
+            // TiempoDeInterrupcion
+            // 
+            this.TiempoDeInterrupcion.HeaderText = "Tiempo proxima interrupcion";
+            this.TiempoDeInterrupcion.Name = "TiempoDeInterrupcion";
+            // 
+            // ProximaInterrupcion
+            // 
+            this.ProximaInterrupcion.HeaderText = "Proxima interrupcion";
+            this.ProximaInterrupcion.Name = "ProximaInterrupcion";
+            // 
+            // RNDTipoInterrupcion
+            // 
+            this.RNDTipoInterrupcion.HeaderText = "RND";
+            this.RNDTipoInterrupcion.Name = "RNDTipoInterrupcion";
+            // 
+            // TipoInterrupcion
+            // 
+            this.TipoInterrupcion.HeaderText = "Tipo interrupcion";
+            this.TipoInterrupcion.Name = "TipoInterrupcion";
+            // 
+            // TiempoInterrupcionLlegadas
+            // 
+            this.TiempoInterrupcionLlegadas.HeaderText = "Tiempo interrupcion llegada";
+            this.TiempoInterrupcionLlegadas.Name = "TiempoInterrupcionLlegadas";
+            // 
+            // FinInterrupcionLlegadas
+            // 
+            this.FinInterrupcionLlegadas.HeaderText = "Fin interrupcion llegadas";
+            this.FinInterrupcionLlegadas.Name = "FinInterrupcionLlegadas";
+            // 
+            // TiempoInterrupcionServidor
+            // 
+            this.TiempoInterrupcionServidor.HeaderText = "Tiempo interrupcion servidor";
+            this.TiempoInterrupcionServidor.Name = "TiempoInterrupcionServidor";
+            // 
+            // FinInterrupcionServidor
+            // 
+            this.FinInterrupcionServidor.HeaderText = "Fin interrupcion servidor";
+            this.FinInterrupcionServidor.Name = "FinInterrupcionServidor";
             // 
             // rnd_cantidad_cont
             // 
@@ -577,6 +766,8 @@
             // 
             // estado_almacen
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.estado_almacen.DefaultCellStyle = dataGridViewCellStyle5;
             this.estado_almacen.HeaderText = "Estado";
             this.estado_almacen.MinimumWidth = 8;
             this.estado_almacen.Name = "estado_almacen";
@@ -584,10 +775,19 @@
             // 
             // cola_almacen
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.cola_almacen.DefaultCellStyle = dataGridViewCellStyle6;
             this.cola_almacen.HeaderText = "Cola";
             this.cola_almacen.MinimumWidth = 8;
             this.cola_almacen.Name = "cola_almacen";
             this.cola_almacen.Width = 80;
+            // 
+            // TiempoRemanente
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LemonChiffon;
+            this.TiempoRemanente.DefaultCellStyle = dataGridViewCellStyle7;
+            this.TiempoRemanente.HeaderText = "Tiempo remanente";
+            this.TiempoRemanente.Name = "TiempoRemanente";
             // 
             // rnd_descarga
             // 
@@ -612,8 +812,8 @@
             // 
             // tiempo_remanente
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.tiempo_remanente.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.tiempo_remanente.DefaultCellStyle = dataGridViewCellStyle8;
             this.tiempo_remanente.HeaderText = "Tiempo remanente";
             this.tiempo_remanente.MinimumWidth = 8;
             this.tiempo_remanente.Name = "tiempo_remanente";
@@ -649,17 +849,28 @@
             // 
             // estado_barco
             // 
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.estado_barco.DefaultCellStyle = dataGridViewCellStyle9;
             this.estado_barco.HeaderText = "Estado";
             this.estado_barco.MinimumWidth = 8;
             this.estado_barco.Name = "estado_barco";
-            this.estado_barco.Width = 150;
+            this.estado_barco.Width = 80;
             // 
             // cola_barco
             // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.cola_barco.DefaultCellStyle = dataGridViewCellStyle10;
             this.cola_barco.HeaderText = "Cola";
             this.cola_barco.MinimumWidth = 8;
             this.cola_barco.Name = "cola_barco";
             this.cola_barco.Width = 70;
+            // 
+            // ColaPuertoGeneral
+            // 
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColaPuertoGeneral.DefaultCellStyle = dataGridViewCellStyle11;
+            this.ColaPuertoGeneral.HeaderText = "Cola Puerto";
+            this.ColaPuertoGeneral.Name = "ColaPuertoGeneral";
             // 
             // contenedores_cargados
             // 
@@ -724,7 +935,7 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 591);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(844, 169);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1230, 169);
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -869,7 +1080,7 @@
             this.guna2Panel2.Controls.Add(this.dgvEventos);
             this.guna2Panel2.Location = new System.Drawing.Point(0, 154);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(844, 440);
+            this.guna2Panel2.Size = new System.Drawing.Size(1230, 440);
             this.guna2Panel2.TabIndex = 48;
             // 
             // gbAccion
@@ -879,12 +1090,13 @@
             this.gbAccion.Controls.Add(this.dataGridView1);
             this.gbAccion.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gbAccion.Location = new System.Drawing.Point(841, 119);
+            this.gbAccion.Location = new System.Drawing.Point(631, 371);
             this.gbAccion.Name = "gbAccion";
             this.gbAccion.Size = new System.Drawing.Size(479, 321);
             this.gbAccion.TabIndex = 48;
             this.gbAccion.Text = "Runge Kutta";
             this.gbAccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gbAccion.Visible = false;
             this.gbAccion.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gbAccion_MouseDown);
             this.gbAccion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gbAccion_MouseMove);
             this.gbAccion.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gbAccion_MouseUp);
@@ -906,7 +1118,7 @@
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "Prueba";
-            this.Size = new System.Drawing.Size(844, 760);
+            this.Size = new System.Drawing.Size(1230, 760);
             this.Load += new System.EventHandler(this.Prueba_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -956,12 +1168,32 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker4;
+        private Guna.UI2.WinForms.Guna2TextBox txt_prox_interrupcion;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
+        private Guna.UI2.WinForms.Guna2TextBox txt_fin_servidor;
+        private Guna.UI2.WinForms.Guna2TextBox txt_fin_llegadas;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_llegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_entre_llegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn proxima_llegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Beta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoDeInterrupcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProximaInterrupcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RNDTipoInterrupcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoInterrupcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoInterrupcionLlegadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinInterrupcionLlegadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoInterrupcionServidor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinInterrupcionServidor;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_cantidad_cont;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_contenedores;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_prob_revision;
@@ -971,6 +1203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn revision_lista;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado_almacen;
         private System.Windows.Forms.DataGridViewTextBoxColumn cola_almacen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoRemanente;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_descarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_descarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin_descarga;
@@ -981,18 +1214,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn barco_listo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado_barco;
         private System.Windows.Forms.DataGridViewTextBoxColumn cola_barco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColaPuertoGeneral;
         private System.Windows.Forms.DataGridViewTextBoxColumn contenedores_cargados;
         private System.Windows.Forms.DataGridViewTextBoxColumn contador_barcos;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_descarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn cont_trenes_fragiles_8;
         private System.Windows.Forms.DataGridViewTextBoxColumn contador_trenes_fragiles;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumulador_revision;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2GroupBox gbAccion;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.ComponentModel.BackgroundWorker backgroundWorker3;
-        private System.ComponentModel.BackgroundWorker backgroundWorker4;
     }
 }

@@ -41,7 +41,7 @@ namespace SimTP2Q.Presentación
             else
             {
                 int n = int.Parse(txtN.Text);
-                if (n > 50000)
+                if (n > 1000000)
                 {
                     MessageBox.Show("Debe ingresar un número de muestra no mayor a 50000.");
                     return;

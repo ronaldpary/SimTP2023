@@ -13,13 +13,16 @@ namespace SimTP2Q.Lógica
 
         }
 
+
         public double estado { get; set; }
 
         public Cliente cliente { get; set; }
 
+        public double TiempoRemanente { get; set; }
+
         public enum EstadoPuerto
         {
-            Libre = 0, Ocupado = 1, Lleno = 2
+            Libre = 0, Ocupado = 1, Lleno = 2, Interrumpido = 3
         }
     }
 }
